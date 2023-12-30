@@ -24,7 +24,7 @@ in {
         eamodio.gitlens
         esbenp.prettier-vscode
         # github.copilot
-        golang.go
+        # golang.go
         kamadorueda.alejandra
         mkhl.direnv
         ms-python.vscode-pylance
@@ -35,6 +35,7 @@ in {
         pkief.material-icon-theme
         oderwat.indent-rainbow
         sumneko.lua
+        tamasfe.even-better-toml
         usernamehw.errorlens
         vadimcn.vscode-lldb
         xaver.clang-format
@@ -44,7 +45,7 @@ in {
     userSettings = {
       breadcrumbs.enabled = false;
       emmet.useInlineCompletions = true;
-    #   github.copilot.enable."*" = true;
+      #   github.copilot.enable."*" = true;
       security.workspace.trust.enabled = false;
       black-formatter.path = lib.getExe pkgs.black;
       stylua.styluaPath = lib.getExe pkgs.stylua;
@@ -73,7 +74,8 @@ in {
         cursorSmoothCaretAnimation = "on";
         cursorWidth = 2;
         find.addExtraSpaceOnTop = false;
-        fontFamily = "'Phosphor', 'monospace', monospace";
+        fontFamily = "'FiraCode Nerd Font', 'monospace', monospace";
+        fontLigatures = true;
         fontSize = 16;
         formatOnSave = true;
         inlayHints.enabled = "off";
@@ -90,6 +92,7 @@ in {
         smoothScrolling = true;
         suggest.showStatusBar = true;
         suggestSelection = "first";
+        telemetry.telemetryLevel = "off";
 
         bracketPairColorization = {
           enabled = true;
@@ -123,7 +126,7 @@ in {
         cursorBlinking = true;
         cursorStyle = "line";
         cursorWidth = 2;
-        fontFamily = "'monospace'";
+        fontFamily = "'FiraCode Nerd Font', 'monospace', monospace";
         fontSize = 16;
         smoothScrolling = true;
       };

@@ -2,7 +2,7 @@
 with pkgs; [
   discord-canary
   # keepassxc
-  # obsidian
+  obsidian
   # _1password-gui
   pdfarranger
   # signal-desktop

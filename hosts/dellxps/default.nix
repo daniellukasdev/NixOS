@@ -65,8 +65,6 @@
       cryptsetup
       fprintd
       fprintd-tod
-      # gnome.dconf-editor
-      # gnome.gnome-tweaks
       libfprint
       libfprint-2-tod1-goodix
       libva
@@ -75,20 +73,6 @@
       vulkan-validation-layers
       vulkan-tools
     ];
-    # ++ (with pkgs.gnomeExtensions; [
-    #   advanced-alttab-window-switcher
-    #   blur-my-shell
-    #   control-blur-effect-on-lock-screen
-    #   dash2dock-lite
-    #   # dash-to-dock
-    #   # dash-to-dock-animator
-    #   gtk4-desktop-icons-ng-ding
-    #   extension-list
-    #   forge
-    #   just-perfection
-    #   search-light
-    #   user-themes
-    # ]);
   };
 
   hardware = {
@@ -181,19 +165,6 @@
       xkbOptions = "caps:escape";
       videoDrivers = ["nvidia"];
     };
-
-    # Enable the X11 windowing system.
-    # xserver.enable = true;
-
-    # Enable the GNOME Desktop Environment.
-    # xserver.displayManager.gdm.enable = true;
-    # xserver.desktopManager.gnome.enable = true;
-
-    # Configure keymap in X11
-    # xserver = {
-    #   layout = "us";
-    #   xkbVariant = "";
-    # };
 
     # Enable CUPS to print documents.
     printing.enable = true;

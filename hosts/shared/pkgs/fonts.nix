@@ -3,11 +3,13 @@
     packages = with pkgs; [
       cantarell-fonts
       fira
+      fira-code-nerdfont
       lato
       maple-mono
       maple-mono-NF
       maple-mono-SC-NF
       material-symbols
+      nerdfonts
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
@@ -27,7 +29,7 @@
 
       defaultFonts = {
         emoji = ["Noto Color Emoji"];
-        monospace = ["Maple Mono NF"];
+        monospace = ["FiraMono Nerd Font"];
         sansSerif = ["Lato"];
         serif = ["Roboto Slab"];
       };

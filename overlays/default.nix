@@ -7,7 +7,6 @@
 
   # Modifies existing packages
   modifications = final: prev: {
-
     discord-canary = prev.discord-canary.override {
       nss = prev.nss_latest;
       withOpenASAR = true;

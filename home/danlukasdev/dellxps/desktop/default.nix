@@ -3,7 +3,6 @@
   pkgs,
   ...
 }: {
-
   imports = [
     ./gtk.nix
   ];
@@ -16,6 +15,4 @@
   # };
 
   fonts.fontconfig.enable = true;
-
-  
 }

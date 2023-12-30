@@ -24,10 +24,13 @@
   };
 
   nixpkgs = {
-    # overlays = [
-    #   outputs.overlays.default
-    #   inputs.nixpkgs-f2k.overlays.stdenvs
-    # ];
+    config.permittedInsecurePackages = [
+      "electron-25.9.0"
+    ];
+
+    overlays = [
+      outputs.overlays.default
+    ];
 
     config = {
       allowUnfree = true;
