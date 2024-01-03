@@ -18,6 +18,8 @@ with pkgs; [
   libsecret
   librsvg
   libtool
+  plymouth
+  nixos-bgrt-plymouth
   pulseaudio
   zlib
 ]

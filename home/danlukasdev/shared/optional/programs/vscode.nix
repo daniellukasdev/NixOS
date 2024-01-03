@@ -18,13 +18,12 @@ in {
     mutableExtensionsDir = true;
     extensions = with pkgs.vscode-extensions;
       [
-        bbenoist.nix
+        # bbenoist.nix
         catppuccin.catppuccin-vsc
         dbaeumer.vscode-eslint
         eamodio.gitlens
         esbenp.prettier-vscode
-        # github.copilot
-        # golang.go
+        jnoortheen.nix-ide
         kamadorueda.alejandra
         mkhl.direnv
         ms-python.vscode-pylance

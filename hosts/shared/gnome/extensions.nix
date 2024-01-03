@@ -8,6 +8,7 @@
 }: let
   myExtensions = with pkgs.gnomeExtensions; [
     advanced-alttab-window-switcher
+    appindicator
     blur-my-shell
     clipboard-indicator
     control-blur-effect-on-lock-screen
@@ -24,7 +25,13 @@
   ];
 in {
   environment = {
-    systemPackages = myExtensions;
+    systemPackages = with pkgs;
+      [
+        colloid-gtk-theme
+        # graphite-gtk-theme
+        whitesur-gtk-theme
+      ]
+      ++ myExtensions;
   };
 
   programs.dconf.profiles = {
@@ -36,6 +43,7 @@ in {
           # "org/gnome/shell".enabled-extensions = map (extension: extension.extensionUuid) myExtensions;
           "org/gnome/shell".enabled-extensions = [
             "advanced-alt-tab@G-dH.github.com"
+            "appindicatorsupport@rgcjonas.gmail.com"
             "blur-my-shell@aunetx"
             "clipboard-indicator@tudmotu.com"
             "ControlBlurEffectOnLockScreen@pratap.fastmail.fm"
@@ -46,6 +54,10 @@ in {
             "unite@hardpixel.eu"
             "user-theme@gnome-shell-extensions.gcampax.github.com"
           ];
+
+          "org/gnome/shell/extensions/appindicator" = {
+            legacy-tray-enabled = true;
+          };
 
           "org/gnome/shell/extensions/advanced-alt-tab-window-switcher" = {
             hot-edge-fullscreen = false;
@@ -72,7 +84,7 @@ in {
             favorites-only = false;
             icon-resolution = "4";
             icon-size = "0";
-            mounted-icon = true;
+            mounted-icon = false;
             open-app-animation = true;
             running-indicator-style = "3";
             scroll-sensitivity = "0.4";
@@ -83,28 +95,28 @@ in {
           # "org/gnome/shell/extensions/blur-my-shell".color-and-noise = true;
           # "org/gnome/shell/extensions/blur-my-shell/applications".blur = false;
 
-          # "org/gnome/shell/extensions/just-perfection" = {
-          #   accessibility-menu = true;
-          #   activities-button-icon-monochrome = true;
-          #   activities-button-label = true;
-          #   app-menu = true;
-          #   app-menu-icon = true;
-          #   clock-menu-position = 1;
-          #   controls-manager-spacing-size = 0;
-          #   dash = true;
-          #   dash-icon-size = 0;
-          #   dash-separator = true;
-          #   notification-banner-position = 2;
-          #   panel = true;
-          #   panel-notification-icon = true;
-          #   power-icon = true;
-          #   quick-settings = true;
-          #   show-apps-button = true;
-          #   theme = true;
-          #   workspace = true;
-          #   workspace-switcher-should-show = false;
-          #   workspace-wrap-around = true;
-          # };
+          "org/gnome/shell/extensions/just-perfection" = {
+            accessibility-menu = true;
+            activities-button-icon-monochrome = true;
+            activities-button-label = true;
+            app-menu = true;
+            app-menu-icon = true;
+            clock-menu-position = "1";
+            controls-manager-spacing-size = "0";
+            dash = true;
+            dash-icon-size = "0";
+            dash-separator = true;
+            notification-banner-position = "2";
+            panel = true;
+            panel-notification-icon = true;
+            power-icon = true;
+            quick-settings = true;
+            show-apps-button = true;
+            theme = true;
+            workspace = true;
+            workspace-switcher-should-show = false;
+            workspace-wrap-around = true;
+          };
 
           "org/gnome/shell/extensions/unite" = {
             desktop-name-text = "";
@@ -114,7 +126,11 @@ in {
             hide-window-titlebars = "maximized";
             reduce-panel-spacing = true;
             window-buttons-placement = "left";
-            window-buttons-theme = "mcmojave";
+            window-buttons-theme = "WhiteSur";
+          };
+
+          "org/gnome/shell/extensions/user-theme/name" = {
+            name = "Colloid-Dark";
           };
         };
       }

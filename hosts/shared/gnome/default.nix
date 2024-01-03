@@ -28,6 +28,7 @@ in {
 
     systemPackages =
       (with pkgs; [
+        apple-cursor
         blackbox-terminal
         eyedropper
         warp
@@ -58,33 +59,59 @@ in {
           "org/gnome/desktop/input-sources".sources = [
             (mkTuple ["xkb" "us"])
           ];
-          "org/gnome/desktop/interface".clock-format = "12h";
-          "org/gnome/desktop/interface".clock-show-seconds = false;
-          "org/gnome/desktop/interface".clock-show-weekday = true;
-          "org/gnome/desktop/interface".color-scheme = "prefer-dark";
-          "org/gnome/desktop/interface".show-battery-percentage = true;
+          "org/gnome/desktop/interface" = {
+            clock-format = "12h";
+            clock-show-seconds = false;
+            clock-show-weekday = true;
+            color-scheme = "prefer-dark";
+            cursor-theme = "macOS-Monterey-White";
+            monospace-font-name = "FiraCode Nerd Font";
+            show-battery-percentage = true;
+          };
           "org/gnome/desktop/media-handling".automount = true;
           "org/gnome/desktop/peripherals/mouse".accel-profile = "default";
-          "org/gnome/desktop/privacy".remember-app-usage = true;
-          "org/gnome/desktop/privacy".remember-recent-files = true;
+          "org/gnome/desktop/privacy" = {
+            remember-app-usage = true;
+            remember-recent-files = true;
+          };
           "org/gnome/desktop/screensaver".lock-enabled = true;
           "org/gnome/desktop/session".idle-delay = mkUint32 0;
+          "org/gnome/desktop/wm/keybindings" = {
+            switch-to-workspace-left = ["<Super>a"];
+            switch-to-workspace-right = ["<Super>d"];
+            move-to-workspace-left = ["<Shift><Super>a"];
+            move-to-workspace-right = ["<Shift><Super>d"];
+            switch-to-workspace-1 = ["<Super>1"];
+            switch-to-workspace-2 = ["<Super>2"];
+            switch-to-workspace-3 = ["<Super>3"];
+            switch-to-workspace-4 = ["<Super>4"];
+            switch-input-source = ["<Shift><Alt>"];
+            switch-input-source-backward = mkEmptyArray type.string;
+            activate-window-menu = ["Menu"];
+            close = ["<Shift><Super>w"];
+            maximize = ["<Super>f"];
+            toggle-fullscreen = ["<Shift><Super>f"];
+          };
           "org/gnome/desktop/wm/preferences".resize-with-right-button = false;
           # "org/gnome/mutter" = {
           #   edge-tiling = true;
           #   attach-modal-dialogs = true;
           #   experimental-features = [ "scale-monitor-framebuffer" ];
           # };
-          "org/gnome/settings-daemon/plugins/power" = {
-            # Suspend only on battery power, not while charging.
-            sleep-inactive-ac-type = "nothing";
-            power-button-action = "interactive";
-          };
 
+          "org/gnome/mutter" = {
+            dynamic-workspaces = true;
+          };
           "org/gnome/nautilus/preferences".default-folder-viewer = "icon-view";
           "org/gnome/nautilus/list-view" = {
             use-tree-view = true;
             default-zoom-level = "small";
+          };
+
+          "org/gnome/settings-daemon/plugins/power" = {
+            # Suspend only on battery power, not while charging.
+            sleep-inactive-ac-type = "nothing";
+            power-button-action = "interactive";
           };
 
           "org/gtk/gtk4/settings/file-chooser" = {
@@ -132,23 +159,6 @@ in {
           #   button-layout="close,minimize,maximize:appmenu";
           # };
 
-          "org/gnome/desktop/wm/keybindings" = {
-            switch-to-workspace-left = ["<Super>a"];
-            switch-to-workspace-right = ["<Super>d"];
-            move-to-workspace-left = ["<Shift><Super>a"];
-            move-to-workspace-right = ["<Shift><Super>d"];
-            switch-to-workspace-1 = ["<Super>1"];
-            switch-to-workspace-2 = ["<Super>2"];
-            switch-to-workspace-3 = ["<Super>3"];
-            switch-to-workspace-4 = ["<Super>4"];
-            switch-input-source = ["<Shift><Alt>"];
-            switch-input-source-backward = mkEmptyArray type.string;
-            activate-window-menu = ["Menu"];
-            close = ["<Shift><Super>w"];
-            maximize = ["<Super>f"];
-            toggle-fullscreen = ["<Shift><Super>f"];
-          };
-
           "org/gnome/shell/keybindings" = {
             # Following binds are replaced by the ones above.
             toggle-application-view = mkEmptyArray type.string;
@@ -163,11 +173,19 @@ in {
             screenshot-window = mkEmptyArray type.string;
           };
 
-          # "org/gnome/shell".enabled-extensions = [
-          #   "blur-my-shell@aunetx"
-          #   "dash-to-panel@jderose9.github.com"
-          #   "desktop-cube@schneegans.github.com"
-          # ];
+          "org/gnome/shell" = {
+            disable-user-extensions = false;
+            favorite-apps = [
+              "org.gnome.Nautilus.desktop"
+              "org.gnome.Epiphany.desktop"
+              "obsidian.desktop"
+              "org.gnome.Calendar.desktop"
+              "firefox.desktop"
+              "org.gnome.Music.desktop"
+              "org.gnome.Settings.desktop"
+              "org.gnome.Terminal.desktop"
+            ];
+          };
 
           "org/gnome/TextEditor" = {
             custom-font = "FiraCode NF 11";
