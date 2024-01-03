@@ -22,6 +22,7 @@
     search-light
     unite
     user-themes
+    vitals
   ];
 in {
   environment = {
@@ -53,6 +54,7 @@ in {
             "search-light@icedman.github.com"
             "unite@hardpixel.eu"
             "user-theme@gnome-shell-extensions.gcampax.github.com"
+            "Vitals@CoreCoding.com"
           ];
 
           "org/gnome/shell/extensions/appindicator" = {
