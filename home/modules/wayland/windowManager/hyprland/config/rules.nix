@@ -1,12 +1,21 @@
-{
+{lib, ...}: {
   wayland.windowManager.hyprland.settings = {
     # layer rules
     layerrule = let
-      layers = "^(anyrun|waybar|gtk-layer-shell|swaync-control-center|swaync-notification-window)$";
+      toRegex = list: let
+        elements = lib.concatStringsSep "|" list;
+      in "^(${elements})$";
+
+      layers = [
+        "anyrun"
+        "gtk-layer-shell"
+        "swaync-control-center"
+        "swaync-notification-window"
+        "waybar"
+      ];
     in [
-      "blur, ${layers}"
-      "ignorealpha 0.2, ${layers}"
-      "xray 1, ^(waybar|gtk-layer-shell)$"
+      "blur, ${toRegex layers}"
+      "ignorealpha 0.5, ${toRegex layers}"
     ];
 
     # window rules

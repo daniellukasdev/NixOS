@@ -17,8 +17,6 @@
     "editor.lineNumbers" = "relative";
     "editor.minimap.enabled" = false;
     "editor.renderLineHighlight" = "all";
-    "editor.scrollbar.horizontal" = "hidden";
-    "editor.scrollbar.vertical" = "hidden";
     "editor.semanticHighlighting.enabled" = true;
     "editor.showUnused" = true;
     "editor.smoothScrolling" = true;
@@ -35,6 +33,11 @@
   files = {
     "files.insertFinalNewline" = true;
     "files.trimTrailingWhitespace" = true;
+  };
+
+  telemetry = {
+    "redhat.telemetry.enabled" = false;
+    "telemetry.telemetryLevel" = "off";
   };
 
   terminal = {
@@ -69,20 +72,7 @@
     "workbench.startupEditor" = "none";
   };
 
-  defaultFormatter = {
-    "[c]"."editor.defaultFormatter" = "xaver.clang-format";
-    "[cpp]"."editor.defaultFormatter" = "xaver.clang-format";
-    "[css]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
-    "[html]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
-    "[java]"."editor.defaultFormatter" = "redhat.java";
-    "[javascript]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
-    "[json]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
-    "[jsonc]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
-    "[nix]"."editor.defaultFormatter" = "jnoortheen.nix-ide";
-    "[python]"."editor.defaultFormatter" = "ms-python.black-formatter";
-    "[scss]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
-    "[typescript]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
-  };
+  # Extension specific settings
 
   git = {
     "git.autofetch" = true;
@@ -104,11 +94,30 @@
     "path-intellisense.showHiddenFiles" = true;
   };
 
-  telemetry = {
-    "redhat.telemetry.enabled" = false;
-    "telemetry.telemetryLevel" = "off";
+  # Language specific settings
+  # Formatter
+  formatter = {
+    "[c]"."editor.defaultFormatter" = "xaver.clang-format";
+    "[cpp]"."editor.defaultFormatter" = "xaver.clang-format";
+    "[css]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
+    "[html]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
+    "[java]"."editor.defaultFormatter" = "redhat.java";
+    "[javascript]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
+    "[json]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
+    "[jsonc]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
+    "[nix]"."editor.defaultFormatter" = "jnoortheen.nix-ide";
+    "[python]"."editor.defaultFormatter" = "ms-python.black-formatter";
+    "[scss]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
+    "[typescript]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
   };
 
+  # Shell
+  bash = {
+    "bashIde.shellcheckPath" = "${pkgs.shellcheck}/bin/shellcheck";
+    "shfmt.executablePath" = "${pkgs.shfmt}/bin/shfmt";
+  };
+
+  # C/C++
   cpp = {
     "C_Cpp.intelliSenseEngine" = "disabled";
     "clangd.path" = "${pkgs.clang-tools}/bin/clangd";
@@ -117,6 +126,7 @@
     "makefile.makePath" = "${pkgs.gnumake}/bin/make";
   };
 
+  # Java
   java = {
     "java.configuration.runtimes" = [
       {
@@ -129,6 +139,7 @@
     "java.jdt.ls.java.home" = "${pkgs.jdk17}/lib/openjdk";
   };
 
+  # Nix
   nix = {
     "nix.enableLanguageServer" = true;
     "nix.formatterPath" = "${pkgs.alejandra}/bin/alejandra";
@@ -136,12 +147,12 @@
     "nix.serverSettings"."nil"."formatting"."command" = ["${pkgs.alejandra}/bin/alejandra"];
   };
 
+  # Python
   python = {
     "python.defaultInterpreterPath" = "${pkgs.python3}/bin/python";
     "python.languageServer" = "Pylance";
     "python.analysis.typeCheckingMode" = "strict";
     "python.analysis.autoFormatStrings" = true;
-    "jupyter.askForKernelRestart" = false;
   };
 in {
   programs.vscode.userSettings =
@@ -150,17 +161,21 @@ in {
       "extensions.ignoreRecommendations" = true;
       "update.mode" = "none";
     }
+    # General settings
     // editor
     // explorer
     // files
+    // telemetry
     // terminal
     // window
     // workbench
-    // defaultFormatter
+    # Extension specific settings
     // git
     // github
     // path-intellisense
-    // telemetry
+    # Language specific settings
+    // formatter
+    // bash
     // cpp
     // java
     // nix

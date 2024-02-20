@@ -23,8 +23,10 @@
         # github.copilot-chat
         jnoortheen.nix-ide
         llvm-vs-code-extensions.vscode-clangd
+        mads-hartmann.bash-ide-vscode
         mikestead.dotenv
         mkhl.direnv
+        mkhl.shfmt
         ms-python.black-formatter
         ms-python.isort
         ms-python.pylint

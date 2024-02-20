@@ -247,6 +247,7 @@ in {
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
+    # TODO: Add nix shell to config
     settings = pkgs.lib.importTOML ./starship.toml;
   };
 }

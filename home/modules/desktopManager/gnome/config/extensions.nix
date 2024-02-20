@@ -17,6 +17,7 @@
     forge
     gtk4-desktop-icons-ng-ding
     just-perfection
+    # rounded-window-corners
     search-light
     tiling-assistant
     unite
@@ -28,8 +29,9 @@ in {
     [
       colloid-gtk-theme
       colloid-icon-theme
-      # graphite-gtk-theme
+      graphite-gtk-theme
       whitesur-gtk-theme
+      whitesur-icon-theme
     ]
     ++ extensions;
 }

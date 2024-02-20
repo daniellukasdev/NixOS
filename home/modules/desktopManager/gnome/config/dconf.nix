@@ -131,7 +131,9 @@
       };
 
       "org/gnome/shell/extensions/user-theme" = {
-        name = "Colloid-Dark";
+        name = "";
+        # name = "WhiteSur-Dark";
+        # name = "Colloid-Dark";
       };
 
       "org/gnome/desktop/calendar".show-weekdate = false;
@@ -148,8 +150,10 @@
         clock-show-weekday = true;
         color-scheme = "prefer-dark";
         cursor-theme = "macOS-Monterey-White";
+        # gtk-theme = "WhiteSur-Dark";
         gtk-theme = "Colloid-Dark";
-        icon-theme = "Colloid-dark";
+        icon-theme = "WhiteSur-dark";
+        # icon-theme = "Colloid-dark";
         monospace-font-name = "FiraCode NF";
         show-battery-percentage = true;
       };

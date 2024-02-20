@@ -19,7 +19,8 @@
     };
 
     iconTheme = {
-      name = "Colloid-dark";
+      name = "WhiteSur-dark";
+      # name = "Colloid-dark";
       package = pkgs.colloid-icon-theme;
     };
 
@@ -29,6 +30,7 @@
     # };
 
     theme = {
+      # name = "WhiteSur-Dark";
       name = "Colloid-Dark";
       package = pkgs.colloid-gtk-theme;
     };

@@ -13,6 +13,10 @@
     ./modules/services/gnome-keyring.nix
   ];
 
+  # sharedPackages = [
+  #   ./shared
+  # ];
+
   homeImports = {
     "daniellukas@gnome" =
       [
@@ -20,9 +24,11 @@
         ./profiles/gnome.nix
       ]
       ++ lib.concatLists [sharedModules];
+    # ++ lib.concatLists [sharedPackages];
     "daniellukas@hyprland" =
       [
         ./home.nix
+        # ./profiles/shared.nix
         ./profiles/hyprland.nix
       ]
       ++ lib.concatLists [sharedModules];

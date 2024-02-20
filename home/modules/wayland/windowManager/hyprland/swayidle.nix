@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-  themes,
   ...
 }: let
   suspendScript = pkgs.writeShellScript "suspend-script" ''
@@ -14,6 +13,7 @@
 in {
   services.swayidle = {
     enable = true;
+    extraArgs = ["-w"];
 
     events = [
       {
@@ -22,19 +22,19 @@ in {
       }
       {
         event = "lock";
-        command = "${pkgs.swaylock-effects}/bin/swaylock -i ${themes.wallpaper}";
+        command = "${pkgs.swaylock-effects}/bin/swaylock -fF";
       }
     ];
 
     timeouts = [
       {
-        timeout = 900;
-        command = suspendScript.outPath;
-      }
-      {
-        timeout = 1200;
+        timeout = 300;
         command = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch dpms off";
         resumeCommand = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch dpms on";
+      }
+      {
+        timeout = 600;
+        command = suspendScript.outPath;
       }
     ];
   };

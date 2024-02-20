@@ -5,7 +5,6 @@
     ░░░░░░░░▀▀░░░▀░░▀▀▀░▀▀▀░▀░▀░▀░▀░▀▀▀░▀░▀░▀░▀░░▀░░▀▀▀░░░░░░░░
 
     daniellukas's NixOS configuration.
-    Designed to provide a smooth and solid system experience.
   '';
 
   outputs = inputs: inputs.flake-parts.lib.mkFlake {inherit inputs;} {imports = [./flake];};

@@ -11,7 +11,7 @@
   hardware = modules + "/hardware";
   profiles = "${self}/hosts/profiles";
 
-    specialArgs = {inherit inputs self themes;};
+  specialArgs = {inherit inputs self themes;};
 in {
   flake.nixosConfigurations = {
     # Dell XPS 17 9720

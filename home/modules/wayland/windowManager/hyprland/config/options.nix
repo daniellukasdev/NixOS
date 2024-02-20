@@ -2,56 +2,6 @@
   wayland.windowManager.hyprland.settings = let
     pointer = config.home.pointerCursor;
   in {
-    env = [
-      "GDK_SCALE,2"
-      "WLR_DRM_NO_ATOMIC,1"
-    ];
-
-    exec-once = [
-      "hyprctl setcursor ${pointer.name} ${toString pointer.size}"
-    ];
-
-    dwindle = {
-      pseudotile = true;
-      preserve_split = true;
-    };
-
-    master = {
-      new_is_master = true;
-    };
-
-    general = {
-      gaps_in = 2;
-      gaps_out = 4;
-
-      border_size = 1;
-      "col.active_border" = "rgba(88888888)";
-      "col.inactive_border" = "rgba(00000088)";
-
-      allow_tearing = true;
-      resize_on_border = true;
-    };
-
-    decoration = {
-      rounding = 16;
-
-      blur = {
-        enabled = true;
-        brightness = 1.0;
-        contrast = 1.0;
-        noise = 0.02;
-        passes = 4;
-        size = 10;
-      };
-
-      drop_shadow = true;
-      shadow_ignore_window = true;
-      shadow_offset = "0 2";
-      shadow_range = 20;
-      shadow_render_power = 5;
-      "col.shadow" = "rgba(00000055)";
-    };
-
     animations = {
       enabled = true;
 
@@ -65,6 +15,62 @@
         "windows, 1, 4, md3_decel, popin 60%"
         "workspaces, 1, 4, md3_decel, slidevert"
       ];
+    };
+
+    decoration = {
+      rounding = 16;
+
+      active_opacity = 1.0;
+      inactive_opacity = 1.0;
+      fullscreen_opacity = 1.0;
+
+      drop_shadow = true;
+      shadow_ignore_window = true;
+      shadow_offset = "0 2";
+      shadow_range = 20;
+      shadow_render_power = 3;
+      "col.shadow" = "rgba(00000055)";
+
+      blur = {
+        enabled = true;
+        brightness = 1.0;
+        contrast = 1.0;
+        noise = 0.02;
+        passes = 3;
+        popups = true;
+        size = 10;
+      };
+    };
+
+    dwindle = {
+      pseudotile = true;
+      preserve_split = true;
+    };
+
+    env = [
+      "GDK_SCALE,2"
+      "WLR_DRM_NO_ATOMIC,1"
+    ];
+
+    exec-once = [
+      "hyprctl setcursor ${pointer.name} ${toString pointer.size}"
+    ];
+
+    general = {
+      gaps_in = 2;
+      gaps_out = 4;
+
+      border_size = 1;
+      "col.active_border" = "rgba(88888888)";
+      "col.inactive_border" = "rgba(00000088)";
+
+      resize_on_border = true;
+      allow_tearing = true;
+    };
+
+    gestures = {
+      workspace_swipe = true;
+      workspace_swipe_forever = true;
     };
 
     group = {
@@ -88,27 +94,22 @@
       };
     };
 
-    gestures = {
-      workspace_swipe = true;
-      workspace_swipe_forever = true;
-    };
-
     misc = {
-      animate_mouse_windowdragging = false;
       disable_autoreload = true;
       disable_hyprland_logo = true;
       disable_splash_rendering = true;
       focus_on_activate = true;
-      force_default_wallpaper = 1;
+      force_default_wallpaper = 0;
       key_press_enables_dpms = true;
       mouse_move_enables_dpms = true;
+      no_direct_scanout = false;
       vfr = true;
-      vrr = 0;
+      vrr = 1;
     };
 
     monitor = [
       # name, resolution, position, scale
-      "eDP-1, highres, auto, 2"
+      "eDP-1, highres, 0x0, 1.5"
     ];
 
     xwayland.force_zero_scaling = true;
