@@ -3,7 +3,7 @@
   services.geoclue2.enable = true;
 
   time = {
-    timeZone = lib.mkDefault "Asia/Jakarta";
+    timeZone = lib.mkDefault "America/New_York";
     hardwareClockInLocalTime = lib.mkDefault true;
   };
 }

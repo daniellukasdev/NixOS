@@ -13,7 +13,7 @@
       lfs.enable = true;
       delta.enable = true;
 
-      userName = "daniellukas";
+      userName = "daniellukasdev";
       userEmail = "dtlukasart@gmail.com";
       # signing = {
       #   key = "A69A110979DF4E36";

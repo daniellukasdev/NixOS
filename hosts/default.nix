@@ -27,10 +27,10 @@ in {
         "${modules}/services"
         "${hardware}/bluetooth.nix"
         "${hardware}/intel.nix"
-        # "${hardware}/nvidia.nix"
+        "${hardware}/nvidia.nix"
         "${profiles}/gnome"
         # "${profiles}/hyprland"
-        # "${profiles}/kde"
+        # "${profiles}/kdePlasma"
 
         {
           home-manager = {
@@ -39,6 +39,10 @@ in {
           };
           # home-manager = {
           #   users.daniellukas.imports = homeImports."daniellukas@hyprland";
+          #   extraSpecialArgs = specialArgs;
+          # };
+          # home-manager = {
+          #   users.daniellukas.imports = homeImports."daniellukas@kdePlasma";
           #   extraSpecialArgs = specialArgs;
           # };
         }

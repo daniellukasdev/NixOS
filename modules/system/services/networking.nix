@@ -1,6 +1,4 @@
 {
-  # imports = [./warp.nix];
-  
   networking = {
     networkmanager = {
       enable = true;
@@ -12,8 +10,12 @@
     };
   };
 
+  programs = {
+    nm-applet.enable = true;
+  };
+
   services = {
-    resolved.enable = true;
     gnome.glib-networking.enable = true;
+    resolved.enable = true;
   };
 }

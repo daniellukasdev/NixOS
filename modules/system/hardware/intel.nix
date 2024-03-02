@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   config = {
-    # boot.initrd.kernelModules = ["i915"];
+    boot.initrd.kernelModules = ["i915"];
 
     hardware = {
       opengl = {

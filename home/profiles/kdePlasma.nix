@@ -1,0 +1,83 @@
+{pkgs, ...}: {
+  imports = [
+    ../modules/desktopManager/gnome/config
+    ../modules/config/gtk.nix
+    # ../modules/config/home-cursor.nix
+
+    # ../modules/programs/blender.nix
+    ../modules/programs/discord.nix
+    ../modules/programs/firefox.nix
+    ../modules/programs/kitty.nix
+    ../modules/programs/nix-index-db.nix
+    ../modules/programs/media
+    ../modules/programs/vscode
+  ];
+  
+  programs.plasma = {
+    enable = true;
+
+    #
+    # Some high-level settings:
+    #
+    workspace = {
+      clickItemTo = "select";
+      lookAndFeel = "org.kde.breezedark.desktop";
+      cursorTheme = "Bibata-Modern-Ice";
+      iconTheme = "Papirus-Dark";
+      wallpaper = "${pkgs.libsForQt5.plasma-workspace-wallpapers}/share/wallpapers/Patak/contents/images/1080x1920.png";
+    };
+
+    hotkeys.commands."Launch Konsole" = {
+      key = "Meta+Alt+K";
+      command = "konsole";
+    };
+
+    panels = [
+      # Windows-like panel at the bottom
+      {
+        location = "bottom";
+        widgets = [
+          "org.kde.plasma.kickoff"
+          "org.kde.plasma.icontasks"
+          "org.kde.plasma.marginsseperator"
+          "org.kde.plasma.systemtray"
+          "org.kde.plasma.digitalclock"
+        ];
+      }
+      # Global menu at the top
+      {
+        location = "top";
+        height = 26;
+        widgets = [
+          "org.kde.plasma.appmenu"
+        ];
+      }
+    ];
+
+    #
+    # Some mid-level settings:
+    #
+    shortcuts = {
+      ksmserver = {
+        "Lock Session" = ["Screensaver" "Meta+Ctrl+Alt+L"];
+      };
+
+      kwin = {
+        "Expose" = "Meta+,";
+        "Switch Window Down" = "Meta+J";
+        "Switch Window Left" = "Meta+H";
+        "Switch Window Right" = "Meta+L";
+        "Switch Window Up" = "Meta+K";
+      };
+    };
+
+    #
+    # Some low-level settings:
+    #
+    configFile = {
+      "baloofilerc"."Basic Settings"."Indexing-Enabled" = false;
+      # If a group name has dots you need to escape them
+      "kwinrc"."org\\.kde\\.kdecoration2"."ButtonsOnLeft" = "SF";
+    };
+  };
+}

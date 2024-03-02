@@ -126,6 +126,20 @@
     "makefile.makePath" = "${pkgs.gnumake}/bin/make";
   };
 
+  # Golang
+  go = {
+    "go.formatTool" = "goimports";
+    "go.lintOnSave" = "package";
+    "go.lintTool" = "golangci-lint";
+    "go.toolsManagement.autoUpdate" = true;
+    "go.useLanguageServer" = true;
+    "gopls" = {
+      "completeUnimported" = true;
+      "usePlaceholders" = true;
+      "ui.semanticTokens" = true;
+    };
+  };
+
   # Java
   java = {
     "java.configuration.runtimes" = [
@@ -178,6 +192,7 @@ in {
     // bash
     // cpp
     // java
+    // go
     // nix
     // python;
 }

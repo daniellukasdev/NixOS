@@ -21,6 +21,7 @@
         esbenp.prettier-vscode
         # github.copilot
         # github.copilot-chat
+        # golang.go
         jnoortheen.nix-ide
         llvm-vs-code-extensions.vscode-clangd
         mads-hartmann.bash-ide-vscode
@@ -32,9 +33,9 @@
         ms-python.pylint
         ms-python.python
         ms-python.vscode-pylance
-        ms-vscode.cmake-tools
+        # ms-vscode.cmake-tools
         ms-vscode.cpptools
-        ms-vscode.makefile-tools
+        # ms-vscode.makefile-tools
         ms-toolsai.jupyter
         ms-toolsai.jupyter-renderers
         ms-toolsai.jupyter-keymap

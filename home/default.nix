@@ -23,15 +23,22 @@
         ./home.nix
         ./profiles/gnome.nix
       ]
+      # ++ lib.concatLists [sharedPackages]
       ++ lib.concatLists [sharedModules];
-    # ++ lib.concatLists [sharedPackages];
-    "daniellukas@hyprland" =
-      [
-        ./home.nix
-        # ./profiles/shared.nix
-        ./profiles/hyprland.nix
-      ]
-      ++ lib.concatLists [sharedModules];
+    # "daniellukas@hyprland" =
+    #   [
+    #     ./home.nix
+    #     ./profiles/hyprland.nix
+    #   ]
+      # ++ lib.concatLists [sharedPackages]
+      # ++ lib.concatLists [sharedModules];
+    # "daniellukas@kdePlasma" =
+    #   [
+    #     ./home.nix
+    #     ./profiles/kdePlasma.nix
+    #   ]
+      # ++ lib.concatLists [sharedPackages]
+      # ++ lib.concatLists [sharedModules];
   };
 
   inherit (inputs.home-manager.lib) homeManagerConfiguration;
@@ -41,18 +48,18 @@ in {
 
   flake = {
     homeConfigurations = {
-      "daniellukas@gnome" = homeManagerConfiguration {
+      "daniellukas@hyprland" = homeManagerConfiguration {
         inherit pkgs;
         modules = homeImports."daniellukas@gnome";
       };
-      "daniellukas@hyprland" = homeManagerConfiguration {
-        inherit pkgs;
-        modules = homeImports."daniellukas@hyprland";
-      };
-      "daniellukas@kde" = homeManagerConfiguration {
-        inherit pkgs;
-        modules = homeImports."daniellukas@kde";
-      };
+      # "daniellukas@hyprland" = homeManagerConfiguration {
+      #   inherit pkgs;
+      #   modules = homeImports."daniellukas@hyprland";
+      # };
+      # "daniellukas@kdePlasma" = homeManagerConfiguration {
+      #   inherit pkgs;
+      #   modules = homeImports."daniellukas@kdePlasma";
+      # };
     };
   };
 }

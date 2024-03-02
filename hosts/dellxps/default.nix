@@ -29,7 +29,7 @@
         efiSupport = true;
         useOSProber = true;
         configurationLimit = 5;
-        gfxmodeEfi = "1920x1080";
+        gfxmodeEfi = "2560x1600";
       };
     };
 
@@ -113,6 +113,13 @@
     # Enable security levels for Thunderbolt 3 on GNU/Linux.
     hardware.bolt.enable = true;
 
+    # Extra config options for systemd-logind.
+    logind = {
+      powerKey = "suspend";
+      lidSwitch = "suspend";
+      lidSwitchExternalPower = "lock";
+    };
+
     # Enable CUPS to print documents.
     printing.enable = true;
 
@@ -139,5 +146,8 @@
   };
 
   # Enable in-memory compressed devices and swap space provided by the zram kernel module.
-  zramSwap.enable = true;
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
+  };
 }
