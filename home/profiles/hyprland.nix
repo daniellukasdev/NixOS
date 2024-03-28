@@ -78,7 +78,6 @@
         _1password-gui
         # keepassxc
         
-        tdesktop
         obsidian
         ;
     };

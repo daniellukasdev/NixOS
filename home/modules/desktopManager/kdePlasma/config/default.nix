@@ -1,5 +1,7 @@
 {
   imports = [
-    ./addons.nix
+    # import plasma-manager settings here?
+    ./dconf.nix
+    ./plasma.nix
   ];
 }

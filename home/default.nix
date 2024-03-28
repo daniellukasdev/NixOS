@@ -3,6 +3,9 @@
   lib,
   ...
 }: let
+
+  # homeProfile = "gnome";
+
   sharedModules = [
     ./modules/programs/git.nix
     ./modules/programs/gpg.nix
@@ -10,6 +13,10 @@
     ./modules/programs/starship.nix
     ./modules/programs/utils.nix
     ./modules/programs/zsh.nix
+    # ./modules/services/gnome-keyring.nix
+  ];
+
+  gnomeModules = [
     ./modules/services/gnome-keyring.nix
   ];
 
@@ -18,27 +25,37 @@
   # ];
 
   homeImports = {
+    # "daniellukas@${homeProfile}" =
+    #   [
+    #     ./home.nix
+    #     ./profiles/${homeProfile}.nix
+      # ]
+    # ++ lib.concatLists [sharedPackages]
+    # ++ lib.concatLists [sharedModules]
+    # ++ lib.concatLists [gnomeModules];
     "daniellukas@gnome" =
       [
         ./home.nix
         ./profiles/gnome.nix
       ]
-      # ++ lib.concatLists [sharedPackages]
-      ++ lib.concatLists [sharedModules];
+    # ++ lib.concatLists [sharedPackages]
+    ++ lib.concatLists [sharedModules]
+    ++ lib.concatLists [gnomeModules];
     # "daniellukas@hyprland" =
     #   [
     #     ./home.nix
     #     ./profiles/hyprland.nix
     #   ]
       # ++ lib.concatLists [sharedPackages]
-      # ++ lib.concatLists [sharedModules];
+      # ++ lib.concatLists [sharedModules]
+      # ++ lib.concatLists [gnomeModules];
     # "daniellukas@kdePlasma" =
     #   [
     #     ./home.nix
     #     ./profiles/kdePlasma.nix
     #   ]
-      # ++ lib.concatLists [sharedPackages]
-      # ++ lib.concatLists [sharedModules];
+    # ++ lib.concatLists [sharedPackages]
+    # ++ lib.concatLists [sharedModules];
   };
 
   inherit (inputs.home-manager.lib) homeManagerConfiguration;
@@ -48,7 +65,11 @@ in {
 
   flake = {
     homeConfigurations = {
-      "daniellukas@hyprland" = homeManagerConfiguration {
+      # "daniellukas@${homeProfile}" = homeManagerConfiguration {
+      #   inherit pkgs;
+      #   modules = homeImports."daniellukas@${homeProfile}";
+      # };
+      "daniellukas@gnome" = homeManagerConfiguration {
         inherit pkgs;
         modules = homeImports."daniellukas@gnome";
       };

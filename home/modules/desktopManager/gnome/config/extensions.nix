@@ -10,14 +10,15 @@
     blur-my-shell
     clipboard-indicator
     control-blur-effect-on-lock-screen
-    dash2dock-lite
-    # dash-to-dock
-    # dash-to-dock-animator
+    # dash2dock-lite
+    dash-to-dock
+    dash-to-dock-animator
     # extension-list
     forge
     gtk4-desktop-icons-ng-ding
     just-perfection
-    # rounded-window-corners
+    looking-glass-button
+    rounded-window-corners
     search-light
     tiling-assistant
     unite
@@ -27,11 +28,12 @@
 in {
   home.packages = with pkgs;
     [
+      apple-cursor
       colloid-gtk-theme
       colloid-icon-theme
       graphite-gtk-theme
-      whitesur-gtk-theme
-      whitesur-icon-theme
+      # whitesur-gtk-theme
+      # whitesur-icon-theme
     ]
     ++ extensions;
 }

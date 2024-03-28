@@ -9,7 +9,7 @@
 
       defaultFonts = {
         emoji = ["Noto Color Emoji"];
-        monospace = ["Fira Code" "Noto Color Emoji" "Symbols Nerd Font"];
+        monospace = ["FiraMono Nerd Font" "Noto Color Emoji" "Symbols Nerd Font"];
         serif = ["Noto Serif" "Noto Color Emoji"];
         sansSerif = ["Inter" "Noto Color Emoji"];
       };
@@ -35,12 +35,13 @@
       fira-code
       fira-code-symbols
       material-design-icons
+      nerdfonts
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
 
       (google-fonts.override {fonts = ["Inter"];})
-      (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
+      # (nerdfonts.override {fonts = ["FiraCode"];})
     ];
   };
 }

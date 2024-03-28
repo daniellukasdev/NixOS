@@ -66,7 +66,7 @@
     "workbench.editor.enablePreview" = true;
     "workbench.editor.enablePreviewFromQuickOpen" = true;
     "workbench.layoutControl.enabled" = false;
-    "workbench.panel.defaultLocation" = "left";
+    "workbench.panel.defaultLocation" = "bottom";
     "workbench.productIconTheme" = "icons-carbon";
     "workbench.sideBar.location" = "left";
     "workbench.startupEditor" = "none";
@@ -127,18 +127,33 @@
   };
 
   # Golang
-  go = {
-    "go.formatTool" = "goimports";
-    "go.lintOnSave" = "package";
-    "go.lintTool" = "golangci-lint";
-    "go.toolsManagement.autoUpdate" = true;
-    "go.useLanguageServer" = true;
-    "gopls" = {
-      "completeUnimported" = true;
-      "usePlaceholders" = true;
-      "ui.semanticTokens" = true;
-    };
-  };
+  # go = {
+  #   "[go]" = {
+  #     "editor.defaultFormatter" = "golang.go";
+  #     "editor.codeActionsOnSave" = {
+  #       "source.organizeImports" = true;
+  #       "source.fixAll" = true;
+  #     };
+  #   };
+
+  #   "go.formatTool" = "goimports";
+  #   "go.formatFlags" = [
+  #     "-local"
+  #     "github.com/takt-corp/"
+  #   ];
+
+  #   "go.lintTool" = "golangci-lint";
+  #   "go.lintOnSave" = "workspace";
+  #   "go.lintFlags" = [
+  #     "--fast"
+  #   ];
+
+  #   "go.useLanguageServer" = true;
+  #   "gopls" = {
+  #     "ui.completion.usePlaceholders" = true;
+  #     "ui.semanticTokens" = true;
+  #   };
+  # };
 
   # Java
   java = {
@@ -192,7 +207,7 @@ in {
     // bash
     // cpp
     // java
-    // go
+    # // go
     // nix
     // python;
 }

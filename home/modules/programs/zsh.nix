@@ -22,7 +22,9 @@
       vids = "$HOME/Videos";
     };
 
-    enableAutosuggestions = true;
+    autosuggestion = {
+      enable = true;
+    };
     enableCompletion = true;
 
     syntaxHighlighting = {
@@ -212,8 +214,8 @@
       gp = "git push";
       gs = "git status";
       grep = getExe ripgrep;
-      la = "${getExe eza} -lah --tree";
-      ls = "${getExe eza} -h --git --icons --color=auto --group-directories-first -s extension";
+      la = lib.mkForce "${getExe eza} -lah --tree";
+      ls = lib.mkForce "${getExe eza} -h --git --icons --color=auto --group-directories-first -s extension";
       mv = "mv -iv";
       ps = getExe procs;
       rebuild = "sudo nixos-rebuild switch --flake .#";

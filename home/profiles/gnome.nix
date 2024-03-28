@@ -73,9 +73,6 @@
       inherit
         (pkgs)
         _1password-gui
-        # keepassxc
-        
-        tdesktop
         obsidian
         ;
     };

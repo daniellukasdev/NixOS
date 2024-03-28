@@ -4,7 +4,8 @@
       git
       starship
       vim
-      neovim
+      # neovim
+      # warp-terminal
     ];
   };
 }

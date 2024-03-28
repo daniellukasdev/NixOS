@@ -11,16 +11,18 @@
 
   environment = {
     variables = {
+      OBSIDIAN_USE_WAYLAND = "1";
+      CLUTTER_BACKEND = "wayland";
+      GDK_BACKEND = "wayland,x11";
       MOZ_ENABLE_WAYLAND = "1";
-      # NIXOS_OZONE_WL = "1";
-      # OBSIDIAN_USE_WAYLAND = "1";
+      NIXOS_OZONE_WL = "1";
       QT_AUTO_SCREEN_SCALE_FACTOR = "1";
-      # QT_QPA_PLATFORM = "wayland;xcb";
-      # QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+      QT_QPA_PLATFORM = "wayland;xcb";
+      QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
       SDL_VIDEODRIVER = "wayland";
       XDG_SESSION_TYPE = "wayland";
     };
-    plasma5.excludePackages = with pkgs.libsForQt5; [
+    plasma6.excludePackages = with pkgs.kdePackages; [
       kmailtransport
       okular
       oxygen
@@ -33,14 +35,33 @@
 
     systemPackages =
       (with pkgs; [
-        apple-cursor
+        ark
+        dconf2nix
+        ffmpegthumbnailer
+        libgsf
+        plasma-theme-switcher
+        # graphics info
+        clinfo
+        glxinfo
+        wayland-utils
       ])
-      ++ (with pkgs.plasma5; [
+      ++ (with pkgs.kdePackages; [
+        # discover
+        kate
+        kruler
+        # use digital clock with PIM plugin
+        akonadi-calendar
+        kdepim-addons
+        merkuro
+        # security stuff
+        ksshaskpass
+        qtstyleplugin-kvantum
+        yakuake
+      ])
+      ++ (with pkgs.gnome; [
         dconf-editor
-      ])
-      ++ (with pkgs.xorg; [
-        #
       ]);
+    # ++ (with pkgs.xorg; []);
   };
 
   home-manager.sharedModules = [
@@ -50,7 +71,7 @@
   services = {
     xserver = {
       enable = true;
-      # TODO: Find excludable packages for plasma5
+      # TODO: Find excludable packages for plasma6
       # We can exclude these packages without breaking X in gnome-shell, even if
       # I almost never use it.
       # excludePackages =
@@ -69,20 +90,22 @@
       #     xsetroot
       #   ]);
 
-      desktopManager.plasma5.enable = true;
+      desktopManager.plasma6.enable = true;
 
       # Enable touchpad support (enabled default in most desktopManager).
-      libinput.enable = true;
+      libinput = {
+        enable = true;
+      };
 
       # layout = "us";
       # xkbVariant = "";
     };
 
-    # plasma5 = {
+    # plasma6 = {
     #   glib-networking.enable = true;
-    #   plasma5-keyring.enable = true;
+    #   plasma6-keyring.enable = true;
     # };
 
-    # udev.packages = [pkgs.plasma5.plasma5-settings-daemon];
+    # udev.packages = [pkgs.plasma6.plasma6-settings-daemon];
   };
 }

@@ -1,58 +1,33 @@
-{lib, ...}: let
-  gnomeUrl = "org/gnome/";
-  gnomeShellUrl = "${gnomeUrl}shell";
-  extensionsUrl = "${gnomeShellUrl}/extensions/";
-  blurMyShellUrl = "${extensionsUrl}blur-my-shell";
-  desktopUrl = "${gnomeUrl}desktop/";
-  mutterUrl = "${gnomeUrl}mutter";
-  nautilusUrl = "${gnomeUrl}nautilus/";
-  settingsDaemonUrl = "${gnomeUrl}settings-daemon/";
-  pluginsUrl = "${settingsDaemonUrl}plugins/";
-  mediaKeysUrl = "${settingsDaemonUrl}media-keys";
-in {
+{lib, ...}: {
   # To get these settings so that you can add them to your configuration after manually configuring them
-  # `dconf dump /${gnomeUrl}`
+  # `dconf dump /org/gnome/`
   # Another way to do this is to do `dconf watch /org/gnome` and then make the changes you want and then migrate them in as you see what they are.
 
   dconf = {
     enable = true;
     settings = with lib.gvariant; {
-      "${gnomeShellUrl}" = {
-        disable-user-extensions = false;
-        enabled-extensions = [
-          "advanced-alt-tab@G-dH.github.com"
-          "appindicatorsupport@rgcjonas.gmail.com"
-          "blur-my-shell@aunetx"
-          "clipboard-indicator@tudmotu.com"
-          "ControlBlurEffectOnLockScreen@pratap.fastmail.fm"
-          # "dash2dock-lite@icedman.github.com"
-          "dash-to-dock@micxgx.gmail.com"
-          "drive-menu@gnome-shell-extensions.gcampax.github.com"
-          # "gtk4-ding@smedius.gitlab.com"
-          "search-light@icedman.github.com"
-          "tiling-assistant@leleat-on-github"
-          "unite@hardpixel.eu"
-          "user-theme@gnome-shell-extensions.gcampax.github.com"
-          "Vitals@CoreCoding.com"
-        ];
-        favorite-apps = [
-          "org.gnome.Nautilus.desktop"
-          # "org.gnome.Epiphany.desktop"
-          "code.desktop"
-          "obsidian.desktop"
-          "org.gnome.Calendar.desktop"
-          "firefox.desktop"
-          "org.gnome.Music.desktop"
-          "org.gnome.Settings.desktop"
-          "org.gnome.Terminal.desktop"
-        ];
-      };
+      "org/gnome/shell".enabled-extensions = [
+        "advanced-alt-tab@G-dH.github.com"
+        "appindicatorsupport@rgcjonas.gmail.com"
+        "blur-my-shell@aunetx"
+        "clipboard-indicator@tudmotu.com"
+        "ControlBlurEffectOnLockScreen@pratap.fastmail.fm"
+        "dash2dock-lite@icedman.github.com"
+        # "dash-to-dock@micxgx.gmail.com"
+        "drive-menu@gnome-shell-extensions.gcampax.github.com"
+        # "gtk4-ding@smedius.gitlab.com"
+        "search-light@icedman.github.com"
+        "tiling-assistant@leleat-on-github"
+        "unite@hardpixel.eu"
+        "user-theme@gnome-shell-extensions.gcampax.github.com"
+        "Vitals@CoreCoding.com"
+      ];
 
-      "${extensionsUrl}appindicator" = {
+      "org/gnome/shell/extensions/appindicator" = {
         legacy-tray-enabled = true;
       };
 
-      "${extensionsUrl}advanced-alt-tab-window-switcher" = {
+      "org/gnome/shell/extensions/advanced-alt-tab-window-switcher" = {
         hot-edge-fullscreen = false;
         hot-edge-position = mkInt32 0;
         switcher-popup-hover-select = true;
@@ -63,27 +38,11 @@ in {
         switcher-popup-wrap = false;
       };
 
-      "${blurMyShellUrl}" = {
-        brightness = 0.60;
-        color-and-noise = true;
-        hacks-level = mkInt32 3;
-        sigma = mkInt32 24;
-      };
-      "${blurMyShellUrl}/applications" = {
-        blur = false;
-        blur-on-overview = true;
-        enable-all = true;
-        opacity = 240;
-      };
-      "${blurMyShellUrl}/dash-to-dock" = {
-        blur = false;
-      };
-
-      "${extensionsUrl}clipboard-indicator" = {
+      "org/gnome/shell/extensions/clipboard-indicator" = {
         disable-down-arrow = true;
       };
 
-      "${extensionsUrl}dash2dock-lite" = {
+      "org/gnome/shell/extensions/dash2dock-lite" = {
         animation-magnify = 0.36;
         animation-rise = 0.12;
         animation-spread = 0.36;
@@ -107,33 +66,38 @@ in {
         trash-icon = true;
       };
 
-      "${extensionsUrl}dash-to-dock" = {
+      # "org/gnome/shell/extensions/blur-my-shell/dash-to-dock".blur = false;
+
+      "org/gnome/shell/extensions/dash-to-dock" = {
         apply-custom-theme = false;
         custom-background-color = true;
         custom-theme-shrink = true;
-        customize = true;
-        customize-alphas = true;
-        dash-max-icon-size = mkInt32 60;
         background-color = "rgb(44,44,44)";
-        brightness = 1.0;
         disable-overview-on-startup = true;
-        min-alpha = 0.36;
-        max-alpha = 0.84;
-        override-background = false;
         running-indicator-dominant-color = true;
         running-indicator-style = "METRO";
         show-apps-at-top = true;
-        show-mounts = false;
-        signa = mkInt32 24;
         transparency-mode = "DYNAMIC";
       };
 
-      "${extensionsUrl}gtk4-ding" = {
+      "org/gnome/shell/extensions/blur-my-shell" = {
+        color-and-noise = true;
+        hacks-level = mkInt32 3;
+      };
+
+      "org/gnome/shell/extensions/blur-my-shell/applications" = {
+        blur = true;
+        blur-on-overview = true;
+        enable-all = true;
+        opacity = 240;
+      };
+
+      "org/gnome/shell/extensions/gtk4-ding" = {
         icon-size = "standard";
         start-corner = "top-right";
       };
 
-      "${extensionsUrl}just-perfection" = {
+      "org/gnome/shell/extensions/just-perfection" = {
         accessibility-menu = true;
         activities-button-icon-monochrome = true;
         activities-button-label = true;
@@ -156,17 +120,17 @@ in {
         workspace-wrap-around = true;
       };
 
-      "${extensionsUrl}search-light" = {
+      "org/gnome/shell/extensions/search-light" = {
         shortcut-search = ["<Super>space"];
       };
 
-      "${extensionsUrl}tiling-assistant" = {
+      "org/gnome/shell/extensions/tiling-assistant" = {
         maximize-with-gap = true;
         single-screen-gap = mkInt32 8;
         window-gap = mkInt32 8;
       };
 
-      "${extensionsUrl}unite" = {
+      "org/gnome/shell/extensions/unite" = {
         desktop-name-text = "";
         greyscale-tray-icons = false;
         hide-activities-button = "never";
@@ -179,43 +143,42 @@ in {
         window-buttons-theme = "whitesur";
       };
 
-      "${extensionsUrl}user-theme" = {
+      "org/gnome/shell/extensions/user-theme" = {
         name = "";
         # name = "WhiteSur-Dark";
         # name = "Colloid-Dark";
       };
 
-      "${desktopUrl}calendar".show-weekdate = false;
-      "${desktopUrl}background" = {
+      "org/gnome/desktop/calendar".show-weekdate = false;
+      "org/gnome/desktop/background" = {
         picture-uri = "file:///run/current-system/sw/share/backgrounds/gnome/fold-l.jpg";
         picture-uri-dark = "file:///run/current-system/sw/share/backgrounds/gnome/fold-d.jpg";
       };
-      "${desktopUrl}input-sources".sources = [
+      "org/gnome/desktop/input-sources".sources = [
         (mkTuple ["xkb" "us"])
       ];
-      "${desktopUrl}interface" = {
+      "org/gnome/desktop/interface" = {
         clock-format = "12h";
         clock-show-seconds = false;
         clock-show-weekday = true;
         color-scheme = "prefer-dark";
         cursor-theme = "macOS-Monterey-White";
-        # gtk-theme = "Colloid-Dark";
         # gtk-theme = "WhiteSur-Dark";
-        # gtk-theme = "Space";
-        # icon-theme = "Colloid-dark";
+        # gtk-theme = "Colloid-Dark";
         # icon-theme = "WhiteSur-dark";
+        # icon-theme = "Colloid-dark";
         monospace-font-name = "FiraCode NF";
         show-battery-percentage = true;
       };
-      "${desktopUrl}media-handling".automount = true;
-      "${desktopUrl}peripherals/mouse".accel-profile = "default";
-      "${desktopUrl}privacy" = {
+      "org/gnome/desktop/media-handling".automount = true;
+      "org/gnome/desktop/peripherals/mouse".accel-profile = "default";
+      "org/gnome/desktop/privacy" = {
         remember-app-usage = true;
         remember-recent-files = true;
       };
-      "${desktopUrl}screensaver".lock-enabled = true;
-      "${desktopUrl}session".idle-delay = mkUint32 0;
-      "${desktopUrl}wm/keybindings" = {
+      "org/gnome/desktop/screensaver".lock-enabled = true;
+      "org/gnome/desktop/session".idle-delay = mkUint32 0;
+      "org/gnome/desktop/wm/keybindings" = {
         switch-to-workspace-left = ["<Super>a"];
         switch-to-workspace-right = ["<Super>d"];
         move-to-workspace-left = ["<Shift><Super>a"];
@@ -231,23 +194,29 @@ in {
         maximize = ["<Super>f"];
         toggle-fullscreen = ["<Shift><Super>f"];
       };
-      "${desktopUrl}wm/preferences" = {
+      "org/gnome/desktop/wm/preferences" = {
         button-layout = "close,minimize,maximize:appmenu";
         resize-with-right-button = false;
       };
-      # "${mutterUrl}" = {
+      # "org/gnome/mutter" = {
       #   edge-tiling = true;
       #   attach-modal-dialogs = true;
       #   experimental-features = [ "scale-monitor-framebuffer" ];
       # };
 
-      "${mutterUrl}" = {
+      "org/gnome/mutter" = {
         dynamic-workspaces = true;
       };
-      "${nautilusUrl}preferences".default-folder-viewer = "icon-view";
-      "${nautilusUrl}list-view" = {
+      "org/gnome/nautilus/preferences".default-folder-viewer = "icon-view";
+      "org/gnome/nautilus/list-view" = {
         use-tree-view = true;
         default-zoom-level = "small";
+      };
+
+      "org/gnome/settings-daemon/plugins/power" = {
+        # Suspend only on battery power, not while charging.
+        sleep-inactive-ac-type = "nothing";
+        power-button-action = "interactive";
       };
 
       "org/gtk/gtk4/settings/file-chooser" = {
@@ -261,42 +230,41 @@ in {
       #   terminal-bell = false;
       # };
 
-      "${pluginsUrl}power" = {
-        # Suspend only on battery power, not while charging.
-        sleep-inactive-ac-type = "nothing";
-        power-button-action = "interactive";
-      };
-
-      "${mediaKeysUrl}" = {
-        calculator = ["<Super>c"];
-        custom-keybindings = [
-          "/${mediaKeysUrl}custom-keybindings/custom0/"
-          "/${mediaKeysUrl}custom-keybindings/custom1/"
-          "/${mediaKeysUrl}custom-keybindings/custom2/"
-        ];
-        magnifier = mkEmptyArray type.string;
+      "org/gnome/settings-daemon/plugins/media-keys" = {
         screenreader = mkEmptyArray type.string;
+        magnifier = mkEmptyArray type.string;
+        calculator = ["<Super>c"];
       };
 
-      # "${mediaKeysUrl}custom-keybindings/custom0" = {
-      #   binding = "<Super>Return";
-      #   command = "/usr/bin/env blackbox";
-      #   name = "Terminal";
-      # };
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+        binding = "<Super>Return";
+        command = "/usr/bin/env blackbox";
+        name = "Terminal";
+      };
 
-      # "${mediaKeysUrl}custom-keybindings/custom1" = {
+      # "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
       #   binding = "<Super>e";
       #   command = "/usr/bin/env nautilus";
       #   name = "File Manager";
       # };
 
-      # "${mediaKeysUrl}custom-keybindings/custom2" = {
+      # "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
       #   binding = "<Super>k";
       #   command = "/usr/bin/env keepassxc";
       #   name = "Password Manager";
       # };
 
-      "${gnomeShellUrl}/keybindings" = {
+      "org/gnome/settings-daemon/plugins/media-keys".custom-keybindings = [
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/"
+      ];
+
+      # "org/gnome/desktop/wm/preferences" = {
+      #   button-layout="close,minimize,maximize:appmenu";
+      # };
+
+      "org/gnome/shell/keybindings" = {
         # Following binds are replaced by the ones above.
         toggle-application-view = mkEmptyArray type.string;
         switch-to-application-1 = mkEmptyArray type.string;
@@ -310,22 +278,22 @@ in {
         screenshot-window = mkEmptyArray type.string;
       };
 
-      # "${gnomeShellUrl}" = {
-      #   disable-user-extensions = false;
-      #   favorite-apps = [
-      #     "org.gnome.Nautilus.desktop"
-      #     # "org.gnome.Epiphany.desktop"
-      #     "code.desktop"
-      #     "obsidian.desktop"
-      #     "org.gnome.Calendar.desktop"
-      #     "firefox.desktop"
-      #     "org.gnome.Music.desktop"
-      #     "org.gnome.Settings.desktop"
-      #     "org.gnome.Terminal.desktop"
-      #   ];
-      # };
+      "org/gnome/shell" = {
+        disable-user-extensions = false;
+        favorite-apps = [
+          "org.gnome.Nautilus.desktop"
+          # "org.gnome.Epiphany.desktop"
+          "code.desktop"
+          "obsidian.desktop"
+          "org.gnome.Calendar.desktop"
+          "firefox.desktop"
+          "org.gnome.Music.desktop"
+          "org.gnome.Settings.desktop"
+          "org.gnome.Terminal.desktop"
+        ];
+      };
 
-      "${gnomeUrl}TextEditor" = {
+      "org/gnome/TextEditor" = {
         custom-font = "FiraCode NF 11";
         highlight-current-line = true;
         show-grid = false;
@@ -337,17 +305,17 @@ in {
         use-system-font = false;
       };
 
-      "${gnomeUrl}terminal/legacy" = {
+      "org/gnome/terminal/legacy" = {
         mnemonics-enabled = true;
       };
 
-      "${gnomeUrl}terminal/legacy/profiles:" = {
+      "org/gnome/terminal/legacy/profiles:" = {
         list = [
           "b1dcc9dd-5262-4d8d-a863-c897e6d979b9"
         ];
       };
 
-      "${gnomeUrl}terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9" = {
+      "org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9" = {
         audible-bell = true;
         background-color = "rgb(40,44,52)";
         background-transparency-percent = mkUint32 0;
@@ -357,28 +325,28 @@ in {
         cursor-colors-set = true;
         cursor-foreground-color = "rgb(40,44,52)";
         cursor-shape = "block";
-        default-size-columns = mkUint32 100;
-        default-size-rows = mkUint32 28;
+        default-size-columns = "100";
+        default-size-rows = mkUint32 25;
         font = "FiraMono Nerd Font 11";
         foreground-color = "rgb(202,213,237)";
         login-shell = false;
         palette = [
-          "rgb(40,44,52)" # "#282c34"
-          "rgb(224,108,117)" # "#e06c75"
-          "rgb(152,195,121)" # "#98c379"
-          "rgb(229,192,123)" # "#e6c07b"
-          "rgb(97,175,239)" # "#61aeee"
-          "rgb(198,120,221)" # "#c678dd"
-          "rgb(86,182,194)" # "#56b6c2"
-          "rgb(171,178,191)" # "#abb2bf"
-          "rgb(92,99,112)" # "#5c6370"
-          "rgb(228,86,73)" # "#E45649" # "#be5046"
-          "rgb(80,161,79)" # "#50A14F"
-          "rgb(193,132,1)" # "##C18401" # "#d19a66"
-          "rgb(64,120,242)" # "#4078F2"
-          "rgb(166,38,164)" # "#A626A4"
-          "rgb(1,132,188)" # "#0184BC"
-          "rgb(202,213,237)" # "#CAD5ED"
+          "rgb(40,44,52)"
+          "rgb(224,108,117)"
+          "rgb(152,195,121)"
+          "rgb(229,192,123)"
+          "rgb(97,175,239)"
+          "rgb(198,120,221)"
+          "rgb(86,182,194)"
+          "rgb(171,178,191)"
+          "rgb(92,99,112)"
+          "rgb(228,86,73)"
+          "rgb(80,161,79)"
+          "rgb(193,132,1)"
+          "rgb(64,120,242)"
+          "rgb(166,38,164)"
+          "rgb(1,132,188)"
+          "rgb(202,213,237)"
         ];
         use-custom-command = false;
         use-system-font = false;

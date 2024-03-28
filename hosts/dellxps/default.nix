@@ -29,7 +29,7 @@
         efiSupport = true;
         useOSProber = true;
         configurationLimit = 5;
-        gfxmodeEfi = "2560x1600";
+        gfxmodeEfi = "1920x1080";
       };
     };
 
@@ -41,10 +41,10 @@
       acpi
       alsa-utils
       ffmpeg-full
-      fprintd
-      fprintd-tod
-      libfprint
-      libfprint-2-tod1-goodix
+      # fprintd
+      # fprintd-tod
+      # libfprint
+      # libfprint-2-tod1-goodix
       libva
       libva-utils
       mesa
@@ -98,14 +98,14 @@
     auto-cpufreq.enable = true;
 
     # Enable fingerprint reader
-    fprintd = {
-      enable = true;
-      package = pkgs.fprintd-tod;
-      tod = {
-        enable = true;
-        driver = pkgs.libfprint-2-tod1-goodix;
-      };
-    };
+    # fprintd = {
+    #   enable = true;
+      # package = pkgs.fprintd-tod;
+      # tod = {
+      #   enable = true;
+      #   driver = pkgs.libfprint-2-tod1-goodix;
+      # };
+    # };
 
     # Enable periodic SSD TRIM of mounted partitions in background
     fstrim.enable = true;

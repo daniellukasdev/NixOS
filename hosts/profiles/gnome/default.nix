@@ -6,17 +6,21 @@
 }: {
   imports = [
     ./gdm.nix
+    ./overlays
   ];
 
   environment = {
     variables = {
+      # CLUTTER_BACKEND = "wayland";
+      # GDK_BACKEND = "wayland,x11";
       MOZ_ENABLE_WAYLAND = "1";
       # NIXOS_OZONE_WL = "1";
       # OBSIDIAN_USE_WAYLAND = "1";
       QT_AUTO_SCREEN_SCALE_FACTOR = "1";
-      # QT_QPA_PLATFORM = "wayland;xcb";
+      QT_QPA_PLATFORM = "wayland;xcb";
       # QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
       SDL_VIDEODRIVER = "wayland";
+      WARP_ENABLE_WAYLAND = "1";
       XDG_SESSION_TYPE = "wayland";
     };
     gnome.excludePackages = with pkgs.gnome; [
@@ -33,8 +37,8 @@
 
     systemPackages =
       (with pkgs; [
-        apple-cursor
         blackbox-terminal
+        dconf2nix
         eyedropper
         gradience
         warp
@@ -60,11 +64,15 @@
   # ];
 
   services = {
+    gnome = {
+      core-developer-tools.enable = true;
+      glib-networking.enable = true;
+      gnome-keyring.enable = true;
+    };
+
     xserver = {
       enable = true;
 
-      # We can exclude these packages without breaking X in gnome-shell, even if
-      # I almost never use it.
       excludePackages =
         [pkgs.xterm]
         ++ (with pkgs.xorg; [
@@ -81,18 +89,10 @@
           xsetroot
         ]);
 
-      desktopManager.gnome.enable = true;
-
-      # layout = "us";
-      # xkbVariant = "";
+      desktopManager.gnome = {
+        enable = true;
+      };
     };
-
-    gnome = {
-      glib-networking.enable = true;
-      gnome-keyring.enable = true;
-    };
-
-    
 
     udev.packages = [pkgs.gnome.gnome-settings-daemon];
   };
