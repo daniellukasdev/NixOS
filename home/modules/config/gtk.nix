@@ -1,8 +1,11 @@
 {
   config,
+  inputs,
   pkgs,
   ...
-}: {
+}: let
+  whitesur-icon-theme = inputs.self.packages.${pkgs.system}.whitesur-icon-theme;
+in {
   gtk = {
     enable = true;
 
@@ -19,9 +22,14 @@
     };
 
     iconTheme = {
-      name = "WhiteSur-dark";
+      name = "WhiteSur";
+      package = whitesur-icon-theme.override {
+        alternativeIcons = true;
+        boldPanelIcons = true;
+        # themeVariants = ["default"];
+      };
       # name = "Colloid-dark";
-      package = pkgs.colloid-icon-theme;
+      # package = pkgs.colloid-icon-theme;
     };
 
     # theme = {
@@ -30,9 +38,12 @@
     # };
 
     theme = {
-      # name = "WhiteSur-Dark";
-      name = "Colloid-Dark";
-      package = pkgs.colloid-gtk-theme;
+      name = "WhiteSur-Dark";
+      package = pkgs.whitesur-gtk-theme.override {
+        roundedMaxWindow = true;
+      };
+      # name = "Colloid-Dark";
+      # package = pkgs.colloid-gtk-theme;
     };
 
     # theme = {
@@ -79,9 +90,9 @@
     };
   };
 
-  # home = {
-  #   sessionVariables = {
-  #     GTK_THEME = config.gtk.theme.name;
-  #   };
-  # };
+  home = {
+    sessionVariables = {
+      GTK_THEME = config.gtk.theme.name;
+    };
+  };
 }
