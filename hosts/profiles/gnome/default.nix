@@ -66,6 +66,9 @@
   services = {
     gnome = {
       core-developer-tools.enable = true;
+      core-os-services.enable = true;
+      core-shell.enable = true;
+      core-utilities.enable = true;
       glib-networking.enable = true;
       gnome-keyring.enable = true;
     };
