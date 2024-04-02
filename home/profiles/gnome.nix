@@ -11,6 +11,7 @@
     # ../modules/config/home-cursor.nix
 
     # ../modules/programs/blender.nix
+    ../modules/programs/chromium.nix
     ../modules/programs/discord.nix
     ../modules/programs/firefox.nix
     ../modules/programs/kitty.nix
@@ -74,6 +75,7 @@
         (pkgs)
         _1password-gui
         obsidian
+        spotify
         ;
     };
   };
