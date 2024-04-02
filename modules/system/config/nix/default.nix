@@ -28,6 +28,13 @@
       keep-outputs = true;
       trusted-users = ["root" "@wheel"];
     };
+
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      # TODO: Increase to 15d or 30d
+      options = "--delete-older-than 7d";
+    };
   };
 
   system.stateVersion = lib.mkDefault "23.11";
