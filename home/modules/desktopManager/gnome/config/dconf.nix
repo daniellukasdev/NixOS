@@ -36,13 +36,17 @@ in {
           "Vitals@CoreCoding.com"
         ];
         favorite-apps = [
+          "chromium-browser.desktop"
           "org.gnome.Nautilus.desktop"
-          # "org.gnome.Epiphany.desktop"
+          "org.gnome.Epiphany.desktop"
           "code.desktop"
+          "discord.desktop"
           "obsidian.desktop"
-          "org.gnome.Calendar.desktop"
+          # "org.gnome.Music.desktop"
           "firefox.desktop"
-          "org.gnome.Music.desktop"
+          "org.gnome.Calendar.desktop"
+          "org.gnome.Builder.desktop"
+          "spotify.desktop"
           "org.gnome.Settings.desktop"
           "org.gnome.Terminal.desktop"
         ];
