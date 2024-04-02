@@ -84,9 +84,9 @@ truncation_symbol = " …/"
 
 [character]
 # success_symbol = "[](purple)"
-success_symbol = "[](green bold)"
+success_symbol = "[](green bold)"
 error_symbol = "[󰚌](red)"
-vicmd_symbol = "[](green)"
+vicmd_symbol = "[](green)"
 
 [git_branch]
 symbol = "󰘬 "
