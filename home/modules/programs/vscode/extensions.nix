@@ -11,6 +11,7 @@
         github.vscode-pull-request-github
       ])
       ++ (with pkgs.vscode-marketplace; [
+        aaron-bond.better-comments
         antfu.icons-carbon
         bradlc.vscode-tailwindcss
         # catppuccin.catppuccin-vsc-icons
