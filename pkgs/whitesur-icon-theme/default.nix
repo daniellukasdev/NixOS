@@ -33,7 +33,7 @@ in
       owner = "vinceliuice";
       repo = pname;
       rev = version;
-      hash = "sha256-n2AgQoxnh7bRjby6kGATcOPtZS9GgkZ/1rYbB/c/7Qs=";
+      hash = "sha256-tz7CZYKI4McSDv0MKk9uO8l0zB/j86JN8YUS0GNh6bY=";
       # hash = "sha256-lq6d3BForrvzEJYeEMQZplvn/p6dPjggTToAU9UcPoM=";
     };
 

@@ -1,9 +1,12 @@
 {
+  inputs,
   lib,
   pkgs,
   ...
 }: {
   imports = [
+    # inputs.self.homeManagerModules.chromium
+
     ../modules/dev
 
     ../modules/desktopManager/gnome/config
@@ -11,7 +14,7 @@
     # ../modules/config/home-cursor.nix
 
     # ../modules/programs/blender.nix
-    ../modules/programs/chromium.nix
+    # ../modules/programs/chromium.nix
     ../modules/programs/discord.nix
     ../modules/programs/firefox.nix
     ../modules/programs/kitty.nix

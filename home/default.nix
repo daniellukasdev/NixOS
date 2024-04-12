@@ -4,7 +4,7 @@
   ...
 }: let
 
-  # homeProfile = "gnome";
+  homeProfile = "gnome";
 
   sharedModules = [
     ./modules/programs/git.nix
@@ -25,22 +25,22 @@
   # ];
 
   homeImports = {
-    # "daniellukas@${homeProfile}" =
-    #   [
-    #     ./home.nix
-    #     ./profiles/${homeProfile}.nix
-      # ]
-    # ++ lib.concatLists [sharedPackages]
-    # ++ lib.concatLists [sharedModules]
-    # ++ lib.concatLists [gnomeModules];
-    "daniellukas@gnome" =
+    "daniellukas@${homeProfile}" =
       [
         ./home.nix
-        ./profiles/gnome.nix
+        ./profiles/${homeProfile}.nix
       ]
     # ++ lib.concatLists [sharedPackages]
     ++ lib.concatLists [sharedModules]
     ++ lib.concatLists [gnomeModules];
+    # "daniellukas@gnome" =
+    #   [
+    #     ./home.nix
+    #     ./profiles/gnome.nix
+    #   ]
+    # ++ lib.concatLists [sharedPackages]
+    # ++ lib.concatLists [sharedModules]
+    # ++ lib.concatLists [gnomeModules];
     # "daniellukas@hyprland" =
     #   [
     #     ./home.nix
@@ -65,14 +65,14 @@ in {
 
   flake = {
     homeConfigurations = {
-      # "daniellukas@${homeProfile}" = homeManagerConfiguration {
-      #   inherit pkgs;
-      #   modules = homeImports."daniellukas@${homeProfile}";
-      # };
-      "daniellukas@gnome" = homeManagerConfiguration {
+      "daniellukas@${homeProfile}" = homeManagerConfiguration {
         inherit pkgs;
-        modules = homeImports."daniellukas@gnome";
+        modules = homeImports."daniellukas@${homeProfile}";
       };
+      # "daniellukas@gnome" = homeManagerConfiguration {
+      #   inherit pkgs;
+      #   modules = homeImports."daniellukas@gnome";
+      # };
       # "daniellukas@hyprland" = homeManagerConfiguration {
       #   inherit pkgs;
       #   modules = homeImports."daniellukas@hyprland";

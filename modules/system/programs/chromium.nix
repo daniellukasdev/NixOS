@@ -42,9 +42,9 @@
       "nplimhmoanghlebhdiboeellhgmgommi" # Tab Groups Extension
       "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock-origin
     ];
-    # extraOpts = {};
-    # initialPrefs = {};
-    # homepageLocation = "www.google.com";
+    extraOpts = {};
+    initialPrefs = {};
+    homepageLocation = "www.google.com";
     # defaultSearchProviderEnabled = true;
     # defaultSearchProviderSearchURL = null;
     # defaultSearchProviderSuggestURL = null;

@@ -1,6 +1,7 @@
 {
   imports = [
     ./bash.nix
+    ./chromium.nix
     ./home-manager.nix
     ./zsh.nix
   ];

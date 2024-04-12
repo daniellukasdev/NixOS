@@ -6,6 +6,7 @@ in {
 
     homeManagerModules = {
       swaync = "${flakeModules}/home-manager/swaync";
+      chromium = "${flakeModules}/home-manager/chromium";
     };
   };
 }
