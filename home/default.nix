@@ -1,86 +1,48 @@
 {
   inputs,
-  lib,
+  self,
+  themes,
   ...
 }: let
-
-  homeProfile = "gnome";
+  specialArgs = {inherit inputs self themes;};
 
   sharedModules = [
-    ./modules/programs/git.nix
-    ./modules/programs/gpg.nix
-    ./modules/programs/ssh.nix
-    ./modules/programs/starship.nix
-    ./modules/programs/utils.nix
-    ./modules/programs/zsh.nix
-    # ./modules/services/gnome-keyring.nix
+    ./modules/theme
   ];
-
-  gnomeModules = [
-    ./modules/services/gnome-keyring.nix
-  ];
-
-  # sharedPackages = [
-  #   ./shared
-  # ];
-
-  homeImports = {
-    "daniellukas@${homeProfile}" =
-      [
-        ./home.nix
-        ./profiles/${homeProfile}.nix
-      ]
-    # ++ lib.concatLists [sharedPackages]
-    ++ lib.concatLists [sharedModules]
-    ++ lib.concatLists [gnomeModules];
-    # "daniellukas@gnome" =
-    #   [
-    #     ./home.nix
-    #     ./profiles/gnome.nix
-    #   ]
-    # ++ lib.concatLists [sharedPackages]
-    # ++ lib.concatLists [sharedModules]
-    # ++ lib.concatLists [gnomeModules];
-    # "daniellukas@hyprland" =
-    #   [
-    #     ./home.nix
-    #     ./profiles/hyprland.nix
-    #   ]
-      # ++ lib.concatLists [sharedPackages]
-      # ++ lib.concatLists [sharedModules]
-      # ++ lib.concatLists [gnomeModules];
-    # "daniellukas@kdePlasma" =
-    #   [
-    #     ./home.nix
-    #     ./profiles/kdePlasma.nix
-    #   ]
-    # ++ lib.concatLists [sharedPackages]
-    # ++ lib.concatLists [sharedModules];
-  };
-
-  inherit (inputs.home-manager.lib) homeManagerConfiguration;
-  pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
 in {
-  _module.args = {inherit homeImports;};
+  home-manager = {
+    # Extra `specialArgs` passed to home-manager
+    extraSpecialArgs = specialArgs;
 
-  flake = {
-    homeConfigurations = {
-      "daniellukas@${homeProfile}" = homeManagerConfiguration {
-        inherit pkgs;
-        modules = homeImports."daniellukas@${homeProfile}";
-      };
-      # "daniellukas@gnome" = homeManagerConfiguration {
-      #   inherit pkgs;
-      #   modules = homeImports."daniellukas@gnome";
-      # };
-      # "daniellukas@hyprland" = homeManagerConfiguration {
-      #   inherit pkgs;
-      #   modules = homeImports."daniellukas@hyprland";
-      # };
-      # "daniellukas@kdePlasma" = homeManagerConfiguration {
-      #   inherit pkgs;
-      #   modules = homeImports."daniellukas@kdePlasma";
-      # };
+    # Using the system configuration's `pkgs` argument in home-manager
+    useGlobalPkgs = true;
+
+    # Installation of user packages through the {option} `users.users.<name>.packages` option
+    useUserPackages = true;
+
+    # Verbose output on activation
+    verbose = true;
+
+    # Per-user home-manager configuration
+    users = {
+      daniellukas = import ./daniellukas;
     };
+
+    # Extra modules added to all users
+    sharedModules =
+      [
+        {
+          # Let home-manager install and manage itself
+          programs.home-manager.enable = true;
+
+          # Avoid installing multiple variants of the home-manager manual to save space
+          manual = {
+            html.enable = false;
+            json.enable = false;
+            manpages.enable = false;
+          };
+        }
+      ]
+      ++ sharedModules;
   };
 }

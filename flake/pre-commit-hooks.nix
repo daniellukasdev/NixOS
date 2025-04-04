@@ -4,15 +4,13 @@
   perSystem.pre-commit = {
     check.enable = true;
 
-    settings.excludes = ["flake.lock"];
-
-    settings.hooks = {
-      alejandra.enable = true;
-      commitizen.enable = true;
-      nil.enable = true;
-      prettier = {
-        enable = true;
-        excludes = [".js" ".md" ".ts"];
+    settings = {
+      excludes = ["flake.lock"];
+      hooks = {
+        alejandra.enable = true;
+        deadnix.enable = true;
+        nil.enable = true;
+        statix.enable = true;
       };
     };
   };

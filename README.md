@@ -1,3 +1,47 @@
-## Acknowledgements
+[![built with nix](https://builtwithnix.org/badge.svg)](https://builtwithnix.org)
 
-- [github:rxyhn](https://github.com/rxyhn/yuki) - I based my config entirely on this one.
+<h1 align="center">dellxps</h1>
+
+<p align="center">
+  <a href="#">
+    <img src="https://github.com/daniellukas/dellxps/assets/93292023/be163e9a-69d8-4b5a-a5a7-d1f5215972d1" title="Banner"/>
+  </a>
+</p>
+
+<br>
+
+<p align="center">
+  <img src="https://github.com/daniellukas/dellxps/actions/workflows/check.yml/badge.svg" alt="Workflow Badge" height="20"/>
+  <img src="https://img.shields.io/github/license/daniellukas/dellxps" alt="License Badge"  height="20"/>
+</p>
+
+<br>
+
+<picture>
+  <img alt="Desktop Preview" align="right" width="400px" src="https://github.com/user-attachments/assets/3c7471e7-2ea0-4e31-bb73-2965781ad4f2"/>
+</picture>
+
+> [!NOTE]
+>
+> **System Information:**
+>
+> - **OS:** NixOS
+> - **Window Manager:** Hyprland
+> - **Shell:** ZSH
+> - **Terminal:** Kitty
+> - **Editor:** Visual Studio Code
+
+## About
+
+dellxps is a set of configurations crafted for NixOS and Home Manager, utilizing the power of [flakes](https://nixos.wiki/wiki/Flakes) and [flake-parts](https://github.com/hercules-ci/flake-parts) for optimal organization and efficiency.
+
+## Credits
+
+Special thanks to the following individuals for their insights, feedback, and inspiration in this endeavor to develop this configuration:
+
+<p align="center">
+  <a href="https://github.com/fufexan">Fufexan</a> •
+  <a href="https://github.com/moni-dz">Moni-dz</a> •
+  <a href="https://github.com/NotAShelf">NotAShelf</a> •
+  <a href="https://github.com/sioodmy">Sioodmy</a>
+</p>

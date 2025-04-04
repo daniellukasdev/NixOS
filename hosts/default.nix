@@ -1,59 +1,77 @@
 {
-  homeImports,
   inputs,
   self,
-  themes,
   ...
-}: let
-  inherit (inputs.nixpkgs.lib) nixosSystem;
+}: {
+  flake.nixosConfigurations = let
+    inherit (inputs.nixpkgs) lib;
+    inherit (lib) nixosSystem;
+    inherit (lib.attrsets) recursiveUpdate;
+    inherit (lib.lists) concatLists flatten singleton;
 
-  modules = "${self}/modules/system";
-  hardware = modules + "/hardware";
-  profiles = "${self}/hosts/profiles";
-  hostProfile = "gnome";
+    # Core modules from external inputs
+    nixosModules = [
+      inputs.disko.nixosModules.default
+      inputs.home-manager.nixosModules.default
+    ];
 
-  specialArgs = {inherit inputs self themes;};
-in {
-  flake.nixosConfigurations = {
+    # Path to the home-manager module directory
+    homeModules = self + /home;
+
+    # Common configuration shared across all systems
+    sharedConfig = [
+      ./config/nix
+      ./config/programs
+      ./config/security
+      ./config/services
+      ./config/shell
+      ./config/system
+    ];
+
+    # Function to create a NixOS configuration for a specific hostname and system
+    # Arguments:
+    #  - hostname: The hostname of the system
+    #  - system: The system architecture
+    #  - modules (optional): Additional modules to include
+    #  - specialArgs (optional): Additional special arguments passed to the system
+    mkNixosSystem = {
+      hostname,
+      system,
+      ...
+    } @ args:
+      nixosSystem {
+        modules =
+          concatLists [
+            (singleton {
+              networking.hostName = args.hostname;
+              nixpkgs.hostPlatform = args.system;
+            })
+
+            (flatten (
+              concatLists [
+                (singleton ./${args.hostname})
+                (args.modules or [])
+              ]
+            ))
+          ]
+          ++ sharedConfig;
+
+        specialArgs = recursiveUpdate {
+          inherit inputs self;
+        } (args.specialArgs or {});
+      };
+  in {
     # Dell XPS 17 9720
-    dellxps = nixosSystem {
-      inherit specialArgs;
+    dellxps = mkNixosSystem {
+      hostname = "dellxps";
+      system = "x86_64-linux";
+      modules = [nixosModules homeModules];
+    };
 
-      modules = [
-        ./dellxps
-
-        "${modules}/config"
-        "${modules}/programs"
-        "${modules}/security"
-        "${modules}/services"
-        "${modules}/virtualisation/docker.nix"
-        "${hardware}/bluetooth.nix"
-        "${hardware}/intel.nix"
-        "${hardware}/nvidia.nix"
-        "${profiles}/${hostProfile}"
-        # "${profiles}/gnome"
-        # "${profiles}/hyprland"
-        # "${profiles}/kdePlasma"
-
-        {
-          home-manager = {
-            users.daniellukas.imports = homeImports."daniellukas@${hostProfile}";
-            extraSpecialArgs = specialArgs;
-          };
-          # home-manager = {
-          #   users.daniellukas.imports = homeImports."daniellukas@gnome";
-          #   extraSpecialArgs = specialArgs;
-          # };
-          # home-manager = {
-          #   users.daniellukas.imports = homeImports."daniellukas@hyprland";
-          #   extraSpecialArgs = specialArgs;
-          # };
-          # home-manager = {
-          #   users.daniellukas.imports = homeImports."daniellukas@kdePlasma";
-          #   extraSpecialArgs = specialArgs;
-          # };
-        }
-      ];
+    minimal = mkNixosSystem {
+      hostname = "minimal";
+      system = "x86_64-linux";
+      modules = [nixosModules];
     };
   };
 }
