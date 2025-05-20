@@ -3,49 +3,52 @@
     enable = true;
 
     profiles.daniellukas = {
-      bookmarks = [
-        {
-          name = "NixOS Config";
-          toolbar = true;
-          bookmarks = [
-            {
-              name = "NixOS Manual";
-              url = "https://nixos.org/manual/nix/stable/language";
-              tags = ["NixOS" "reference"];
-            }
-            {
-              name = "NixOS Package Search";
-              url = "https://search.nixos.org/packages";
-              tags = ["NixOS" "reference" "packages" "search"];
-            }
-            {
-              name = "Nixpkags Fetchers";
-              url = "https://ryantm.github.io/nixpkgs/builders/fetchers/";
-              tags = ["NixOS" "reference" "nixpkgs" "fetchers"];
-            }
-            {
-              name = "Firefox Extensions";
-              url = "https://github.com/nix-community/nur-combined/blob/master/repos/rycee/pkgs/firefox-addons/generated-firefox-addons.nix";
-              tags = ["NixOS" "reference" "packages" "search" "firefox" "extensions"];
-            }
-            {
-              name = "Hyprland";
-              url = "https://hyprland.org/";
-              tags = ["Hyprland" "reference"];
-            }
-            {
-              name = "NixOS-Hyprland Config Repo";
-              url = "https://github.com/maotseantonio/NixOS-Hyprland";
-              tags = ["NixOS" "reference"];
-            }
-            {
-              name = "Raexera/Yuki NixOS Config Repo";
-              url = "https://github.com/raexera/yuki";
-              tags = ["NixOS" "reference"];
-            }
-          ];
-        }
-      ];
+      bookmarks = {
+        force = true;
+        settings = [
+          {
+            name = "NixOS Config";
+            toolbar = true;
+            bookmarks = [
+              {
+                name = "NixOS Manual";
+                url = "https://nixos.org/manual/nix/stable/language";
+                tags = ["NixOS" "reference"];
+              }
+              {
+                name = "NixOS Package Search";
+                url = "https://search.nixos.org/packages";
+                tags = ["NixOS" "reference" "packages" "search"];
+              }
+              {
+                name = "Nixpkags Fetchers";
+                url = "https://ryantm.github.io/nixpkgs/builders/fetchers/";
+                tags = ["NixOS" "reference" "nixpkgs" "fetchers"];
+              }
+              {
+                name = "Firefox Extensions";
+                url = "https://github.com/nix-community/nur-combined/blob/master/repos/rycee/pkgs/firefox-addons/generated-firefox-addons.nix";
+                tags = ["NixOS" "reference" "packages" "search" "firefox" "extensions"];
+              }
+              {
+                name = "Hyprland";
+                url = "https://hyprland.org/";
+                tags = ["Hyprland" "reference"];
+              }
+              {
+                name = "NixOS-Hyprland Config Repo";
+                url = "https://github.com/maotseantonio/NixOS-Hyprland";
+                tags = ["NixOS" "reference"];
+              }
+              {
+                name = "Raexera/Yuki NixOS Config Repo";
+                url = "https://github.com/raexera/yuki";
+                tags = ["NixOS" "reference"];
+              }
+            ];
+          }
+        ];
+      };
 
       extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
         darkreader
