@@ -20,7 +20,7 @@
     ./virtualisation/podman.nix
 
     ../config/fonts
-    ../config/hardware/acpi_call
+    # ../config/hardware/acpi_call
     ../config/hardware/bluetooth
     ../config/hardware/cpu/intel
     ../config/hardware/fingerprint-reader
@@ -30,7 +30,7 @@
     ../config/window-managers/hyprland
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
+  boot.kernelPackages = pkgs.linuxPackages_xanmod_stable;
 
   hardware = {
     graphics = {

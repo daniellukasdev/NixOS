@@ -4,7 +4,7 @@
   powerManagement.powertop.enable = true;
 
   services = {
-    acpid.enable = true;
+    # acpid.enable = false;
 
     thermald.enable = true;
 
