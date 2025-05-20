@@ -55,6 +55,7 @@
     loupe
     nodejs
     nwg-look
+    nwg-launchers
     nwg-dock-hyprland
     obsidian
     openssl
@@ -76,7 +77,6 @@
     rsync
     scc
     sd
-    slack
     slurp
     speedtest-cli
     spotify

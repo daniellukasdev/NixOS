@@ -5,6 +5,7 @@
 }: {
   imports = [
     ./config/binds.nix
+    ./config/nwg-dock-hyprland
     ./config/rules.nix
     ./config/settings.nix
     ./programs/anyrun.nix

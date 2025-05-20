@@ -27,6 +27,7 @@
 
     exec-once = [
       "hyprctl setcursor ${pointer.name} ${toString pointer.size}"
+      "nice -1 nwg-dock-hyprland -i 60 -x -lp start -mb 12"
     ];
 
     general = {
