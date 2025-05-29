@@ -72,7 +72,7 @@
         "ALT, Print, exec, grimblast --notify --cursor copysave screen"
 
         # Dock
-        "SUPER_SHIFT, N, exec, pgrep nwg-dock > /dev/null && pkill nwg-dock || nwg-dock-hyprland -i 60 -x -lp start -mb 12 &"
+        "SUPER_SHIFT, N, exec, pgrep nwg-dock > /dev/null && pkill nwg-dock || nwg-dock-hyprland -i 60 -x -mb 8 &"
       ]
       ++ builtins.concatLists (builtins.genList (
           x: let

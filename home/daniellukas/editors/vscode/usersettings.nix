@@ -16,7 +16,7 @@
       "editor.cursorBlinking" = "smooth";
       "editor.cursorSmoothCaretAnimation" = "on";
       "editor.codeActionsOnSave"."source.fixAll" = "always";
-      "editor.fontFamily" = "'GeistMono Nerd Font', 'monospace', monospace";
+      "editor.fontFamily" = "'MapleMono-NF', 'monospace', monospace";
       "editor.fontLigatures" = true;
       "editor.fontSize" = 16;
       "editor.fontWeight" = "500";
@@ -142,7 +142,7 @@
     };
 
     terminal = {
-      "terminal.integrated.fontFamily" = "'GeistMono Nerd Font Mono', 'monospace', monospace";
+      "terminal.integrated.fontFamily" = "'MapleMono-NF', 'monospace', monospace";
       "terminal.integrated.fontSize" = 16;
       "terminal.integrated.gpuAcceleration" = "on";
       "terminal.integrated.minimumContrastRatio" = 1;

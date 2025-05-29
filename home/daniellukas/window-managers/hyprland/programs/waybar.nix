@@ -261,9 +261,9 @@ in {
       /* Global */
       * {
         all: unset;
-        font-family: "GeistMono Nerd Font Propo", sans-serif;
+        font-family: "MapleMono-NF", sans-serif;
         font-size: 13pt;
-        font-weight: 800;
+        font-weight: 600;
       }
 
       /* Menu */

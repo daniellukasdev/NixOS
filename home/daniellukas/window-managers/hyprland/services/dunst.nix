@@ -22,7 +22,7 @@
         ellipsize = "middle";
         enable_recursive_icon_lookup = true;
         follow = "mouse";
-        font = "GeistMono Nerd Font Propo 12";
+        font = "MapleMono-NF 12";
         force_xwayland = false;
         format = "<b>%a</b>\\n<i>%s</i>\\n%b";
         frame_color = "${xcolors.gray0}";

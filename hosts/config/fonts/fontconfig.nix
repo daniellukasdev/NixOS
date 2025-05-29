@@ -16,9 +16,9 @@
     };
 
     defaultFonts = {
-      monospace = ["GeistMono Nerd Font"];
-      sansSerif = ["Geist" "Noto Color Emoji"];
-      serif = ["Noto Serif" "Noto Color Emoji"];
+      monospace = ["MapleMono-NF"];
+      sansSerif = ["Poppins" "Noto Color Emoji"];
+      serif = ["Crimson Pro Font" "Noto Color Emoji"];
       emoji = ["Noto Color Emoji"];
     };
   };

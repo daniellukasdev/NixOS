@@ -27,12 +27,12 @@
 
     exec-once = [
       "hyprctl setcursor ${pointer.name} ${toString pointer.size}"
-      "nice -1 nwg-dock-hyprland -i 60 -x -lp start -mb 12"
+      "nice -1 nwg-dock-hyprland -i 60 -x -mb 8"
     ];
 
     general = {
       gaps_in = 4;
-      gaps_out = 12;
+      gaps_out = 8;
 
       border_size = 1;
       "col.active_border" = "rgb(${colors.gray0})";
@@ -66,14 +66,16 @@
 
       blur = {
         enabled = true;
-        size = 8;
-        passes = 3;
-        new_optimizations = "on";
-        ignore_opacity = true;
-        xray = true;
-        noise = 0.0;
-        contrast = 1.1;
-        brightness = 1.2;
+        size = 12;
+        passes = 4;
+        new_optimizations = true;
+        ignore_opacity = false;
+        xray = false;
+        noise = 0.048;
+        contrast = 1.24;
+        brightness = 1.24;
+        vibrancy = 0.36;
+        vibrancy_darkness = 0;
       };
 
       shadow = {
@@ -161,7 +163,7 @@
         bar_part_of_window = true;
         bar_precedence_over_border = true;
         bar_text_size = "12";
-        bar_text_font = "GeistMono Nerd Font Bold";
+        bar_text_font = "MapleMono-NF Bold";
         bar_text_align = "center";
         "col.text" = "rgb(${colors.white})";
         hyprbars-button = [

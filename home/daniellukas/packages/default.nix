@@ -55,7 +55,7 @@
     loupe
     nodejs
     nwg-look
-    nwg-launchers
+    # nwg-launchers
     nwg-dock-hyprland
     obsidian
     openssl

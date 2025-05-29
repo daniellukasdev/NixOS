@@ -7,8 +7,10 @@
     enable = true;
 
     font = {
-      name = "Geist";
-      package = pkgs.geist-font;
+      # name = "Geist";
+      # package = pkgs.geist-font;
+      name = "Poppins";
+      package = pkgs.poppins;
       # name = "Inter";
       # package = pkgs.google-fonts.override {fonts = ["Inter"];};
       size = 12;
@@ -23,11 +25,6 @@
       name = "Colloid-Dark";
       package = pkgs.colloid-icon-theme;
     };
-
-    # iconTheme = {
-    #   name = "Papirus-Dark";
-    #   package = pkgs.papirus-icon-theme;
-    # };
 
     # iconTheme = {
     #   name = "WhiteSur-Dark";

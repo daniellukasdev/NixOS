@@ -2,6 +2,12 @@
   wayland.windowManager.hyprland.settings = {
     layerrule = [
       "blur, (waybar)"
+      "blur, (nwg-dock)"
+      "ignorezero, (nwg-dock)"
+      "ignorealpha 0.72, (nwg-dock)"
+      # "blur, (gtk-layer-shell)"
+      # "ignorezero, (gtk-layer-shell)"
+      # "ignorealpha[1], (gtk-layer-shell)"
       # "blur, (hyprbars)"
       # "blur, (anyrun)"
       # "blurpopups, waybar"

@@ -5,7 +5,7 @@
 }: let
   inherit
     (config.theme.colorscheme)
-    # rgbaColors
+    rgbaColors
     rgba48Colors
     rgbaAltColors
     xcolors
@@ -25,21 +25,20 @@ in {
     }
 
     window {
-      background: ${rgba48Colors.black1};
-      border: 0.08rem solid ${rgba48Colors.gray1};
-      border-radius: 16px;
+      background: ${rgbaColors.black1};
+      border: 0.08rem solid ${rgbaColors.gray0};
+      border-radius: 14px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     }
 
     #box {
       padding: 4px;
-      border-radius: 12px;
+      border-radius: 10px;
     }
 
     #active {
-      background-color: ${rgba48Colors.gray0};
-      border-radius: 12px;
-      transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+      background-color: ${rgbaAltColors.gray1};
+      border-radius: 10px;
     }
 
     button, image {
@@ -47,7 +46,6 @@ in {
       border-style: none;
       box-shadow: none;
       color: ${rgba48Colors.white};
-      transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     button {
@@ -55,13 +53,12 @@ in {
       margin: 2px;
       color: ${rgba48Colors.white};
       font-size: 12px;
-      border-radius: 10px;
+      border-radius: 8px;
       outline: none;
-      transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     button:hover {
-      background-color: ${rgba48Colors.gray0};
+      background-color: ${rgbaAltColors.gray2};
     }
 
     button:focus {
@@ -72,7 +69,6 @@ in {
     .workspace-dot {
       background-color: ${rgbaAltColors.gray1};
       border-radius: 50%;
-      transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .workspace-dot.active {
