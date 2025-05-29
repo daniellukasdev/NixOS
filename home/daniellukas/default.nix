@@ -25,7 +25,7 @@ in {
       rgbaAltColors = lib.mapAttrsRecursive (_: colorlib.rgba48) colors;
     };
 
-    wallpaper = ./wallpapers/big-sur-light.jpg;
+    wallpaper = ./wallpapers/SequoiaDark.png;
   };
 
   wayland.windowManager.hyprland.settings =
