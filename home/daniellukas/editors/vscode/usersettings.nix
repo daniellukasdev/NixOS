@@ -16,9 +16,9 @@
       "editor.cursorBlinking" = "smooth";
       "editor.cursorSmoothCaretAnimation" = "on";
       "editor.codeActionsOnSave"."source.fixAll" = "always";
-      "editor.fontFamily" = "'MapleMono-NF', 'monospace', monospace";
+      "editor.fontFamily" = "'Maple Mono NF', 'monospace', monospace";
       "editor.fontLigatures" = true;
-      "editor.fontSize" = 16;
+      "editor.fontSize" = 14;
       "editor.fontWeight" = "500";
       "editor.formatOnPaste" = true;
       "editor.formatOnSave" = true;
@@ -142,8 +142,8 @@
     };
 
     terminal = {
-      "terminal.integrated.fontFamily" = "'MapleMono-NF', 'monospace', monospace";
-      "terminal.integrated.fontSize" = 16;
+      "terminal.integrated.fontFamily" = "'Maple Mono NF', 'monospace', monospace";
+      "terminal.integrated.fontSize" = 14;
       "terminal.integrated.gpuAcceleration" = "on";
       "terminal.integrated.minimumContrastRatio" = 1;
     };
@@ -151,8 +151,8 @@
     theme = let
       inherit (config.theme.colorscheme) xcolors;
     in {
-      "workbench.colorTheme" = "Catppuccin Macchiato";
-      "workbench.iconTheme" = "catppuccin-macchiato";
+      "workbench.colorTheme" = "Catppuccin Mocha";
+      "workbench.iconTheme" = "catppuccin-mocha";
       "catppuccin.accentColor" = "blue";
       "catppuccin.bracketMode" = "rainbow";
       "catppuccin.workbenchMode" = "default";
@@ -186,6 +186,26 @@
           "overlay1" = "${xcolors.gray2}";
           "text" = "${xcolors.white}";
         };
+      };
+      "workbench.colorCustomizations" = {
+        "terminal.ansiBlack" = "${xcolors.black2}";
+        "terminal.ansiBrightBlack" = "${xcolors.black2}";
+        "terminal.ansiRed" = "${xcolors.red}";
+        "terminal.ansiBrightRed" = "${xcolors.red}";
+        "terminal.ansiGreen" = "${xcolors.green}";
+        "terminal.ansiBrightGreen" = "${xcolors.green}";
+        "terminal.ansiYellow" = "${xcolors.yellow}";
+        "terminal.ansiBrightYellow" = "${xcolors.yellow}";
+        "terminal.ansiBlue" = "${xcolors.blue}";
+        "terminal.ansiBrightBlue" = "${xcolors.blue}";
+        "terminal.ansiMagenta" = "${xcolors.pink}";
+        "terminal.ansiBrightMagenta" = "${xcolors.pink}";
+        "terminal.ansiCyan" = "${xcolors.sky}";
+        "terminal.ansiBrightCyan" = "${xcolors.sky}";
+        "terminal.ansiWhite" = "${xcolors.white}";
+        "terminal.ansiBrightWhite" = "${xcolors.white}";
+        "terminal.foreground" = "${xcolors.white}";
+        "terminal.selectionBackground" = "${xcolors.gray1}";
       };
     };
 
@@ -230,9 +250,9 @@
 
     workbench = {
       "workbench.activityBar.location" = "top";
-      "workbench.colorTheme" = "Catppuccin Macchiato";
+      "workbench.colorTheme" = "Catppuccin Mocha";
       "workbench.editor.empty.hint" = "hidden";
-      "workbench.iconTheme" = "catppuccin-macchiato";
+      "workbench.iconTheme" = "catppuccin-mocha";
       "workbench.layoutControl.enabled" = false;
       "workbench.panel.defaultLocation" = "bottom";
       "workbench.sideBar.location" = "left";

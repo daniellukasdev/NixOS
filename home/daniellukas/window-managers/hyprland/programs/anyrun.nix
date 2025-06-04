@@ -45,7 +45,7 @@
       /* Global */
       * {
         all: unset;
-        font-family: "MapleMono-NF", sans-serif;
+        font-family: "Poppins", sans-serif;
         font-size: 11pt;
         font-weight: 500;
         transition: 300ms;

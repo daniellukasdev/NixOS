@@ -12,12 +12,12 @@
 
   xdg.configFile = {
     "Kvantum" = {
-      source = "${pkgs.colloid-kde}/share/Kvantum";
+      source = "${pkgs.whitesur-kde}/share/Kvantum";
       recursive = true;
     };
 
     "Kvantum/kvantum.kvconfig".text = lib.generators.toINI {} {
-      General.theme = "ColloidDark";
+      General.theme = "WhiteSurDark";
     };
 
     "qt5ct/qt5ct.conf".text = lib.generators.toINI {} {
@@ -29,7 +29,7 @@
       };
 
       Fonts = {
-        fixed = ''"MapleMono-NF,12,-1,5,50,0,0,0,0,0,Regular"'';
+        fixed = ''"Maple Mono NF,12,-1,5,50,0,0,0,0,0,Regular"'';
         general = ''"Poppins,12,-1,5,50,0,0,0,0,0"'';
       };
     };
@@ -43,7 +43,7 @@
       };
 
       Fonts = {
-        fixed = ''"MapleMono-NF,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,Regular"'';
+        fixed = ''"Maple Mono NF,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,Regular"'';
         general = ''"Poppins,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,Regular"'';
       };
     };

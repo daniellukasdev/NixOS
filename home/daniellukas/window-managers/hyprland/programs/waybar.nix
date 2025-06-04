@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: let
-  inherit (config.theme.colorscheme) rgbaColors rgba48Colors rgbaAltColors xcolors;
+  inherit (config.theme.colorscheme) rgbaColors rgbaAltColors xcolors;
 in {
   programs.waybar = {
     enable = true;
@@ -19,14 +19,12 @@ in {
         fixed-center = true;
         gtk-layer-shell = true;
         spacing = 0;
-        margin-top = 0;
+        margin-top = 6;
         margin-bottom = 0;
-        margin-left = 0;
-        margin-right = 0;
+        margin-left = 6;
+        margin-right = 6;
         modules-left = [
           "image"
-          # "hyprland/workspaces"
-          # "idle_inhibitor"
           "hyprland/window"
         ];
         modules-center = [
@@ -50,6 +48,13 @@ in {
           tooltip = false;
         };
 
+        "hyprland/window" = {
+          format = "{class}";
+          icon = false;
+          icon-size = 24;
+          separate-outputs = true;
+        };
+
         "hyprland/workspaces" = {
           format = "{id}";
         };
@@ -63,13 +68,6 @@ in {
             activated = "";
             deactivated = "";
           };
-        };
-
-        "hyprland/window" = {
-          format = "{class}";
-          icon = false;
-          icon-size = 24;
-          separate-outputs = true;
         };
 
         "bluetooth" = {
@@ -210,7 +208,7 @@ in {
             mode = "month";
             on-scroll = 1;
           };
-          format = "{:%a %b %d %I:%M %p}";
+          format = "{:%a %b %d   %I:%M %p}";
           tooltip-format = "{calendar}";
         };
 
@@ -261,10 +259,20 @@ in {
       /* Global */
       * {
         all: unset;
-        font-family: "MapleMono-NF", sans-serif;
+        font-family: "Poppins", sans-serif;
         font-size: 13pt;
         font-weight: 600;
       }
+
+      /* Waybar */
+
+      window#waybar {
+        background: ${rgbaAltColors.black2};
+        border-radius: 10px;
+      }
+
+      /* window#waybar {
+      } */
 
       /* Menu */
 
@@ -311,12 +319,6 @@ in {
         margin: 0.5rem;
       }
 
-      /* Waybar */
-
-      window#waybar {
-        background: ${rgba48Colors.black0};
-      }
-
       .modules-left {
         padding-left: 0.25rem;
         padding-right: 0.5rem;
@@ -355,6 +357,7 @@ in {
         transition: 300ms linear;
       }
 
+      #window,
       #workspaces,
       #workspaces button,
       #bluetooth,
@@ -369,13 +372,7 @@ in {
         margin: 0.36rem 0.24rem;
       }
 
-      #workspaces {
-        background: lighter(${rgbaAltColors.gray1});
-        border-radius: 1rem;
-      }
-
       #image,
-      #window,
       #network.address,
       #wireplumber.volume,
       #backlight.percent,
@@ -412,7 +409,26 @@ in {
         background: transparent;
       }
 
+      /* Window */
+
+      #window {
+        padding: 0.24rem 0.84rem;
+        color: ${xcolors.white};
+        /* background: lighter(${rgbaAltColors.gray0}); */
+        border-radius: 0.24rem;
+      }
+
+      /* make window module transparent when no windows present */
+      window#waybar.empty #window {
+          background-color: transparent;
+      }
+
       /* Workspaces */
+
+      #workspaces {
+        background: lighter(${rgbaAltColors.gray1});
+        border-radius: 1rem;
+      }
 
       #workspaces button {
         margin: 0;
@@ -426,18 +442,20 @@ in {
       }
 
       .modules-center #workspaces button:first-child {
+        padding-left: 0.48rem;
         border-top-left-radius: 1rem;
         border-bottom-left-radius: 1rem;
       }
 
       .modules-center #workspaces button:last-child {
+        padding-right: 0.48rem;
         border-top-right-radius: 1rem;
         border-bottom-right-radius: 1rem;
       }
 
       #workspaces button label {
         font-weight: 800;
-        color: ${rgbaAltColors.white};
+        color: lighter(${rgbaAltColors.gray2});
         transition: 300ms linear;
       }
 
@@ -455,6 +473,7 @@ in {
 
       #workspaces button.urgent,
       #workspaces button.urgent:hover {
+        color: lighter(${rgbaAltColors.yellow});
         background: ${rgbaAltColors.red};
       }
 

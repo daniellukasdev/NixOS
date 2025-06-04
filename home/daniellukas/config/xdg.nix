@@ -16,6 +16,7 @@
       audioPlayer = ["io.bassi.Amberol"];
       videoPlayer = ["io.github.celluloid_player.Celluloid"];
       webBrowser = ["firefox"];
+      fileManager = ["org.gnome.Nautilus"];
 
       xdgAssociations = type: program: list:
         builtins.listToAttrs (map (e: {
@@ -49,7 +50,7 @@
       associations = builtins.mapAttrs (_: v: (map (e: "${e}.desktop") v)) ({
           "text/html" = webBrowser;
           "text/plain" = ["codium"];
-          "inode/directory" = ["thunar"];
+          "inode/directory" = fileManager;
         }
         // image
         // audio

@@ -6,6 +6,7 @@
 
     ./programs/dconf.nix
     ./programs/gnupg.nix
+    ./programs/nautilus.nix
     ./programs/thunar.nix
     ./services/blueman.nix
     ./services/dbus.nix
@@ -20,7 +21,7 @@
     ./virtualisation/podman.nix
 
     ../config/fonts
-    # ../config/hardware/acpi_call
+    ../config/hardware/acpi_call
     ../config/hardware/bluetooth
     ../config/hardware/cpu/intel
     ../config/hardware/fingerprint-reader
@@ -30,7 +31,7 @@
     ../config/window-managers/hyprland
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_xanmod_stable;
+  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
 
   hardware = {
     graphics = {

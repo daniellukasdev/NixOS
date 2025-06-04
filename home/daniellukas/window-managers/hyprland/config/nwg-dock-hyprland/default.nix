@@ -25,10 +25,10 @@ in {
     }
 
     window {
-      background: ${rgbaColors.black1};
-      border: 0.08rem solid ${rgbaColors.gray0};
+      background: ${rgbaColors.black3};
+      border: 0.08rem solid ${rgbaColors.gray1};
       border-radius: 14px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 2px 8px ${rgbaAltColors.black0};
     }
 
     #box {
@@ -89,7 +89,7 @@ in {
   '';
 
   home.file.".cache/nwg-dock-pinned".text = ''
-    thunar
+    org.gnome.Nautilus
     codium
     1Password
     obsidian

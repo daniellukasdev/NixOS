@@ -5,13 +5,9 @@
 }: {
   services.dunst = {
     enable = true;
-    # iconTheme = {
-    #   name = "Papirus-Dark";
-    #   package = pkgs.papirus-icon-theme;
-    # };
     iconTheme = {
-      name = "Colloid-Dark";
-      package = pkgs.colloid-icon-theme;
+      name = "WhiteSur";
+      package = pkgs.whitesur-icon-theme;
     };
     settings = let
       inherit (config.theme.colorscheme) xcolors;
@@ -22,7 +18,7 @@
         ellipsize = "middle";
         enable_recursive_icon_lookup = true;
         follow = "mouse";
-        font = "MapleMono-NF 12";
+        font = "Poppins 12";
         force_xwayland = false;
         format = "<b>%a</b>\\n<i>%s</i>\\n%b";
         frame_color = "${xcolors.gray0}";

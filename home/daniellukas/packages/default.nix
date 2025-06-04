@@ -21,9 +21,9 @@
     brave
     celluloid
     cloudflared
-    colloid-gtk-theme
-    colloid-icon-theme
     dbmate
+    dconf2nix
+    dconf-editor
     discord
     du-dust
     duf
@@ -54,9 +54,13 @@
     libnotify
     loupe
     nodejs
+    nautilus
+    nautilus-open-any-terminal
+    nautilus-python
     nwg-look
-    # nwg-launchers
+    nwg-launchers
     nwg-dock-hyprland
+    nwg-drawer
     obsidian
     openssl
     ouch
@@ -82,7 +86,6 @@
     spotify
     swappy
     syncthing
-    tdesktop
     trash-cli
     tree
     typst
@@ -92,6 +95,7 @@
     watchexec
     wget
     wf-recorder
+    whitesur-gtk-theme
     wl-clipboard
     wrk
     xh

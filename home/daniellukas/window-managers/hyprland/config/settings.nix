@@ -32,7 +32,7 @@
 
     general = {
       gaps_in = 4;
-      gaps_out = 8;
+      gaps_out = 6;
 
       border_size = 1;
       "col.active_border" = "rgb(${colors.gray0})";
@@ -74,8 +74,8 @@
         noise = 0.048;
         contrast = 1.24;
         brightness = 1.24;
-        vibrancy = 0.36;
-        vibrancy_darkness = 0;
+        vibrancy = 0.6;
+        vibrancy_darkness = 0.36;
       };
 
       shadow = {
@@ -163,7 +163,7 @@
         bar_part_of_window = true;
         bar_precedence_over_border = true;
         bar_text_size = "12";
-        bar_text_font = "MapleMono-NF Bold";
+        bar_text_font = "Poppins Bold";
         bar_text_align = "center";
         "col.text" = "rgb(${colors.white})";
         hyprbars-button = [

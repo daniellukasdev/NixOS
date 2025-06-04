@@ -2,7 +2,7 @@
   programs.hyprlock = {
     enable = true;
     settings = let
-      inherit (config.theme.colorscheme) colors rgba48Colors rgbaAltColors;
+      inherit (config.theme.colorscheme) colors rgbaColors rgbaAltColors;
     in {
       general = {
         disable_loading_bar = true;
@@ -12,9 +12,9 @@
       background = [
         {
           monitor = "";
-          path = "screenshot";
+          path = "${config.theme.wallpaper}";
           blur_passes = 3;
-          blur_size = 8;
+          blur_size = 6;
           new_optimizations = true;
           ignore_opacity = false;
         }
@@ -44,7 +44,7 @@
         {
           monitor = "";
           text = "cmd[update:3600000] date +'%A, %B %d'";
-          font_family = "MapleMono-NF Bold";
+          font_family = "Crimson Pro Font Bold";
           font_size = 36;
           color = "rgb(${colors.white})";
           position = "0, -300";
@@ -54,7 +54,7 @@
         {
           monitor = "";
           text = "$TIME12";
-          font_family = "MapleMono-NF Bold";
+          font_family = "Crimson Pro Font Bold";
           font_size = 132;
           color = "rgb(${colors.white})";
           position = "0, -400";
@@ -64,7 +64,7 @@
         {
           monitor = "";
           text = "   $USER";
-          font_family = "MapleMono-NF Bold";
+          font_family = "Crimson Pro Font Bold";
           font_size = 24;
           color = "rgb(${colors.white})";
           position = "0, 100";
@@ -76,10 +76,10 @@
         {
           monitor = "";
           size = "1024, 512";
-          color = "${rgbaAltColors.black0}";
+          color = "${rgbaAltColors.black2}";
           rounding = 24; # circle
           border_size = 1;
-          border_color = "${rgba48Colors.gray0}";
+          border_color = "${rgbaColors.gray0}";
 
           position = "0, 0";
           halign = "center";
