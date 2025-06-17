@@ -2,6 +2,7 @@
   wayland.windowManager.hyprland.settings = let
     pointer = config.home.pointerCursor;
     inherit (config.theme.colorscheme) colors rgbaColors;
+    inherit (config.theme.style.variables) blurPasses blurSize borderSize;
   in {
     cursor = {
       no_hardware_cursors = true;
@@ -34,7 +35,7 @@
       gaps_in = 4;
       gaps_out = 6;
 
-      border_size = 1;
+      border_size = "${toString borderSize}";
       "col.active_border" = "rgb(${colors.gray0})";
       "col.inactive_border" = "rgb(${colors.black4})";
 
@@ -66,23 +67,24 @@
 
       blur = {
         enabled = true;
-        size = 12;
-        passes = 4;
+        size = blurSize;
+        passes = blurPasses;
         new_optimizations = true;
         ignore_opacity = false;
         xray = false;
-        noise = 0.048;
-        contrast = 1.24;
-        brightness = 1.24;
-        vibrancy = 0.6;
-        vibrancy_darkness = 0.36;
+        noise = 0.024;
+        contrast = 0.96;
+        brightness = 0.96;
+        vibrancy = 0;
+        vibrancy_darkness = 0;
       };
 
       shadow = {
         enabled = true;
-        range = 30;
-        render_power = 3;
+        range = 20;
+        render_power = 4;
         color = "${rgbaColors.black1}";
+        ignore_window = true;
       };
     };
 
@@ -148,30 +150,30 @@
         # you can add up to 9 borders
         col.border_1 = "rgb(${colors.black0})";
         # -1 means "default" as in the one defined in general:border_size
-        border_size_1 = 1;
+        border_size_1 = "${toString borderSize}";
         natural_rounding = "no";
       };
 
-      hyprbars = {
-        bar_blur = false;
-        bar_buttons_alignment = "left";
-        bar_button_padding = "10";
-        bar_color = "rgb(${colors.black2})";
-        bar_title_enabled = true;
-        bar_height = "36";
-        bar_padding = "10";
-        bar_part_of_window = true;
-        bar_precedence_over_border = true;
-        bar_text_size = "12";
-        bar_text_font = "Poppins Bold";
-        bar_text_align = "center";
-        "col.text" = "rgb(${colors.white})";
-        hyprbars-button = [
-          "rgb(${colors.red}), 12, , hyprctl dispatch killactive"
-          "rgb(${colors.yellow}), 12, , hyprctl dispatch togglefloating"
-          "rgb(${colors.green}), 12, , hyprctl dispatch fullscreen"
-        ];
-      };
+      # hyprbars = {
+      #   bar_blur = true;
+      #   bar_buttons_alignment = "left";
+      #   bar_button_padding = "8";
+      #   bar_color = "${rgbaColors.black3}";
+      #   bar_title_enabled = true;
+      #   bar_height = "32";
+      #   bar_padding = "8";
+      #   bar_part_of_window = true;
+      #   bar_precedence_over_border = true;
+      #   bar_text_size = "12";
+      #   bar_text_font = "Poppins Bold";
+      #   bar_text_align = "center";
+      #   "col.text" = "rgb(${colors.white})";
+      #   hyprbars-button = [
+      #     "rgb(${colors.red}), 12, , hyprctl dispatch killactive"
+      #     "rgb(${colors.yellow}), 12, , hyprctl dispatch togglefloating"
+      #     "rgb(${colors.green}), 12, , hyprctl dispatch fullscreen"
+      #   ];
+      # };
 
       # hyprexpo = {
       #   columns = 3;
@@ -186,8 +188,8 @@
       overview = {
         # Colors
 
-        panelColor = "${rgbaColors.black0}";
-        # panelBorderColor = "${rgbaColors.black4}";
+        panelColor = "${rgbaColors.black2}";
+        # panelBorderColor = "${rgbaAltColors.white}";
         # workspaceActiveBackground
         # workspaceInactiveBackground
         workspaceActiveBorder = "${rgbaColors.white}";

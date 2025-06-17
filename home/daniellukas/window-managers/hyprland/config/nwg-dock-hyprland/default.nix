@@ -5,30 +5,23 @@
 }: let
   inherit
     (config.theme.colorscheme)
-    rgbaColors
+    # rgbaColors
     rgba48Colors
     rgbaAltColors
     xcolors
     ;
+  inherit (config.theme.style.variables) BorderSolidOverlayDark overlayBaseColorHexAlpha borderSolidOverlayLightAlpha;
 in {
-  # window {
-  #     background: ${rgba48Colors.black0};
-  #     border: 0.08rem solid ${rgbaColors.gray2};
-  #     border-style: solid;
-  #     border-radius: 16px;
-  #     border-color: ${rgbaColors.gray2};
-  #     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  #   }
   home.file.".config/nwg-dock-hyprland/style.css".text = ''
     * {
       transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     window {
-      background: ${rgbaColors.black3};
-      border: 0.08rem solid ${rgbaColors.gray1};
+      background: ${overlayBaseColorHexAlpha};
+      border: ${BorderSolidOverlayDark};
       border-radius: 14px;
-      box-shadow: 0 2px 8px ${rgbaAltColors.black0};
+      box-shadow: ${borderSolidOverlayLightAlpha};
     }
 
     #box {
@@ -67,7 +60,7 @@ in {
     }
 
     .workspace-dot {
-      background-color: ${rgbaAltColors.gray1};
+      background-color: ${xcolors.gray1};
       border-radius: 50%;
     }
 
@@ -76,7 +69,7 @@ in {
     }
 
     .workspace-dot.inactive {
-      background-color: ${rgbaAltColors.gray0};
+      background-color: ${xcolors.gray0};
     }
 
     tooltip, .tooltip, #tooltip, popover, .popover {

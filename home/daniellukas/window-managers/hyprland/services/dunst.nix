@@ -20,6 +20,7 @@
         follow = "mouse";
         font = "Poppins 12";
         force_xwayland = false;
+        foreground = "${xcolors.white}";
         format = "<b>%a</b>\\n<i>%s</i>\\n%b";
         frame_color = "${xcolors.gray0}";
         frame_width = 2;
@@ -28,7 +29,7 @@
         horizontal_padding = 12;
         icon_corner_radius = 0;
         icon_position = "left";
-        icon_theme = "Papirus-Dark";
+        icon_theme = "WhiteSur";
         ignore_newline = false;
         indicate_hidden = true;
         layer = "overlay";
@@ -63,7 +64,7 @@
       fullscreen_delay_everything.fullscreen = "delay";
 
       urgency_low = {
-        background = "${xcolors.black0}";
+        background = "${xcolors.black1}";
         foreground = "${xcolors.white}";
         highlight = "${xcolors.blue}";
         frame_color = "${xcolors.gray0}";
@@ -71,7 +72,7 @@
       };
 
       urgency_normal = {
-        background = "${xcolors.black0}";
+        background = "${xcolors.black1}";
         foreground = "${xcolors.white}";
         highlight = "${xcolors.blue}";
         frame_color = "${xcolors.gray0}";
@@ -79,7 +80,7 @@
       };
 
       urgency_critical = {
-        background = "${xcolors.black0}";
+        background = "${xcolors.black1}";
         foreground = "${xcolors.white}";
         highlight = "${xcolors.blue}";
         frame_color = "${xcolors.red}";

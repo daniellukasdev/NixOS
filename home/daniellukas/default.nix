@@ -1,6 +1,7 @@
 {lib, ...}: let
   colorsDef = import ../modules/theme/colors.nix;
   colorlib = import ../modules/theme/colorsLib.nix lib;
+  variableDefs = import ../modules/theme/style/variables;
 in {
   imports = [
     ./config
@@ -23,6 +24,10 @@ in {
       rgbaColors = lib.mapAttrsRecursive (_: colorlib.rgba) colors;
       rgba48Colors = lib.mapAttrsRecursive (_: colorlib.rgba48) colors;
       rgbaAltColors = lib.mapAttrsRecursive (_: colorlib.rgba48) colors;
+    };
+
+    style = {
+      variables = variableDefs;
     };
 
     wallpaper = ./wallpapers/SequoiaDark.png;

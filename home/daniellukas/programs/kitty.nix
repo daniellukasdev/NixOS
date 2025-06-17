@@ -3,6 +3,7 @@
     enable = true;
     settings = let
       inherit (config.theme.colorscheme) xcolors;
+      inherit (config.theme.style.variables) windowOpacity;
     in {
       # Fonts
       font_family = "Maple Mono NF";
@@ -53,7 +54,7 @@
       tab_title_template = "{title}{' :{}:'.format(num_windows) if num_windows > 1 else ''}";
 
       # Color scheme
-      background_opacity = "0.96";
+      background_opacity = "${toString windowOpacity}";
       foreground = xcolors.white;
       background = xcolors.black2;
       selection_foreground = xcolors.black2;

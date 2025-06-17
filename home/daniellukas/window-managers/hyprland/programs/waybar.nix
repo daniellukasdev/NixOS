@@ -4,6 +4,18 @@
   ...
 }: let
   inherit (config.theme.colorscheme) rgbaColors rgbaAltColors xcolors;
+  inherit
+    (config.theme.style.variables)
+    baseColorHexAlpha
+    borderSolidDarkAlpha
+    borderSolidLightAlpha
+    inherentColorHex
+    inherentColorHexAlpha
+    inactiveColorHexAlpha
+    overlayBaseColorHexAlpha
+    BorderSolidOverlayDark
+    borderSolidOverlayLightAlpha
+    ;
 in {
   programs.waybar = {
     enable = true;
@@ -201,8 +213,8 @@ in {
           calendar = {
             format = {
               days = "<span color='${xcolors.gray1}'><b>{}</b></span>";
-              months = "<span color='${xcolors.white}'><b>{}</b></span>";
-              today = "<span color='${xcolors.white}'><b><u>{}</u></b></span>";
+              months = "<span color='${inherentColorHex}'><b>{}</b></span>";
+              today = "<span color='${inherentColorHex}'><b><u>{}</u></b></span>";
               weekdays = "<span color='${xcolors.blue}'><b>{}</b></span>";
             };
             mode = "month";
@@ -267,8 +279,10 @@ in {
       /* Waybar */
 
       window#waybar {
-        background: ${rgbaAltColors.black2};
+        background: ${baseColorHexAlpha};
+        border: ${borderSolidDarkAlpha};
         border-radius: 10px;
+        box-shadow: ${borderSolidLightAlpha};
       }
 
       /* window#waybar {
@@ -277,12 +291,12 @@ in {
       /* Menu */
 
       menu {
-        background: ${rgbaColors.black0};
+        background: ${baseColorHexAlpha};
         border-radius: 12px;
       }
 
       menu separator {
-        background: ${rgbaColors.black0};
+        background: ${baseColorHexAlpha};
       }
 
       menu menuitem {
@@ -310,9 +324,10 @@ in {
       /* Tooltip */
 
       tooltip {
-        background: ${xcolors.black3};
-        border: 0.08rem solid ${xcolors.gray0};
+        background: ${overlayBaseColorHexAlpha};
+        border: ${BorderSolidOverlayDark};
         border-radius: 12px;
+        box-shadow: ${borderSolidOverlayLightAlpha};
       }
 
       tooltip label {
@@ -354,7 +369,7 @@ in {
       #custom-reboot,
       #custom-power {
         border-radius: 8px;
-        transition: 300ms linear;
+        transition: all 300ms;
       }
 
       #window,
@@ -396,16 +411,16 @@ in {
         padding: 0.12rem 0.24rem;
         min-width: 1.5rem;
         font-size: 16pt;
-        color: ${xcolors.white};
+        color: ${inherentColorHex};
         border-radius: 8px;
-        transition: 300ms linear;
+        transition: all 300ms;
       }
 
       #custom-exit,
       #custom-lock,
       #custom-suspend,
       #custom-reboot {
-        color: ${rgbaAltColors.white};
+        color: ${inherentColorHexAlpha};
         background: transparent;
       }
 
@@ -413,8 +428,7 @@ in {
 
       #window {
         padding: 0.24rem 0.84rem;
-        color: ${xcolors.white};
-        /* background: lighter(${rgbaAltColors.gray0}); */
+        color: ${inherentColorHex};
         border-radius: 0.24rem;
       }
 
@@ -426,8 +440,10 @@ in {
       /* Workspaces */
 
       #workspaces {
-        background: lighter(${rgbaAltColors.gray1});
+        background: alpha(${inherentColorHex}, 0);
+        border: 1px solid ${inherentColorHexAlpha};
         border-radius: 1rem;
+        transition: background 300ms;
       }
 
       #workspaces button {
@@ -435,6 +451,7 @@ in {
         padding: 0.12rem 0.24rem;
         min-width: 1.5rem;
         background: transparent;
+        transition: border-radius 0ms, background 300ms;
       }
 
       .modules-center #workspaces button {
@@ -455,20 +472,20 @@ in {
 
       #workspaces button label {
         font-weight: 800;
-        color: lighter(${rgbaAltColors.gray2});
-        transition: 300ms linear;
+        color: ${inactiveColorHexAlpha};
+        transition: color 300ms;
       }
 
       #workspaces button.active label {
-        color: ${xcolors.white};
+        color: ${inherentColorHex};
       }
 
-      #workspaces button.empty label {
+      /* #workspaces button.empty label {
         color: ${rgbaAltColors.white};
-      }
+      } */
 
       #workspaces button.urgent label {
-        color: ${rgbaColors.white};
+        color: ${inherentColorHex};
       }
 
       #workspaces button.urgent,
@@ -478,17 +495,18 @@ in {
       }
 
       #workspaces button.active {
-        background: lighter(${rgbaAltColors.gray1});
+        /* background: lighter(${rgbaAltColors.gray1}); */
+        background: ${inherentColorHexAlpha};
       }
 
       /* Idle Inhibitor */
 
       #idle_inhibitor {
-        color: ${xcolors.white};
+        color: ${inherentColorHex};
       }
 
       #idle_inhibitor.deactivated {
-        color: ${rgbaAltColors.white};
+        color: ${inactiveColorHexAlpha};
       }
 
       /* Bluetooth */
@@ -507,7 +525,7 @@ in {
 
       #bluetooth.on,
       #bluetooth.connected {
-        color: ${xcolors.white};
+        color: ${inherentColorHex};
       }
 
       #bluetooth.on,
@@ -533,7 +551,7 @@ in {
       /* Hover effects */
 
       #workspaces button:hover {
-        background: lighter(${rgbaAltColors.gray1});
+        background: ${inherentColorHexAlpha};
       }
 
       #network.icon:hover,
@@ -543,7 +561,7 @@ in {
       #custom-suspend:hover,
       #custom-reboot:hover,
       #custom-power:hover {
-        color: ${xcolors.white};
+        color: ${inherentColorHex};
 
       }
 
@@ -554,23 +572,23 @@ in {
       #custom-suspend:hover label,
       #custom-reboot:hover label,
       #custom-power:hover label {
-        color: ${xcolors.white};
+        color: ${inherentColorHex};
       }
 
       #workspaces button:hover label,
       #workspaces button.active:hover label,
       #workspaces button.empty:hover label,
       #workspaces button.urgent:hover label {
-        color: ${xcolors.white};
+        color: ${inherentColorHex};
       }
 
       #idle_inhibitor:hover,
       #idle_inhibitor.deactivated:hover {
-        color: ${xcolors.white};
+        color: ${inherentColorHex};
       }
 
       #powermenu:hover {
-        background: lighter(${rgbaAltColors.gray1});
+        background: ${inherentColorHexAlpha};
       }
     '';
   };

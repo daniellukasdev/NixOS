@@ -3,6 +3,8 @@
     enable = true;
     settings = let
       inherit (config.theme.colorscheme) colors rgbaColors rgbaAltColors;
+      inherit (config.theme.style.variables) baseColor blurPasses blurSize borderSize;
+      # inherit (config.theme) wallpaper;
     in {
       general = {
         disable_loading_bar = true;
@@ -12,9 +14,9 @@
       background = [
         {
           monitor = "";
-          path = "${config.theme.wallpaper}";
-          blur_passes = 3;
-          blur_size = 6;
+          path = "screenshot";
+          blur_passes = blurPasses;
+          blur_size = blurSize;
           new_optimizations = true;
           ignore_opacity = false;
         }
@@ -25,7 +27,7 @@
           monitor = "";
           size = "300, 50";
           outline_thickness = 2;
-          outer_color = "rgb(${colors.gray0})";
+          outer_color = "rgb(${baseColor})";
           inner_color = "rgb(${colors.black0})";
           font_color = "rgb(${colors.white})";
           check_color = "rgb(${colors.blue})";
@@ -75,15 +77,35 @@
       shape = [
         {
           monitor = "";
-          size = "1024, 512";
-          color = "${rgbaAltColors.black2}";
+          size = "1027, 515";
+          color = "${rgbaAltColors.black3}";
           rounding = 24; # circle
-          border_size = 1;
-          border_color = "${rgbaColors.gray0}";
+          border_size = borderSize;
+          border_color = "${rgbaColors.black0}";
 
           position = "0, 0";
           halign = "center";
           valign = "center";
+          zindex = 0;
+
+          shadow_passes = 2;
+          shadow_size = 4;
+          shadow_color = "${rgbaColors.black1}";
+          shadow_boost = 0.48;
+        }
+        {
+          monitor = "";
+          size = "1024, 512";
+          # color = "${rgbaAltColors.black3}";
+          color = "none";
+          rounding = 24; # circle
+          border_size = borderSize;
+          border_color = "${rgbaColors.gray1}";
+
+          position = "0, 0";
+          halign = "center";
+          valign = "center";
+          zindex = 1;
         }
       ];
     };

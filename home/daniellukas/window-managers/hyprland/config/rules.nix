@@ -1,18 +1,20 @@
-{
-  wayland.windowManager.hyprland.settings = {
+{config, ...}: {
+  wayland.windowManager.hyprland.settings = let
+    inherit (config.theme.style.variables) baseOpacityRule dockOpacity;
+  in {
     layerrule = [
       "blur, (waybar)"
       "ignorezero, (waybar)"
+      "ignorealpha ${baseOpacityRule}, (waybar)"
       "blur, (nwg-dock)"
       "ignorezero, (nwg-dock)"
-      "ignorealpha 0.47, (nwg-dock)"
+      "ignorealpha ${dockOpacity}, (nwg-dock)"
       # "blur, (gtk-layer-shell)"
       # "ignorezero, (gtk-layer-shell)"
       # "ignorealpha[1], (gtk-layer-shell)"
-      # "blur, (hyprbars)"
       "blur, (anyrun)"
       "ignorezero, (anyrun)"
-      # "blurpopups, waybar"
+      "blurpopups, (waybar)"
     ];
     windowrulev2 = [
       "dimaround, class:^(gcr-prompter)$"
