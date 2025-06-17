@@ -7,6 +7,15 @@ with lib; rec {
 
   # convert rrggbb hex to rgba(r, g, b, a) css
   rgba = c: let
+    inherit (import ./style/variables/opacity.nix) windowOpacity;
+    r = toString (hexToDec (__substring 0 2 c));
+    g = toString (hexToDec (__substring 2 2 c));
+    b = toString (hexToDec (__substring 4 2 c));
+    res = "rgba(${r}, ${g}, ${b}, ${toString windowOpacity})";
+  in
+    res;
+
+  rgba72 = c: let
     r = toString (hexToDec (__substring 0 2 c));
     g = toString (hexToDec (__substring 2 2 c));
     b = toString (hexToDec (__substring 4 2 c));
