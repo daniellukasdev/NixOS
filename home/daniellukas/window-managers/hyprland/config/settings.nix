@@ -28,7 +28,7 @@
 
     exec-once = [
       "hyprctl setcursor ${pointer.name} ${toString pointer.size}"
-      "nice -1 nwg-dock-hyprland -i 60 -x -mb 8"
+      "nice -1 nwg-dock-hyprland -i 48 -x -mb 8"
     ];
 
     general = {
@@ -93,16 +93,17 @@
       first_launch_animation = true;
 
       bezier = [
-        "easeOutQuart, 0.25, 1, 0.5, 1"
+        "easeInOutCubic, 0.645, 0.045, 0.355, 1"
+        "easeOutCubic, 0.215, 0.61, 0.355, 1"
       ];
 
       animation = [
-        "windows, 1, 4, easeOutQuart, slide"
-        "layers, 1, 4, easeOutQuart, fade"
-        "fade, 1, 4, easeOutQuart"
-        "border, 1, 6, easeOutQuart"
-        "workspaces, 1, 6, easeOutQuart, slide"
-        "specialWorkspace, 1, 6, easeOutQuart, slidevert"
+        "windows, 1, 6, easeOutCubic, slide"
+        "layers, 1, 6, easeOutCubic, fade"
+        "fade, 1, 6, easeOutCubic"
+        "border, 1, 4, easeOutCubic"
+        "workspaces, 1, 6, easeOutCubic, slide"
+        "specialWorkspace, 1, 6, easeOutCubic, slidevert"
       ];
     };
 
@@ -122,6 +123,7 @@
 
     gestures = {
       workspace_swipe = true;
+      workspace_swipe_distance = 500;
       workspace_swipe_forever = true;
     };
 
@@ -195,6 +197,7 @@
         workspaceActiveBorder = "${rgbaColors.white}";
         workspaceInactiveBorder = "${rgbaColors.gray0}";
         # disableBlur
+        dragAlpha = 0.72;
 
         # Layout
 
@@ -228,8 +231,8 @@
         # exitOnSwitch
         reverseSwipe = true;
         showNewWorkspace = true;
-        # showEmptyWorkspace
-        # showSpecialWorkspace
+        showEmptyWorkspace = true;
+        showSpecialWorkspace = true;
         # switchOnDrop
       };
     };

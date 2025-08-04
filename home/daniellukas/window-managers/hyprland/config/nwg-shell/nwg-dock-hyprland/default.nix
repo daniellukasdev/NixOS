@@ -1,8 +1,4 @@
-{
-  config,
-  # pkgs,
-  ...
-}: let
+{config, ...}: let
   inherit
     (config.theme.colorscheme)
     # rgbaColors
@@ -10,7 +6,7 @@
     rgbaAltColors
     xcolors
     ;
-  inherit (config.theme.style.variables) BorderSolidOverlayDark overlayBaseColorHexAlpha borderSolidOverlayLightAlpha;
+  inherit (config.theme.style.variables) borderSolidOverlayDark overlayBaseColorHexAlpha borderSolidOverlayLightAlpha;
 in {
   home.file.".config/nwg-dock-hyprland/style.css".text = ''
     * {
@@ -19,7 +15,7 @@ in {
 
     window {
       background: ${overlayBaseColorHexAlpha};
-      border: ${BorderSolidOverlayDark};
+      border: ${borderSolidOverlayDark};
       border-radius: 14px;
       box-shadow: ${borderSolidOverlayLightAlpha};
     }
@@ -95,5 +91,6 @@ in {
     Gimp-2.10
     org.inkscape.Inkscape
     spotify
+    nwg-drawer
   '';
 }

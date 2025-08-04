@@ -32,6 +32,7 @@ in {
 
     wallpaper = ./wallpapers/SequoiaDark.png;
   };
+  # wayland.windowManager.hyprland.importantPrefixes = ["output"];
 
   wayland.windowManager.hyprland.settings =
     # let
@@ -41,8 +42,31 @@ in {
     {
       monitor = [
         # name, resolution, position, scale
-        "eDP-1, preferred, auto, 1.600000"
+        "eDP-1, 3840x2400@59.994, 1280x1440, 1.600000"
+        "DP-3, 3840x2160@60, 0x0, 1.500000"
+        "DP-12, 3840x2160@60, 2560x0, 1.500000"
       ];
+
+      # monitorv2 = [
+      #   {
+      #     output = "eDP-1";
+      #     mode = "3840x2400@59.994";
+      #     position = "1280x1440";
+      #     scale = "1.600000";
+      #   }
+      #   {
+      #     output = "DP-3";
+      #     mode = "3840x2160@60";
+      #     position = "0x0";
+      #     scale = "1.500000";
+      #   }
+      #   {
+      #     output = "DP-12";
+      #     mode = "3840x2160@60";
+      #     position = "2560x0";
+      #     scale = "1.500000";
+      #   }
+      # ];
 
       device = {
         # accel_profile = "custom ${accelpoints}";

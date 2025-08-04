@@ -9,6 +9,9 @@
       "blur, (nwg-dock)"
       "ignorezero, (nwg-dock)"
       "ignorealpha ${dockOpacity}, (nwg-dock)"
+      "blur, (nwg-drawer)"
+      "ignorezero, (nwg-drawer)"
+      "ignorealpha ${dockOpacity}, (nwg-drawer)"
       # "blur, (gtk-layer-shell)"
       # "ignorezero, (gtk-layer-shell)"
       # "ignorealpha[1], (gtk-layer-shell)"
@@ -60,6 +63,31 @@
     workspace = [
       # "w[tv1], gapsout:0, gapsin:0"
       # "f[1], gapsout:0, gapsin:0"
+      "r[1-10], monitor:eDP-1"
+      "r[11-21], monitor:DP-3"
+      "r[22-32], monitor:DP-12"
+      # "1, monitor:eDP-1,default:true"
+      # "2, monitor:eDP-1"
+      # "3, monitor:eDP-1"
+      # "4, monitor:eDP-1"
+      # "5, monitor:eDP-1"
+      # "6, monitor:eDP-1"
+      # "7, monitor:eDP-1"
+      # "8, monitor:eDP-1"
+      # "9, monitor:eDP-1"
+      # "10, monitor:eDP-1"
+
+      # "11, monitor:DP-3,default:true"
+      # "12, monitor:DP-3"
+      # "13, monitor:DP-3"
+      # "14, monitor:DP-3"
+      # "15, monitor:DP-3"
+
+      # "16, monitor:DP-12,default:true"
+      # "17, monitor:DP-12"
+      # "18, monitor:DP-12"
+      # "19, monitor:DP-12"
+      # "20, monitor:DP-12"
     ];
   };
 }

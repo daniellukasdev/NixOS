@@ -5,11 +5,11 @@
 }: {
   imports = [
     ./config/binds.nix
-    ./config/nwg-dock-hyprland
+    ./config/nwg-shell
     ./config/rules.nix
     ./config/settings.nix
     ./programs/anyrun.nix
-    ./programs/waybar.nix
+    ./programs/waybar
     ./services/cliphist.nix
     ./services/dunst.nix
     ./services/hypridle.nix

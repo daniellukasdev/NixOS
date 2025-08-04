@@ -1,0 +1,290 @@
+/*******************  Global/Shared  *******************/
+
+* {
+  all: unset;
+  font-family: "Poppins", sans-serif;
+  font-size: 12pt;
+  font-weight: 600;
+}
+
+/*******************  Window  *******************/
+
+#window {
+  padding: 0.24rem 0.84rem;
+  border-radius: 0.24rem;
+}
+
+/* make window module transparent when no windows present */
+window#waybar.empty #window {
+  background-color: transparent;
+}
+
+/*******************  Waybar  *******************/
+
+window#waybar {
+  border-radius: 10px;
+}
+
+/*******************  Menu  *******************/
+
+menu {
+  border-radius: 12px;
+}
+
+menu menuitem {
+  background: transparent;
+  transition: 300ms linear;
+}
+
+menu menuitem:first-child {
+  border-radius: 12px 12px 0 0;
+}
+
+menu menuitem:last-child {
+  border-radius: 0 0 12px 12px;
+}
+
+menu menuitem:only-child {
+  border-radius: 12px;
+}
+
+/*******************  Tooltip  *******************/
+
+tooltip {
+  border-radius: 12px;
+}
+
+tooltip label {
+  margin: 0.5rem;
+}
+
+/****************************  Modules  ****************************/
+
+.modules-center {
+  border-radius: 2.48rem;
+}
+
+.modules-right {
+  margin-right: 0.48rem;
+}
+
+#workspaces,
+#workspaces button,
+#bluetooth,
+#idle_inhibitor,
+#network-modules,
+#wireplumber-modules,
+#backlight-modules,
+#battery-modules,
+#cpu-modules,
+#memory-modules,
+#tray,
+#clock,
+#powermenu,
+#custom-exit,
+#custom-lock,
+#custom-suspend,
+#custom-reboot,
+#custom-power,
+#control-panel {
+  border-radius: 6px;
+  transition: all 300ms;
+}
+
+#backlight.percent,
+#battery.capacity,
+#clock,
+#cpu.usage,
+#memory.percent,
+#network.address,
+#tray,
+#wireplumber.volume {
+  padding: 0.24rem 0.72rem;
+}
+
+#powermenu {
+  margin: 0.36rem;
+  padding: 0 0.48rem 0 0;
+}
+
+#custom-switch-off,
+#custom-switch-on,
+#bluetooth,
+#cpu.icon,
+#memory.icon,
+#idle_inhibitor,
+#network.icon,
+#wireplumber.icon,
+#backlight.icon,
+#battery.icon,
+#custom-icon,
+#custom-exit,
+#custom-lock,
+#custom-suspend,
+#custom-reboot,
+#custom-power {
+  padding: 0rem 0.24rem;
+  min-width: 1.5rem;
+  font-family: Maple Mono NF, mono-spaced;
+  transition: all 300ms;
+}
+
+#custom-switch-off,
+#custom-switch-on,
+#bluetooth,
+#cpu.icon,
+#memory.icon,
+#idle_inhibitor,
+#network.icon,
+#wireplumber.icon,
+#backlight.icon,
+#battery.icon,
+#custom-exit,
+#custom-lock {
+  font-size: 14pt;
+}
+
+#battery.icon,
+#custom-icon,
+#custom-power,
+#custom-reboot,
+#custom-suspend,
+#idle_inhibitor,
+#wireplumber.icon {
+  font-size: 18pt;
+}
+
+#custom-icon {
+  margin-left: 0.48rem;
+  margin-right: 0.24rem;
+}
+
+#custom-exit,
+#custom-lock,
+#custom-suspend,
+#custom-reboot,
+#custom-power {
+  background: transparent;
+}
+
+#cpu.icon,
+#memory.icon,
+#network.icon,
+#wireplumber.icon,
+#backlight.icon {
+  margin-left: 0.48rem;
+  margin-right: 0.48rem;
+}
+
+/*******************  Workspaces  *******************/
+
+#workspaces {
+  margin: 0.36rem;
+  font-weight: 600;
+  border-radius: 1.48rem;
+  transition: background 300ms;
+}
+
+#workspaces button {
+  margin: 0;
+  padding: 0.12rem 0.24rem;
+  min-width: 1.5rem;
+  background: transparent;
+  transition: border-radius 0ms, background 300ms;
+}
+
+.modules-center #workspaces button {
+  border-radius: 0;
+}
+
+.modules-center #workspaces button:first-child {
+  padding-left: 0.48rem;
+  border-top-left-radius: 1.48rem;
+  border-bottom-left-radius: 1.48rem;
+}
+
+.modules-center #workspaces button:last-child {
+  padding-right: 0.48rem;
+  border-top-right-radius: 1.48rem;
+  border-bottom-right-radius: 1.48rem;
+}
+
+#workspaces button label {
+  margin: 0;
+  padding: 0;
+  font-weight: 800;
+  transition: color 300ms;
+}
+
+/*******************  Idle Inhibitor   *******************/
+
+#idle_inhibitor {
+  margin: 0 0.72rem;
+}
+
+/*******************  Control Panel  *******************/
+
+#powermenu,
+#control-panel {
+  background: transparent;
+}
+
+#control-panel {
+  margin: 0.36rem;
+  padding: 0 0.24rem;
+}
+
+#switch-modules {
+  padding: 0;
+}
+
+#custom-switch-off,
+#custom-switch-on {
+  margin: 0;
+  padding: 0;
+  font-size: 14pt;
+  font-weight: 400;
+}
+
+#custom-switch-off {
+  margin-left: -2pt;
+  margin-bottom: -0.56rem;
+  font-size: 13pt;
+}
+
+#custom-switch-on {
+  margin-top: -0.56rem;
+  margin-right: 1pt;
+}
+
+/*******************  Bluetooth  *******************/
+
+/* #bluetooth
+#bluetooth.disabled
+#bluetooth.off
+#bluetooth.on
+#bluetooth.connected
+#bluetooth.discoverable
+#bluetooth.discovering
+#bluetooth.pairable
+#bluetooth.no-controller */
+
+/*******************  Systray  *******************/
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+}
+
+/*******************  Hover effects  *******************/
+
+#powermenu:hover #custom-icon {
+  padding-right: 0.6rem;
+}
+
+#control-panel:hover #custom-icon {
+  padding-left: 0.6rem;
+}
