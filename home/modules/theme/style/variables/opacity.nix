@@ -15,7 +15,7 @@ let
     inactiveOpacity = "${toString inactiveOpacity}";
     overlayOpacity = "${toString overlayOpacity}";
     overlayBorderOpacity = "${toString overlayBorderOpacity}";
-    windowOpacity = windowOpacity;
+    inherit windowOpacity;
     windowOpacityInt = builtins.floor (baseOpacity * 100);
   };
 in
