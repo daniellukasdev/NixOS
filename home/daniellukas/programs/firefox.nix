@@ -78,6 +78,7 @@
               "simple-tab-groups_drive4ik-browser-action"
             ];
             "nav-bar" = [
+              "sidebar-button"
               "back-button"
               "forward-button"
               "stop-reload-button"
