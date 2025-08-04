@@ -10,6 +10,7 @@
         alejandra.enable = true;
         deadnix.enable = true;
         nil.enable = true;
+        # nixd.enable = true;
         statix.enable = true;
       };
     };

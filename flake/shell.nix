@@ -18,6 +18,8 @@
         deadnix
         git
         nil
+        nixd
+        nixfmt
         statix
       ];
     };
