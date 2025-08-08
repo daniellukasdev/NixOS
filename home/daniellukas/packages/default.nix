@@ -42,6 +42,7 @@
     grimblast
     grex
     hoppscotch
+    hyprpicker
     imagemagick
     imv
     inkscape
@@ -95,10 +96,11 @@
     watchexec
     wget
     wf-recorder
-    whitesur-gtk-theme
+    # whitesur-gtk-theme
     wl-clipboard
     wrk
     xh
+    yo
     youtube-music
     yq
     yt-dlp

@@ -1,19 +1,17 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{config, ...}: let
+  iconTheme = config.gtk.iconTheme.name;
+in {
   services.dunst = {
     enable = true;
     iconTheme = {
-      name = "WhiteSur";
-      package = pkgs.whitesur-icon-theme;
+      name = "${iconTheme}";
+      inherit (config.gtk.iconTheme) package;
     };
     settings = let
       inherit (config.theme.colorscheme) xcolors;
     in {
       global = {
-        alignment = "left";
+        alignment = "center";
         corner_radius = 12;
         ellipsize = "middle";
         enable_recursive_icon_lookup = true;
@@ -28,15 +26,15 @@
         hide_duplicate_count = false;
         horizontal_padding = 12;
         icon_corner_radius = 0;
-        icon_position = "left";
-        icon_theme = "WhiteSur";
+        icon_position = "top";
+        icon_theme = "${iconTheme}";
         ignore_newline = false;
         indicate_hidden = true;
         layer = "overlay";
         line_height = 0;
         markup = "full";
-        max_icon_size = 64;
-        min_icon_size = 48;
+        max_icon_size = 84;
+        min_icon_size = 60;
         mouse_left_click = "do_action";
         mouse_middle_click = "close_all";
         mouse_right_click = "close_current";
