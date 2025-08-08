@@ -17,6 +17,6 @@ in rec {
   borderSolidLight = "${borderSizePx} solid ${borderColorHexLight}";
   borderSolidLightAlpha = "inset 0 0 0 ${borderSizePx} ${borderColorHexLightAlpha}";
   borderSolidOverlayAlpha = "inset 0 0 0 ${borderSizePx} ${borderColorHexDark}, inset 0 0 0 ${toString (borderSize * 2)} ${overlayBorderLightAlpha}";
-  BorderSolidOverlayDark = "${borderSizePx} solid ${borderColorHexDark}";
+  borderSolidOverlayDark = "${borderSizePx} solid ${borderColorHexDark}";
   borderSolidOverlayLightAlpha = "inset 0 0 0 ${borderSizePx} ${overlayBorderLightAlpha}";
 }
