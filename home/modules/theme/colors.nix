@@ -3,7 +3,7 @@
   # https://developer.apple.com/design/human-interface-guidelines/color
   rosewater = "66D4CF"; # #66D4CF # rgba(102, 212, 207, 1)
   flamingo = "B59469"; # #B59469 # rgba(181, 148, 105, 1)
-  pink = "F5C2E7"; # #FF6482 # rgba(255, 100, 130, 1)
+  pink = "FF6482"; # #FF6482 # rgba(255, 100, 130, 1)
   mauve = "DA8FCD"; # #DA8FCD # rgba(218, 143, 255, 1)
   red = "FF6961"; # #FF6961 # rgba(255, 105, 97, 1)
   maroon = "FF5067"; # #FF5067 # rgba(255, 80, 102, 1)
@@ -21,7 +21,7 @@
   black4 = "48484A"; # surface1 # #48484A # rgba(72, 72, 74, 1)
   gray0 = "6C6C70"; # surface2 # #6C6C70 # rgba(108, 108, 112, 1)
   gray1 = "AEAEB2"; # overlay0 # #AEAEB2 # rgba(174, 174, 178, 1)
-  gray2 = "D8D8DC"; # overlay1 # #D8D8DC # rgba(216, 216, 220, 1)
+  gray2 = "D8D8DC"; # overlay1 #D8D8DC # rgba(216, 216, 220, 1)
   white = "F2F2F7"; # text # #F2F2F7 # rgba(242, 242, 247, 1 )
 }
 # light
