@@ -1,8 +1,20 @@
 {
   config,
+  inputs,
   pkgs,
   ...
-}: {
+}: let
+  mactahoe-gtk-theme = inputs.self.packages.${pkgs.system}.mactahoe-gtk-theme;
+  mactahoe-icon-theme = inputs.self.packages.${pkgs.system}.mactahoe-icon-theme;
+
+  gtkThemeName = "MacTahoe-Dark";
+  # gtkThemeName = "WhiteSur-Dark";
+
+  # iconThemeName = "Colloid";
+  iconThemeName = "MacTahoe-dark";
+  # iconThemeName = "Qogir-dark";
+  # iconThemeName = "WhiteSur-dark";
+in {
   gtk = {
     enable = true;
 
@@ -13,8 +25,15 @@
     };
 
     theme = {
-      name = "WhiteSur-Dark";
-      package = pkgs.whitesur-gtk-theme;
+      name = "${gtkThemeName}";
+      package = mactahoe-gtk-theme.override {
+        # blurVariant = true;
+        colorVariants = ["dark"];
+        # nautilusStyle = "normal";
+        opacityVariants = ["normal"];
+        schemeVariants = ["standard"];
+      };
+      # package = pkgs.whitesur-gtk-theme;
       # .override {
       #   colorVariants = ["dark"];
       #   nautilusStyle = "normal";
@@ -24,19 +43,31 @@
     };
 
     iconTheme = {
-      name = "WhiteSur";
-      package = pkgs.whitesur-icon-theme.override {
-        alternativeIcons = true;
+      name = "${iconThemeName}";
+      package = mactahoe-icon-theme.override {
+        # alternativeIcons = true;
         boldPanelIcons = true;
       };
+      # package = pkgs.colloid-icon-theme.override {
+      #   colorVariants = ["default"];
+      #   schemeVariants = ["default"];
+      # };
+      # package = pkgs.qogir-icon-theme.override {
+      #   colorVariants = ["dark"];
+      #   themeVariants = ["default"];
+      # };
+      # package = pkgs.whitesur-icon-theme.override {
+      #   # alternativeIcons = true;
+      #   boldPanelIcons = true;
+      # };
     };
 
     gtk2 = {
       configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
       extraConfig = ''
         gtk-application-prefer-dark-theme = true
-        gtk-icon-theme-name="WhiteSur"
-        gtk-theme-name="WhiteSur-Dark"
+        gtk-icon-theme-name=""${iconThemeName}"
+        gtk-theme-name="${gtkThemeName}"
         gtk-xft-antialias=1
         gtk-xft-hinting=1
         gtk-xft-hintstyle="hintfull"
@@ -56,8 +87,8 @@
       extraConfig = {
         gtk-application-prefer-dark-theme = 1;
         gtk-decoration-layout = "menu:";
-        gtk-icon-theme-name = "WhiteSur";
-        gtk-theme-name = "WhiteSur-Dark";
+        gtk-icon-theme-name = "${iconThemeName}";
+        gtk-theme-name = "${gtkThemeName}";
 
         gtk-xft-antialias = 1;
         gtk-xft-hinting = 1;
