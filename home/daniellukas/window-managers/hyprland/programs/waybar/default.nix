@@ -355,10 +355,10 @@ in {
           };
           calendar = {
             format = {
-              days = "<span color='${xcolors.gray1}'><b>{}</b></span>";
+              days = "<span color='${xcolors.icDark.gray2}'><b>{}</b></span>";
               months = "<span color='${inherentColorHex}'><b>{}</b></span>";
               today = "<span color='${inherentColorHex}'><b><u>{}</u></b></span>";
-              weekdays = "<span color='${xcolors.blue}'><b>{}</b></span>";
+              weekdays = "<span color='${xcolors.icDark.blue}'><b>{}</b></span>";
             };
             mode = "month";
             on-scroll = 1;
@@ -398,7 +398,7 @@ in {
         }
 
         menu menuitem:hover {
-          background: lighter(${rgbaColors.red});
+          background: lighter(${rgbaColors.icDark.red});
         }
 
         /*******************  Tooltip  *******************/
@@ -459,8 +459,8 @@ in {
 
         #workspaces button.urgent,
         #workspaces button.urgent:hover {
-          color: lighter(${rgbaAltColors.yellow});
-          background: ${rgbaAltColors.red};
+          color: lighter(${rgbaAltColors.icDark.yellow});
+          background: ${rgbaAltColors.icDark.red};
         }
 
         #workspaces button.active {
@@ -486,13 +486,13 @@ in {
 
         #bluetooth.on,
         #bluetooth.connected {
-          color: ${rgbaAltColors.white};
+          color: ${rgbaAltColors.icDark.white};
         }
 
         /*******************  Systray  *******************/
 
         #tray > .needs-attention {
-          background: ${xcolors.red};
+          background: ${xcolors.icDark.red};
         }
 
         /*******************  Hover effects  *******************/

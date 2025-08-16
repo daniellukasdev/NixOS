@@ -4,8 +4,8 @@
   pkgs,
   ...
 }: let
-  mactahoe-gtk-theme = inputs.self.packages.${pkgs.system}.mactahoe-gtk-theme;
-  mactahoe-icon-theme = inputs.self.packages.${pkgs.system}.mactahoe-icon-theme;
+  inherit (inputs.self.packages.${pkgs.system}) mactahoe-gtk-theme;
+  inherit (inputs.self.packages.${pkgs.system}) mactahoe-icon-theme;
 
   gtkThemeName = "MacTahoe-Dark";
   # gtkThemeName = "WhiteSur-Dark";

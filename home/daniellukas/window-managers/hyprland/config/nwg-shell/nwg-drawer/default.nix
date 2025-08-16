@@ -5,8 +5,6 @@
 }: let
   inherit
     (config.theme.colorscheme)
-    # rgbaColors
-    # rgba48Colors
     rgbaAltColors
     xcolors
     ;
@@ -29,7 +27,7 @@ in {
     }
 
     window {
-      background: ${rgbaAltColors.black3};
+      background: ${rgbaAltColors.icDark.gray5};
       border-radius: 0px;
     }
 
@@ -38,7 +36,7 @@ in {
       margin: 0.5rem;
       padding: 0.5rem;
       font-size: 14pt;
-      background: ${xcolors.black2};
+      background: ${xcolors.icDark.gray6};
       border: 1px solid ${borderColorHexDark};
       box-shadow: inset 0 0 0 1px ${overlayBorderLightAlpha};
       border-radius: 14px;
@@ -53,7 +51,7 @@ in {
     flowbox {
       margin: 0;
       padding: 1rem 0rem 2rem 0rem;
-      /* background: ${rgbaAltColors.black1};
+      /* background: ${rgbaAltColors.icDark.black};
       border: 1px solid ${borderColorHexDark};
       box-shadow: inset 0 0 0 1px ${inherentColorHexAlpha}; */
     }
@@ -87,8 +85,8 @@ in {
       margin: 0 0.48rem;
       padding: 0.48rem 1.72rem;
       background: ${inherentColorHexAlpha};
-      border: 1px solid ${overlayBorderLightAlpha};
-      box-shadow: inset 0 0 0 1px ${borderColorHexDark};
+      border: 1px solid ${borderColorHexDark};
+      box-shadow: inset 0 0 0 1px ${overlayBorderLightAlpha};
     }
 
     #pinned-box {

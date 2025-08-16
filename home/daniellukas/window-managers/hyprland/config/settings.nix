@@ -36,8 +36,8 @@
       gaps_out = 6;
 
       border_size = "${toString borderSize}";
-      "col.active_border" = "rgb(${colors.gray0})";
-      "col.inactive_border" = "rgb(${colors.black4})";
+      "col.active_border" = "rgb(${colors.icDark.gray2})";
+      "col.inactive_border" = "rgb(${colors.icDark.gray3})";
 
       resize_on_border = true;
 
@@ -83,7 +83,7 @@
         enabled = true;
         range = 20;
         render_power = 4;
-        color = "${rgbaColors.black1}";
+        color = "${rgbaColors.icDark.black}";
         ignore_window = true;
       };
     };
@@ -150,7 +150,7 @@
       borders-plus-plus = {
         add_borders = 1; # 0 - 9
         # you can add up to 9 borders
-        col.border_1 = "rgb(${colors.black0})";
+        col.border_1 = "rgb(${colors.icDark.black2})";
         # -1 means "default" as in the one defined in general:border_size
         border_size_1 = "${toString borderSize}";
         natural_rounding = "no";
@@ -160,7 +160,7 @@
       #   bar_blur = true;
       #   bar_buttons_alignment = "left";
       #   bar_button_padding = "8";
-      #   bar_color = "${rgbaColors.black3}";
+      #   bar_color = "${rgbaColors.icDark.gray5}";
       #   bar_title_enabled = true;
       #   bar_height = "32";
       #   bar_padding = "8";
@@ -169,18 +169,18 @@
       #   bar_text_size = "12";
       #   bar_text_font = "Poppins Bold";
       #   bar_text_align = "center";
-      #   "col.text" = "rgb(${colors.white})";
+      #   "col.text" = "rgb(${colors.icDark.white})";
       #   hyprbars-button = [
-      #     "rgb(${colors.red}), 12, , hyprctl dispatch killactive"
-      #     "rgb(${colors.yellow}), 12, , hyprctl dispatch togglefloating"
-      #     "rgb(${colors.green}), 12, , hyprctl dispatch fullscreen"
+      #     "rgb(${colors.icDark.red}), 12, , hyprctl dispatch killactive"
+      #     "rgb(${colors.icDark.yellow}), 12, , hyprctl dispatch togglefloating"
+      #     "rgb(${colors.icDark.green}), 12, , hyprctl dispatch fullscreen"
       #   ];
       # };
 
       # hyprexpo = {
       #   columns = 3;
       #   gap_size = 4;
-      #   bg_col = "rgb(${colors.black0})";
+      #   bg_col = "rgb(${colors.icDark.black2})";
       #   enable_gesture = true;
       #   gesture_fingers = 3;
       #   gesture_distance = 300;
@@ -190,12 +190,12 @@
       overview = {
         # Colors
 
-        panelColor = "${rgbaColors.black2}";
+        panelColor = "${rgbaColors.icDark.gray6}";
         # panelBorderColor = "${rgbaAltColors.white}";
         # workspaceActiveBackground
         # workspaceInactiveBackground
-        workspaceActiveBorder = "${rgbaColors.white}";
-        workspaceInactiveBorder = "${rgbaColors.gray0}";
+        workspaceActiveBorder = "${rgbaColors.icDark.white}";
+        workspaceInactiveBorder = "${rgbaColors.icDark.gray3}";
         # disableBlur
         dragAlpha = 0.72;
 

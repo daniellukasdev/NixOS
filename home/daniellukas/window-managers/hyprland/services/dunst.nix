@@ -18,10 +18,10 @@ in {
         follow = "mouse";
         font = "Poppins 12";
         force_xwayland = false;
-        foreground = "${xcolors.white}";
+        foreground = "${xcolors.icDark.white}";
         format = "<b>%a</b>\\n<i>%s</i>\\n%b";
-        frame_color = "${xcolors.gray0}";
-        frame_width = 2;
+        frame_color = "${xcolors.icDark.gray3}";
+        frame_width = 1;
         gap_size = 5;
         hide_duplicate_count = false;
         horizontal_padding = 12;
@@ -62,26 +62,26 @@ in {
       fullscreen_delay_everything.fullscreen = "delay";
 
       urgency_low = {
-        background = "${xcolors.black1}";
-        foreground = "${xcolors.white}";
-        highlight = "${xcolors.blue}";
-        frame_color = "${xcolors.gray0}";
+        background = "${xcolors.icDark.black}";
+        foreground = "${xcolors.icDark.white}";
+        highlight = "${xcolors.icDark.blue}";
+        frame_color = "${xcolors.icDark.gray3}";
         timeout = 2;
       };
 
       urgency_normal = {
-        background = "${xcolors.black1}";
-        foreground = "${xcolors.white}";
-        highlight = "${xcolors.blue}";
-        frame_color = "${xcolors.gray0}";
+        background = "${xcolors.icDark.black}";
+        foreground = "${xcolors.icDark.white}";
+        highlight = "${xcolors.icDark.blue}";
+        frame_color = "${xcolors.icDark.gray3}";
         timeout = 2;
       };
 
       urgency_critical = {
-        background = "${xcolors.black1}";
-        foreground = "${xcolors.white}";
-        highlight = "${xcolors.blue}";
-        frame_color = "${xcolors.red}";
+        background = "${xcolors.icDark.black}";
+        foreground = "${xcolors.icDark.white}";
+        highlight = "${xcolors.icDark.blue}";
+        frame_color = "${xcolors.icDark.red}";
         timeout = 10;
       };
     };

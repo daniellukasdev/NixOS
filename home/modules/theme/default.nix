@@ -4,7 +4,7 @@
 in {
   options.theme = {
     colorscheme = mkOption {
-      type = attrsOf (attrsOf str);
+      type = attrsOf (attrsOf (attrsOf str));
       description = ''
         The colors used in the theming.
       '';

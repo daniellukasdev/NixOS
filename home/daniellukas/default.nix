@@ -1,5 +1,5 @@
 {lib, ...}: let
-  colorsDef = import ../modules/theme/colors.nix;
+  colorsDef = import ../modules/theme/colors;
   colorlib = import ../modules/theme/colorsLib.nix lib;
   variableDefs = import ../modules/theme/style/variables;
 in {
@@ -19,11 +19,31 @@ in {
     colorscheme = rec {
       colors = colorsDef;
       # #RRGGBB
-      xcolors = lib.mapAttrsRecursive (_: colorlib.x) colors;
+      xcolors = {
+        dark = lib.mapAttrsRecursive (_: colorlib.x) colors.dark;
+        icDark = lib.mapAttrsRecursive (_: colorlib.x) colors.icDark;
+        icLight = lib.mapAttrsRecursive (_: colorlib.x) colors.icLight;
+        light = lib.mapAttrsRecursive (_: colorlib.x) colors.light;
+      };
       # rgba(,,,) colors (css)
-      rgbaColors = lib.mapAttrsRecursive (_: colorlib.rgba) colors;
-      rgba48Colors = lib.mapAttrsRecursive (_: colorlib.rgba48) colors;
-      rgbaAltColors = lib.mapAttrsRecursive (_: colorlib.rgba48) colors;
+      rgbaColors = {
+        dark = lib.mapAttrsRecursive (_: colorlib.rgba) colors.dark;
+        icDark = lib.mapAttrsRecursive (_: colorlib.rgba) colors.icDark;
+        icLight = lib.mapAttrsRecursive (_: colorlib.rgba) colors.icLight;
+        light = lib.mapAttrsRecursive (_: colorlib.rgba) colors.light;
+      };
+      rgba48Colors = {
+        dark = lib.mapAttrsRecursive (_: colorlib.rgba48) colors.dark;
+        icDark = lib.mapAttrsRecursive (_: colorlib.rgba48) colors.icDark;
+        icLight = lib.mapAttrsRecursive (_: colorlib.rgba48) colors.icLight;
+        light = lib.mapAttrsRecursive (_: colorlib.rgba48) colors.light;
+      };
+      rgbaAltColors = {
+        dark = lib.mapAttrsRecursive (_: colorlib.rgba48) colors.dark;
+        icDark = lib.mapAttrsRecursive (_: colorlib.rgba48) colors.icDark;
+        icLight = lib.mapAttrsRecursive (_: colorlib.rgba48) colors.icLight;
+        light = lib.mapAttrsRecursive (_: colorlib.rgba48) colors.light;
+      };
     };
 
     style = {

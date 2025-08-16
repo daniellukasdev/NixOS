@@ -28,10 +28,10 @@
           size = "300, 50";
           outline_thickness = 2;
           outer_color = "rgb(${baseColor})";
-          inner_color = "rgb(${colors.black0})";
-          font_color = "rgb(${colors.white})";
-          check_color = "rgb(${colors.blue})";
-          fail_color = "rgb(${colors.red})";
+          inner_color = "rgb(${colors.icDark.black2})";
+          font_color = "rgb(${colors.icDark.white})";
+          check_color = "rgb(${colors.icDark.blue})";
+          fail_color = "rgb(${colors.icDark.red})";
           fade_on_empty = false;
           placeholder_text = "<i>Enter Password</i>";
           dots_spacing = 0.2;
@@ -48,7 +48,7 @@
           text = "cmd[update:3600000] date +'%A, %B %d'";
           font_family = "Crimson Pro Font Bold";
           font_size = 36;
-          color = "rgb(${colors.white})";
+          color = "rgb(${colors.icDark.white})";
           position = "0, -300";
           valign = "top";
           halign = "center";
@@ -58,7 +58,7 @@
           text = "$TIME12";
           font_family = "Crimson Pro Font Bold";
           font_size = 132;
-          color = "rgb(${colors.white})";
+          color = "rgb(${colors.icDark.white})";
           position = "0, -400";
           valign = "top";
           halign = "center";
@@ -68,7 +68,7 @@
           text = "   $USER";
           font_family = "Crimson Pro Font Bold";
           font_size = 24;
-          color = "rgb(${colors.white})";
+          color = "rgb(${colors.icDark.white})";
           position = "0, 100";
           valign = "center";
           halign = "center";
@@ -78,10 +78,10 @@
         {
           monitor = "";
           size = "1027, 515";
-          color = "${rgbaAltColors.black3}";
+          color = "${rgbaAltColors.icDark.gray5}";
           rounding = 24; # circle
           border_size = borderSize;
-          border_color = "${rgbaColors.black0}";
+          border_color = "${rgbaColors.icDark.black2}";
 
           position = "0, 0";
           halign = "center";
@@ -90,17 +90,17 @@
 
           shadow_passes = 2;
           shadow_size = 4;
-          shadow_color = "${rgbaColors.black1}";
+          shadow_color = "${rgbaColors.icDark.black}";
           shadow_boost = 0.48;
         }
         {
           monitor = "";
           size = "1024, 512";
-          # color = "${rgbaAltColors.black3}";
+          # color = "${rgbaAltColors.icDark.gray5}";
           color = "none";
           rounding = 24; # circle
           border_size = borderSize;
-          border_color = "${rgbaColors.gray1}";
+          border_color = "${rgbaColors.icDark.gray2}";
 
           position = "0, 0";
           halign = "center";

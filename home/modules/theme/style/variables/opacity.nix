@@ -4,7 +4,7 @@ let
   inherentOpacity = baseOpacity * 1.5;
   inactiveOpacity = inherentOpacity * 2;
   dockOpacity = (inherentOpacity * 2) - 0.1;
-  overlayBorderOpacity = baseOpacity;
+  overlayBorderOpacity = baseOpacity * 2;
   overlayOpacity = inherentOpacity * 2;
   windowOpacity = 1.0 - baseOpacity;
   opacities = {

@@ -137,26 +137,26 @@
               "command" = ["${pkgs.alejandra}/bin/alejandra"];
             };
           };
-          "nixd" = {
-            "formatting" = {
-              "command" = ["nixfmt"];
-            };
-            "options" = {
-              # By default, this entry will be read from `import <nixpkgs> { }`.
-              # You can write arbitrary Nix expressions here, to produce valid "options" declaration result.
-              # Tip= for flake-based configuration, utilize `builtins.getFlake`
-              "nixos" = {
-                "expr" = "(builtins.getFlake \"/absolute/path/to/flake\").nixosConfigurations.<name>.options";
-              };
-              "home-manager" = {
-                "expr" = "(builtins.getFlake \"/absolute/path/to/flake\").homeConfigurations.<name>.options";
-              };
-              # Tip= use ${workspaceFolder} variable to define path
-              "nix-darwin" = {
-                # "expr"= "(builtins.getFlake \"${workspaceFolder}/path/to/flake\").darwinConfigurations.<name>.options",
-              };
-            };
-          };
+          # "nixd" = {
+          #   "formatting" = {
+          #     "command" = ["nixfmt"];
+          #   };
+          #   "options" = {
+          #     # By default, this entry will be read from `import <nixpkgs> { }`.
+          #     # You can write arbitrary Nix expressions here, to produce valid "options" declaration result.
+          #     # Tip= for flake-based configuration, utilize `builtins.getFlake`
+          #     "nixos" = {
+          #       "expr" = "(builtins.getFlake \"/absolute/path/to/flake\").nixosConfigurations.<name>.options";
+          #     };
+          #     "home-manager" = {
+          #       "expr" = "(builtins.getFlake \"/absolute/path/to/flake\").homeConfigurations.<name>.options";
+          #     };
+          #     # Tip= use ${workspaceFolder} variable to define path
+          #     "nix-darwin" = {
+          #       # "expr"= "(builtins.getFlake \"${workspaceFolder}/path/to/flake\").darwinConfigurations.<name>.options",
+          #     };
+          #   };
+          # };
         };
       };
 
@@ -177,66 +177,6 @@
     };
 
     theme = import ./theme.nix {inherit config;};
-    # theme = let
-    #   inherit (config.theme.colorscheme) xcolors;
-    # in {
-    #   "workbench.colorTheme" = "Catppuccin Mocha";
-    #   "workbench.iconTheme" = "catppuccin-mocha";
-    #   "catppuccin.accentColor" = "blue";
-    #   "catppuccin.bracketMode" = "rainbow";
-    #   "catppuccin.workbenchMode" = "default";
-    #   "catppuccin.boldKeywords" = true;
-    #   "catppuccin.italicKeywords" = true;
-    #   "catppuccin.italicComments" = true;
-    #   "catppuccin.syncWithIconPack" = true;
-    #   "catppuccin.extraBordersEnabled" = false;
-    #   "catppuccin.colorOverrides" = {
-    #     "mocha" = {
-    #       "rosewater" = "${xcolors.rosewater}";
-    #       "flamingo" = "${xcolors.flamingo}";
-    #       "pink" = "${xcolors.pink}";
-    #       "mauve" = "${xcolors.mauve}";
-    #       "red" = "${xcolors.red}";
-    #       "maroon" = "${xcolors.maroon}";
-    #       "peach" = "${xcolors.peach}";
-    #       "yellow" = "${xcolors.yellow}";
-    #       "green" = "${xcolors.green}";
-    #       "teal" = "${xcolors.teal}";
-    #       "blue" = "${xcolors.blue}";
-    #       "sky" = "${xcolors.sky}";
-    #       "lavender" = "${xcolors.lavender}";
-    #       "crust" = "${xcolors.black0}";
-    #       "mantle" = "${xcolors.black1}";
-    #       "base" = "${xcolors.black2}";
-    #       "surface0" = "${xcolors.black3}";
-    #       "surface1" = "${xcolors.black4}";
-    #       "surface2" = "${xcolors.gray0}";
-    #       "overlay0" = "${xcolors.gray1}";
-    #       "overlay1" = "${xcolors.gray2}";
-    #       "text" = "${xcolors.white}";
-    #     };
-    #   };
-    #   "workbench.colorCustomizations" = {
-    #     "terminal.ansiBlack" = "${xcolors.black2}";
-    #     "terminal.ansiBrightBlack" = "${xcolors.black2}";
-    #     "terminal.ansiRed" = "${xcolors.red}";
-    #     "terminal.ansiBrightRed" = "${xcolors.red}";
-    #     "terminal.ansiGreen" = "${xcolors.green}";
-    #     "terminal.ansiBrightGreen" = "${xcolors.green}";
-    #     "terminal.ansiYellow" = "${xcolors.yellow}";
-    #     "terminal.ansiBrightYellow" = "${xcolors.yellow}";
-    #     "terminal.ansiBlue" = "${xcolors.blue}";
-    #     "terminal.ansiBrightBlue" = "${xcolors.blue}";
-    #     "terminal.ansiMagenta" = "${xcolors.pink}";
-    #     "terminal.ansiBrightMagenta" = "${xcolors.pink}";
-    #     "terminal.ansiCyan" = "${xcolors.sky}";
-    #     "terminal.ansiBrightCyan" = "${xcolors.sky}";
-    #     "terminal.ansiWhite" = "${xcolors.white}";
-    #     "terminal.ansiBrightWhite" = "${xcolors.white}";
-    #     "terminal.foreground" = "${xcolors.white}";
-    #     "terminal.selectionBackground" = "${xcolors.gray1}";
-    #   };
-    # };
 
     # Extension settings
     extension = {
@@ -263,7 +203,7 @@
       ];
 
       # prettier
-      "prettier.jsxSingleQuote" = true;
+      "prettier.jsxSingleQuote" = false;
 
       # svelte
       "svelte.enable-ts-plugin" = true;
@@ -278,10 +218,9 @@
     };
 
     workbench = {
-      "workbench.activityBar.location" = "top";
-      "workbench.colorTheme" = "Catppuccin Mocha";
+      "workbench.activityBar.location" = "default";
+      # "workbench.colorTheme" = "Catppuccin Mocha";
       "workbench.editor.empty.hint" = "hidden";
-      # "workbench.iconTheme" = "catppuccin-mocha";
       "workbench.iconTheme" = "vscode-jetbrains-icon-theme";
       "workbench.layoutControl.enabled" = false;
       "workbench.panel.defaultLocation" = "bottom";

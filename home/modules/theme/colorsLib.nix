@@ -16,6 +16,7 @@ with lib; rec {
     res;
 
   rgba72 = c: let
+    # not used
     r = toString (hexToDec (__substring 0 2 c));
     g = toString (hexToDec (__substring 2 2 c));
     b = toString (hexToDec (__substring 4 2 c));

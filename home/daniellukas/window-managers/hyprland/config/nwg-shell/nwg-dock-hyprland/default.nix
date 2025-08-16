@@ -1,7 +1,6 @@
 {config, ...}: let
   inherit
     (config.theme.colorscheme)
-    # rgbaColors
     rgba48Colors
     rgbaAltColors
     xcolors
@@ -26,7 +25,7 @@ in {
     }
 
     #active {
-      background-color: ${rgbaAltColors.gray1};
+      background-color: ${rgbaAltColors.icDark.gray2};
       border-radius: 10px;
     }
 
@@ -34,20 +33,20 @@ in {
       background: none;
       border-style: none;
       box-shadow: none;
-      color: ${rgba48Colors.white};
+      color: ${rgba48Colors.icDark.white};
     }
 
     button {
       padding: 4px;
       margin: 2px;
-      color: ${rgba48Colors.white};
+      color: ${rgba48Colors.icDark.white};
       font-size: 12px;
       border-radius: 8px;
       outline: none;
     }
 
     button:hover {
-      background-color: ${rgbaAltColors.gray2};
+      background-color: ${rgbaAltColors.icDark.gray};
     }
 
     button:focus {
@@ -56,16 +55,16 @@ in {
     }
 
     .workspace-dot {
-      background-color: ${xcolors.gray1};
+      background-color: ${xcolors.icDark.gray2};
       border-radius: 50%;
     }
 
     .workspace-dot.active {
-      background-color: ${xcolors.blue};
+      background-color: ${xcolors.icDark.blue};
     }
 
     .workspace-dot.inactive {
-      background-color: ${xcolors.gray0};
+      background-color: ${xcolors.icDark.gray3};
     }
 
     tooltip, .tooltip, #tooltip, popover, .popover {

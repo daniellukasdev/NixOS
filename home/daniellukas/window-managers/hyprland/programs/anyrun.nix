@@ -80,7 +80,7 @@
         margin: 0.5rem;
         padding: 0.5rem;
         font-size: 14pt;
-        background: ${xcolors.black2};
+        background: ${xcolors.icDark.gray6};
         border: 1px solid ${overlayBorderLightAlpha};
         box-shadow: inset 0 0 0 1px ${borderColorHexDark};
         border-radius: 14px;
@@ -125,7 +125,7 @@
       list > #plugin {
         margin: 0.5rem;
         padding: ${toString (borderSize * 2)}px;
-        background: ${xcolors.black2};
+        background: ${xcolors.icDark.gray6};
         border: 1px solid ${overlayBorderLightAlpha};
         box-shadow: inset 0 0 0 1px ${borderColorHexDark};
         border-radius: 14px;

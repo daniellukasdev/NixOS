@@ -1,0 +1,37 @@
+# dark (default)
+{
+  # https://developer.apple.com/design/human-interface-guidelines/color
+  red = "ff4245"; # #ff4245 rgba(255, 66, 69, 1)
+  orange = "ff9230"; # #ff9230 rgba(255, 146, 48, 1)
+  yellow = "ffd600"; # #ffd600 rgba(255, 214, 0, 1)
+  green = "30d158"; # #30d158 rgba(48, 209, 88, 1)
+  mint = "00dac3"; # #00dac3 rgba(0, 218, 195, 1)
+  teal = "00d2e0"; # #00d2e0 rgba(0, 210, 224, 1)
+  cyan = "3cd3fe"; # #3cd3fe rgba(60, 211, 254, 1)
+  blue = "0091ff"; # #0091ff rgba(0, 145, 255, 1)
+  indigo = "6b5dff"; # #6b5dff rgba(107, 93, 255, 1)
+  purple = "db34f2"; # #db34f2 rgba(219, 52, 242, 1)
+  pink = "ff375f"; # #ff375f rgba(255, 55, 95, 1)
+  brown = "b78a66"; # #b78a66 rgba(183, 138, 102, 1)
+
+  white = "f2f2f7"; # #f2f2f7 # rgba(242, 242, 247, 1 )
+  gray = "8e8e93"; # #8e8e93 # rgba(142, 142, 147, 1)
+  gray2 = "636366"; # #636366 # rgba(99, 99, 102, 1)
+  gray3 = "48484a"; # #48484a # rgba(72, 72, 74, 1)
+  gray4 = "3a3a3c"; # #3a3a3c # rgba(58, 58, 60, 1)
+  gray5 = "2c2c2e"; # #2c2c2e # rgba(44, 44, 46, 1)
+  gray6 = "1c1c1e"; # #1c1c1e # rgba(28, 28, 30, 1)
+
+  black = "101012"; # #101012 # rgba(16, 16, 18, 1)
+  black2 = "030507"; # #030507 #rgb(3, 5, 7)
+
+  # black0 = "1C1C1E"; # #1C1C1E # rgba(28, 28, 30, 1)
+  # black1 = "242426"; # #242426 # rgba(36, 36, 38, 1)
+  # black2 = "2C2C2E"; # #2C2C2E # rgba(44, 44, 46, 1)
+  # black3 = "3A3A3C"; # #3A3A3C # rgba(58, 58, 60, 1)
+  # black4 = "48484A"; # #48484A # rgba(72, 72, 74, 1)
+  # gray0 = "6C6C70"; # #6C6C70 # rgba(108, 108, 112, 1)
+  # gray1 = "AEAEB2"; # #AEAEB2 # rgba(174, 174, 178, 1)
+  # gray2 = "D8D8DC"; # #D8D8DC # rgba(216, 216, 220, 1)
+  # white = "F2F2F7"; # #F2F2F7 # rgba(242, 242, 247, 1 )
+}

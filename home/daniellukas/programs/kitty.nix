@@ -55,71 +55,71 @@
 
       # Color scheme
       background_opacity = "${toString windowOpacity}";
-      foreground = xcolors.white;
-      background = xcolors.black2;
-      selection_foreground = xcolors.black2;
-      selection_background = xcolors.rosewater;
+      foreground = xcolors.icDark.white;
+      background = xcolors.icDark.gray6;
+      selection_foreground = xcolors.icDark.gray6;
+      selection_background = xcolors.icDark.mint;
 
       # Cursor colors
-      cursor = xcolors.rosewater;
-      cursor_text_color = xcolors.black2;
+      cursor = xcolors.icDark.mint;
+      cursor_text_color = xcolors.icDark.gray6;
 
       # URL underline color when hovering with mouse
-      url_color = xcolors.rosewater;
+      url_color = xcolors.icDark.mint;
 
       # Window border colors and terminal bell colors
-      active_border_color = xcolors.blue;
-      inactive_border_color = xcolors.gray0;
-      bell_border_color = xcolors.yellow;
+      active_border_color = xcolors.icDark.blue;
+      inactive_border_color = xcolors.icDark.gray3;
+      bell_border_color = xcolors.icDark.yellow;
       visual_bell_color = "none";
 
       # Tab bar colors
-      active_tab_foreground = xcolors.black1;
-      active_tab_background = xcolors.blue;
-      inactive_tab_foreground = xcolors.white;
-      inactive_tab_background = xcolors.black2;
-      tab_bar_background = xcolors.black1;
+      active_tab_foreground = xcolors.icDark.black;
+      active_tab_background = xcolors.icDark.blue;
+      inactive_tab_foreground = xcolors.icDark.white;
+      inactive_tab_background = xcolors.icDark.gray6;
+      tab_bar_background = xcolors.icDark.black;
 
       # Colors for marks (marked text in the terminal)
-      mark1_foreground = xcolors.black2;
-      mark1_background = xcolors.lavender;
-      mark2_foreground = xcolors.black2;
-      mark2_background = xcolors.mauve;
-      mark3_foreground = xcolors.black2;
-      mark3_background = xcolors.sky;
+      mark1_foreground = xcolors.icDark.gray6;
+      mark1_background = xcolors.icDark.indigo;
+      mark2_foreground = xcolors.icDark.gray6;
+      mark2_background = xcolors.icDark.purple;
+      mark3_foreground = xcolors.icDark.gray6;
+      mark3_background = xcolors.icDark.cyan;
 
       # The basic 16 colors
       # black
-      color0 = xcolors.gray0;
-      color8 = xcolors.gray1;
+      color0 = xcolors.icDark.gray3;
+      color8 = xcolors.icDark.gray2;
 
       # red
-      color1 = xcolors.red;
-      color9 = xcolors.red;
+      color1 = xcolors.icDark.red;
+      color9 = xcolors.icDark.red;
 
       # green
-      color2 = xcolors.green;
-      color10 = xcolors.green;
+      color2 = xcolors.icDark.green;
+      color10 = xcolors.icDark.green;
 
       # yellow
-      color3 = xcolors.yellow;
-      color11 = xcolors.yellow;
+      color3 = xcolors.icDark.yellow;
+      color11 = xcolors.icDark.yellow;
 
       # blue
-      color4 = xcolors.blue;
-      color12 = xcolors.blue;
+      color4 = xcolors.icDark.blue;
+      color12 = xcolors.icDark.blue;
 
       # magenta
-      color5 = xcolors.pink;
-      color13 = xcolors.pink;
+      color5 = xcolors.icDark.pink;
+      color13 = xcolors.icDark.pink;
 
       # cyan
-      color6 = xcolors.sky;
-      color14 = xcolors.sky;
+      color6 = xcolors.icDark.cyan;
+      color14 = xcolors.icDark.cyan;
 
       # white
-      color7 = xcolors.white;
-      color15 = xcolors.white;
+      color7 = xcolors.icDark.white;
+      color15 = xcolors.icDark.white;
     };
 
     keybindings = {

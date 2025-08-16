@@ -50,7 +50,7 @@
       "idleinhibit fullscreen, fullscreen:1"
 
       # "opacity 0.96 0.92, class:(codium)$"
-      "opacity 0.9 0.96, class:^(org.gnome.Nautilus)$"
+      # "opacity 0.9 0.96, class:^(org.gnome.Nautilus)$"
 
       "suppressevent maximize, class:.*"
 

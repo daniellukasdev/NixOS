@@ -1,5 +1,5 @@
 {config, ...}: let
-  inherit (config.theme.colorscheme) xcolors;
+  inherit (config.theme.colorscheme.xcolors) icDark;
   theme = {
     # "workbench.colorTheme" = "Catppuccin Mocha";
     # "workbench.iconTheme" = "catppuccin-mocha";
@@ -12,24 +12,24 @@
       "#ffa0560f"
     ];
     "workbench.colorCustomizations" = {
-      "terminal.ansiBlack" = "${xcolors.black2}";
-      "terminal.ansiBrightBlack" = "${xcolors.black2}";
-      "terminal.ansiRed" = "${xcolors.red}";
-      "terminal.ansiBrightRed" = "${xcolors.red}";
-      "terminal.ansiGreen" = "${xcolors.green}";
-      "terminal.ansiBrightGreen" = "${xcolors.green}";
-      "terminal.ansiYellow" = "${xcolors.yellow}";
-      "terminal.ansiBrightYellow" = "${xcolors.yellow}";
-      "terminal.ansiBlue" = "${xcolors.blue}";
-      "terminal.ansiBrightBlue" = "${xcolors.blue}";
-      "terminal.ansiMagenta" = "${xcolors.pink}";
-      "terminal.ansiBrightMagenta" = "${xcolors.pink}";
-      "terminal.ansiCyan" = "${xcolors.sky}";
-      "terminal.ansiBrightCyan" = "${xcolors.sky}";
-      "terminal.ansiWhite" = "${xcolors.white}";
-      "terminal.ansiBrightWhite" = "${xcolors.white}";
-      "terminal.foreground" = "${xcolors.white}";
-      "terminal.selectionBackground" = "${xcolors.gray1}";
+      "terminal.ansiBlack" = "${icDark.gray6}";
+      "terminal.ansiBrightBlack" = "${icDark.gray6}";
+      "terminal.ansiRed" = "${icDark.red}";
+      "terminal.ansiBrightRed" = "${icDark.red}";
+      "terminal.ansiGreen" = "${icDark.green}";
+      "terminal.ansiBrightGreen" = "${icDark.green}";
+      "terminal.ansiYellow" = "${icDark.yellow}";
+      "terminal.ansiBrightYellow" = "${icDark.yellow}";
+      "terminal.ansiBlue" = "${icDark.blue}";
+      "terminal.ansiBrightBlue" = "${icDark.blue}";
+      "terminal.ansiMagenta" = "${icDark.pink}";
+      "terminal.ansiBrightMagenta" = "${icDark.pink}";
+      "terminal.ansiCyan" = "${icDark.cyan}";
+      "terminal.ansiBrightCyan" = "${icDark.cyan}";
+      "terminal.ansiWhite" = "${icDark.white}";
+      "terminal.ansiBrightWhite" = "${icDark.white}";
+      "terminal.foreground" = "${icDark.white}";
+      "terminal.selectionBackground" = "${icDark.gray}";
     };
   };
 in
