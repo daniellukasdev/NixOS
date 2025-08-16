@@ -10,7 +10,6 @@
       ardonplay.jetbrains-idea-product-icon-theme
       astro-build.astro-vscode
       bradlc.vscode-tailwindcss
-      # catppuccin.catppuccin-vsc-icons
       cardinal90.multi-cursor-case-preserve
       chadalen.vscode-jetbrains-icon-theme
       christian-kohler.npm-intellisense
@@ -39,45 +38,5 @@
       usernamehw.errorlens
       yzhang.markdown-all-in-one
     ];
-    # ++ [
-    #   (pkgs.catppuccin-vsc.override {
-    #     accent = "blue";
-    #     boldKeywords = true;
-    #     italicComments = true;
-    #     italicKeywords = true;
-    #     extraBordersEnabled = false;
-    #     workbenchMode = "default";
-    #     bracketMode = "rainbow";
-    #     colorOverrides = {
-    #       all = let
-    #         inherit (config.theme.colorscheme) xcolors;
-    #       in {
-    #         rosewater = "${xcolors.rosewater}";
-    #         flamingo = "${xcolors.flamingo}";
-    #         pink = "${xcolors.pink}";
-    #         mauve = "${xcolors.mauve}";
-    #         red = "${xcolors.red}";
-    #         maroon = "${xcolors.maroon}";
-    #         peach = "${xcolors.peach}";
-    #         yellow = "${xcolors.yellow}";
-    #         green = "${xcolors.green}";
-    #         teal = "${xcolors.teal}";
-    #         blue = "${xcolors.blue}";
-    #         sky = "${xcolors.sky}";
-    #         lavender = "${xcolors.lavender}";
-    #         crust = "${xcolors.black0}";
-    #         mantle = "${xcolors.black1}";
-    #         base = "${xcolors.black2}";
-    #         surface0 = "${xcolors.black3}";
-    #         surface1 = "${xcolors.black4}";
-    #         surface2 = "${xcolors.gray0}";
-    #         overlay0 = "${xcolors.gray1}";
-    #         overlay1 = "${xcolors.gray2}";
-    #         text = "${xcolors.white}";
-    #       };
-    #     };
-    #     customUIColors = {};
-    #   })
-    # ];
   };
 }

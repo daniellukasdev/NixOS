@@ -1,8 +1,6 @@
 {config, ...}: let
   inherit (config.theme.colorscheme.xcolors) icDark;
   theme = {
-    # "workbench.colorTheme" = "Catppuccin Mocha";
-    # "workbench.iconTheme" = "catppuccin-mocha";
     "indentRainbow.colors" = [
       "#ea8dff0f"
       "#fedf430f"

@@ -219,12 +219,11 @@
 
     workbench = {
       "workbench.activityBar.location" = "default";
-      # "workbench.colorTheme" = "Catppuccin Mocha";
+      # "workbench.colorTheme" = "";
       "workbench.editor.empty.hint" = "hidden";
       "workbench.iconTheme" = "vscode-jetbrains-icon-theme";
       "workbench.layoutControl.enabled" = false;
       "workbench.panel.defaultLocation" = "bottom";
-      # "workbench.productIconTheme" = "material-product-icons";
       "workbench.productIconTheme" = "jetbrains-idea-product-icon-theme";
       "workbench.sideBar.location" = "left";
       "workbench.startupEditor" = "none";
