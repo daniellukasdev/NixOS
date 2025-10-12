@@ -219,7 +219,7 @@
 
     workbench = {
       "workbench.activityBar.location" = "default";
-      # "workbench.colorTheme" = "";
+      "workbench.colorTheme" = "Apple Crisp";
       "workbench.editor.empty.hint" = "hidden";
       "workbench.iconTheme" = "vscode-jetbrains-icon-theme";
       "workbench.layoutControl.enabled" = false;
