@@ -3,7 +3,8 @@
 > **System Information:**
 >
 > - **OS:** NixOS
-> - **Window Manager:** Hyprland
+> - ~~**Window Manager:** Hyprland~~
+> - **Desktop Environment:** KDE Plasma
 > - **Shell:** ZSH
 > - **Terminal:** Kitty
 > - **Editor:** Visual Studio Code
