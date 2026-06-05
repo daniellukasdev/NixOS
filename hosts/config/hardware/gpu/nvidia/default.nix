@@ -46,4 +46,6 @@ in {
       enableOffloadCmd = mkIf pCfg.offload.enable true;
     };
   };
+
+  systemd.services.nvidia-powerd.enable = false;
 }

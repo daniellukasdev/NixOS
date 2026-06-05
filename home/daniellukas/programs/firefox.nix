@@ -45,6 +45,16 @@
                 url = "https://github.com/raexera/yuki";
                 tags = ["NixOS" "reference"];
               }
+              {
+                name = "Home-Manager Docs";
+                url = "https://nix-community.github.io/home-manager/index.xhtml";
+                tags = ["NixOS" "options" "reference"];
+              }
+              {
+                name = "Plasma-Manager";
+                url = "https://github.com/nix-community/plasma-manager";
+                tags = ["NixOS" "options" "reference"];
+              }
             ];
           }
         ];
@@ -58,6 +68,10 @@
         simple-tab-groups
         ublock-origin
       ];
+
+      # policies = {
+
+      # };
 
       settings = {
         "browser.aboutConfig.showWarning" = false;

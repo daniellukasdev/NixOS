@@ -1,15 +1,16 @@
 {
   config,
-  inputs,
+  # inputs,
   pkgs,
   ...
 }: {
-  imports = [
-    inputs.anyrun.homeManagerModules.default
-  ];
+  # imports = [
+  #   inputs.anyrun.homeManagerModules.default
+  # ];
 
   programs.anyrun = {
     enable = true;
+    package = pkgs.anyrun;
     config = {
       x.fraction = 0.5;
       y.fraction = 0.3;
@@ -21,12 +22,12 @@
       closeOnClick = true;
       showResultsImmediately = false;
       maxEntries = 10;
-      plugins = with inputs.anyrun.packages.${pkgs.system}; [
-        applications
-        dictionary
-        rink
-        shell
-        symbols
+      plugins = [
+        "${pkgs.anyrun}/lib/libapplications.so"
+        "${pkgs.anyrun}/lib/libdictionary.so"
+        "${pkgs.anyrun}/lib/librink.so"
+        "${pkgs.anyrun}/lib/libshell.so"
+        "${pkgs.anyrun}/lib/libsymbols.so"
       ];
     };
 

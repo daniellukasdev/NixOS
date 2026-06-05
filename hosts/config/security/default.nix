@@ -3,12 +3,12 @@
     pam = {
       services = {
         # Allow gnome-keyring to use fingerprint reader
-        gnome-keyring = {
-          enableGnomeKeyring = true;
-          fprintAuth = true;
-        };
+        # gnome-keyring = {
+        #   enableGnomeKeyring = true;
+        #   fprintAuth = true;
+        # };
         # Allow hyprlock to unlock the screen
-        hyprlock = {};
+        # hyprlock = {};
         # Allow logging in with fingerprint reader
         login = {
           fprintAuth = true;

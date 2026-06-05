@@ -32,7 +32,7 @@ in
       owner = "vinceliuice";
       repo = pname;
       rev = version;
-      hash = "sha256-rJB71dbrznaG9vtC0AP3+M1vDsOKjYlpdMBbl76uA/8=";
+      hash = "sha256-eqR+XxQpUKD1sqFUncSgMCsxdFu1uumsDVGzT7Gn7eU=";
     };
 
     nativeBuildInputs = [gtk3 jdupes];

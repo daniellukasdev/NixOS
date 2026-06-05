@@ -14,7 +14,7 @@
       noto-fonts-cjk-serif
       noto-fonts-cjk-sans
       poppins
-      vistafonts
+      vista-fonts
     ];
   };
 }

@@ -7,14 +7,15 @@
     ./programs/dconf.nix
     ./programs/gnupg.nix
     ./programs/nautilus.nix
-    ./programs/thunar.nix
+    # ./programs/thunar.nix
     ./services/blueman.nix
     ./services/dbus.nix
-    ./services/gnome-keyring.nix
-    ./services/greetd.nix
+    # ./services/gnome-keyring.nix
+    # ./services/greetd.nix
     ./services/gvfs.nix
     ./services/mariadb.nix
     ./services/pipewire.nix
+    ./services/plasma-login-manager.nix
     ./services/postgresql.nix
     ./virtualisation/containers.nix
     ./virtualisation/docker.nix
@@ -28,7 +29,7 @@
     ../config/hardware/gpu/intel
     ../config/hardware/gpu/nvidia
     ../config/hardware/ssd
-    ../config/window-managers/hyprland
+    # ../config/window-managers/hyprland
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;

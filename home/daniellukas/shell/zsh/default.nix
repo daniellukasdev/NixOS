@@ -17,7 +17,7 @@
 
   programs.zsh = {
     enable = true;
-    dotDir = ".config/zsh";
+    dotDir = "${config.home.homeDirectory}/.config/zsh";
     defaultKeymap = "viins";
 
     enableCompletion = true;
@@ -57,7 +57,7 @@
       _comp_options+=(globdots)
     '';
 
-    initExtra = ''
+    initContent = ''
       while read -r option; do
         setopt $option
       done <<-EOF

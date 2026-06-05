@@ -4,12 +4,14 @@
   pkgs,
   ...
 }: let
-  inherit (inputs.self.packages.${pkgs.system}) mactahoe-gtk-theme;
-  inherit (inputs.self.packages.${pkgs.system}) mactahoe-icon-theme;
+  # inherit (inputs.self.packages.${pkgs.stdenv.hostPlatform.system}) mactahoe-gtk-theme;
+  inherit (inputs.self.packages.${pkgs.stdenv.hostPlatform.system}) mactahoe-icon-theme;
 
-  gtkThemeName = "MacTahoe-Dark";
+  gtkThemeName = "Breeze";
+  # gtkThemeName = "MacTahoe-Dark";
   # gtkThemeName = "WhiteSur-Dark";
 
+  # iconThemeName = "breeze-dark";
   # iconThemeName = "Colloid";
   iconThemeName = "MacTahoe-dark";
   # iconThemeName = "Qogir-dark";
@@ -26,13 +28,14 @@ in {
 
     theme = {
       name = "${gtkThemeName}";
-      package = mactahoe-gtk-theme.override {
-        # blurVariant = true;
-        colorVariants = ["dark"];
-        # nautilusStyle = "normal";
-        opacityVariants = ["normal"];
-        schemeVariants = ["standard"];
-      };
+      package = pkgs.kdePackages.breeze-gtk;
+      # package = mactahoe-gtk-theme.override {
+      #   # blurVariant = true;
+      #   colorVariants = ["dark"];
+      #   # nautilusStyle = "normal";
+      #   opacityVariants = ["normal"];
+      #   schemeVariants = ["standard"];
+      # };
       # package = pkgs.whitesur-gtk-theme;
       # .override {
       #   colorVariants = ["dark"];

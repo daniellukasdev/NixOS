@@ -7,9 +7,6 @@
     enable = true;
     package = pkgs.gitFull;
 
-    userName = "daniellukasdev";
-    userEmail = "dtlukasart@gmail.com";
-
     signing = {
       key = config.programs.gpg.settings.default-key;
       signByDefault = true;
@@ -20,7 +17,18 @@
       skipSmudge = true;
     };
 
-    extraConfig = {
+    settings = {
+      aliases = {
+        # Semantic commit message aliases
+        chore = "!f() { git commit -m \"chore($1): $2\"; }; f";
+        docs = "!f() { git commit -m \"docs($1): $2\"; }; f";
+        feat = "!f() { git commit -m \"feat($1): $2\"; }; f";
+        fix = "!f() { git commit -m \"fix($1): $2\"; }; f";
+        refactor = "!f() { git commit -m \"refactor($1): $2\"; }; f";
+        style = "!f() { git commit -m \"style($1): $2\"; }; f";
+        test = "!f() { git commit -m \"test($1): $2\"; }; f";
+      };
+
       credential.helper = "${pkgs.gitFull}/bin/git-credential-libsecret";
 
       init.defaultBranch = "main";
@@ -48,17 +56,11 @@
         enabled = true;
         autoupdate = true;
       };
-    };
 
-    aliases = {
-      # Semantic commit message aliases
-      chore = "!f() { git commit -m \"chore($1): $2\"; }; f";
-      docs = "!f() { git commit -m \"docs($1): $2\"; }; f";
-      feat = "!f() { git commit -m \"feat($1): $2\"; }; f";
-      fix = "!f() { git commit -m \"fix($1): $2\"; }; f";
-      refactor = "!f() { git commit -m \"refactor($1): $2\"; }; f";
-      style = "!f() { git commit -m \"style($1): $2\"; }; f";
-      test = "!f() { git commit -m \"test($1): $2\"; }; f";
+      user = {
+        name = "daniellukasdev";
+        email = "dtlukasart@gmail.com";
+      };
     };
 
     ignores = [

@@ -8,7 +8,7 @@
     ./config/nwg-shell
     ./config/rules.nix
     ./config/settings.nix
-    ./programs/anyrun.nix
+    # ./programs/anyrun.nix
     ./programs/waybar
     ./services/cliphist.nix
     ./services/dunst.nix
@@ -20,11 +20,11 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     plugins = [
-      inputs.hyprland-plugins.packages.${pkgs.system}.borders-plus-plus
-      # inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
-      inputs.hyprspace.packages.${pkgs.system}.Hyprspace
+      inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.borders-plus-plus
+      # inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprbars
+      inputs.hyprspace.packages.${pkgs.stdenv.hostPlatform.system}.Hyprspace
     ];
     # plugins = with pkgs.hyprlandPlugins; [
     #   hyprexpo

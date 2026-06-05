@@ -12,9 +12,9 @@
       "blur, (nwg-drawer)"
       "ignorezero, (nwg-drawer)"
       "ignorealpha ${dockOpacity}, (nwg-drawer)"
-      # "blur, (gtk-layer-shell)"
-      # "ignorezero, (gtk-layer-shell)"
-      # "ignorealpha[1], (gtk-layer-shell)"
+      "blur, (gtk-layer-shell)"
+      "ignorezero, (gtk-layer-shell)"
+      "ignorealpha[1], (gtk-layer-shell)"
       "blur, (anyrun)"
       "ignorezero, (anyrun)"
       "blurpopups, (waybar)"
@@ -51,6 +51,7 @@
 
       # "opacity 0.96 0.92, class:(codium)$"
       # "opacity 0.9 0.96, class:^(org.gnome.Nautilus)$"
+      "opacity 0.96 0.92, class:(obsidian)$"
 
       "suppressevent maximize, class:.*"
 

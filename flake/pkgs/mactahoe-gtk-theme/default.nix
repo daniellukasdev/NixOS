@@ -102,7 +102,7 @@ lib.checkListOfEnum "${pname}: window control buttons variants" [ "normal" "alt"
       owner = "vinceliuice";
       repo = "MacTahoe-gtk-theme";
       rev = version;
-      hash = "sha256-wfGS/DyyBt1xjYS4de0cwGNQ5Appvo2aSFlDVR3G6zM=";
+      hash = "sha256-1ytirtXSLgiQyoNiZPp1Ugfp29cFVPzInIV40l8O4mo=";
     };
 
     nativeBuildInputs = [

@@ -2,11 +2,16 @@
   config,
   pkgs,
   ...
-}: {
+}: let
+  goPath = ".go";
+  goBin = "${goPath}/bin";
+in {
   programs.go = rec {
     enable = true;
-    goPath = ".go";
-    goBin = "${goPath}/bin";
+    env = {
+      GOPATH = goPath;
+      GOBIN = goBin;
+    };
   };
 
   home = {
@@ -25,6 +30,6 @@
       revive
     ];
 
-    sessionPath = ["${config.home.homeDirectory}/${config.programs.go.goBin}"];
+    sessionPath = ["${config.home.homeDirectory}/${config.programs.go.env.GOBIN}"];
   };
 }

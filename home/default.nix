@@ -20,6 +20,9 @@ in {
     # Installation of user packages through the {option} `users.users.<name>.packages` option
     useUserPackages = true;
 
+    # Renames old files to filename.backup
+    backupFileExtension = "backup";
+
     # Verbose output on activation
     verbose = true;
 
