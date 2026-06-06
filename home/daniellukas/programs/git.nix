@@ -29,7 +29,10 @@
         test = "!f() { git commit -m \"test($1): $2\"; }; f";
       };
 
-      credential.helper = "${pkgs.gitFull}/bin/git-credential-libsecret";
+      credential = {
+        credential.credentialStore = "secretservice";
+        helper = "${pkgs.gitFull}/bin/git-credential-libsecret";
+      };
 
       init.defaultBranch = "main";
       branch.autosetupmerge = "true";
@@ -58,7 +61,7 @@
       };
 
       user = {
-        name = "daniellukasdev";
+        name = "Daniel Lukas";
         email = "dtlukasart@gmail.com";
       };
     };

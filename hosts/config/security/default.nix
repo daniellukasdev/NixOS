@@ -9,6 +9,8 @@
         # };
         # Allow hyprlock to unlock the screen
         # hyprlock = {};
+
+        plasma-login-manager.kwallet.enable = true;
         # Allow logging in with fingerprint reader
         login = {
           fprintAuth = true;
